@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   MW & Co. — global base styles + reusable brand components
+   ========================================================================== */
+
+@layer base {
+  :root {
+    --header-height: 4.5rem;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: var(--header-height); /* offset sticky nav for anchors */
+  }
+
+  body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif;
+    text-wrap: balance;
+  }
+
+  /* Respect users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Elegant gold selection */
+  ::selection {
+    background-color: #e5c87e;
+    color: #2b1b10;
+  }
+}
+
+@layer components {
+  /* --- Section width container --- */
+  .container-mw {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+
+  /* --- All-caps tracked label (e.g. "OUR SERVICES") --- */
+  .eyebrow {
+    @apply font-sans text-xs font-semibold uppercase tracking-label text-bronze sm:text-sm;
+  }
+
+  /* --- Gold gradient text (headline accent word) --- */
+  .text-gold-gradient {
+    @apply bg-gold-gradient bg-clip-text text-transparent;
+  }
+
+  /* --- Primary gold button --- */
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-full
+      bg-gold-gradient px-7 py-3.5 font-sans text-sm font-semibold uppercase
+      tracking-wide text-espresso shadow-gold transition-all duration-300
+      hover:shadow-gold-lg hover:brightness-105 focus-visible:outline-none
+      focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2
+      focus-visible:ring-offset-transparent active:scale-[0.98];
+  }
+
+  /* --- Outline button (light context) --- */
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border
+      border-bronze/60 bg-transparent px-7 py-3.5 font-sans text-sm font-semibold
+      uppercase tracking-wide text-espresso transition-all duration-300
+      hover:border-gold hover:bg-gold/10 focus-visible:outline-none
+      focus-visible:ring-2 focus-visible:ring-champagne active:scale-[0.98];
+  }
+
+  /* --- Outline button (dark context) --- */
+  .btn-outline-light {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border
+      border-champagne/50 bg-transparent px-7 py-3.5 font-sans text-sm font-semibold
+      uppercase tracking-wide text-champagne transition-all duration-300
+      hover:border-champagne hover:bg-champagne/10 focus-visible:outline-none
+      focus-visible:ring-2 focus-visible:ring-champagne active:scale-[0.98];
+  }
+
+  /* --- Thin gold divider line --- */
+  .gold-rule {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-bronze/60 to-transparent;
+  }
+
+  /* --- Decorative gold diamond separator --- */
+  .gold-diamond {
+    @apply inline-block h-2 w-2 rotate-45 bg-gold-gradient;
+  }
+}
+
+@layer utilities {
+  /* Shimmering gold text used sparingly for the wordmark */
+  .shimmer-gold {
+    background: linear-gradient(
+      110deg,
+      #a87b33 20%,
+      #e5c87e 40%,
+      #c79a4b 60%,
+      #a87b33 80%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 6s linear infinite;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
