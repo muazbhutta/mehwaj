@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
 import Services from "@/components/Services";
+import Leadership from "@/components/Leadership";
 import WhyUs from "@/components/WhyUs";
 import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
@@ -27,8 +27,8 @@ export default function HomePage() {
       <Navbar />
       <main id="main">
         <Hero />
-        <About />
         <Services />
+        <Leadership />
         <WhyUs />
         <Faq />
         <Contact />

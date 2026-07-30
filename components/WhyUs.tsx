@@ -4,21 +4,22 @@
 
 import Reveal from "./Reveal";
 import Icon from "./Icons";
+import WaveDivider from "./WaveDivider";
 import { VALUES } from "@/lib/constants";
 
 export default function WhyUs() {
   return (
-    <section
-      id="why-us"
-      className="relative overflow-hidden bg-coffee pb-8 pt-20 sm:pb-10 sm:pt-24 lg:pb-12 lg:pt-28"
-    >
+    <section id="why-us" className="relative -mt-px overflow-hidden bg-coffee">
+      {/* cream → brown wave (from the FAQ section above) */}
+      <WaveDivider fill="#4A2E1C" className="bg-cream" />
+
       {/* subtle radial accents */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute -left-20 top-10 h-72 w-72 rounded-full bg-gold-radial opacity-30" />
         <div className="absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-gold-radial opacity-25" />
       </div>
 
-      <div className="container-mw relative">
+      <div className="container-mw relative pb-14 pt-6 sm:pb-16 lg:pb-20">
         {/* Banner */}
         <Reveal className="mx-auto max-w-3xl text-center">
           <span className="flex justify-center">

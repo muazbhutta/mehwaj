@@ -26,6 +26,7 @@ module.exports = {
 
         // --- Light tones ---
         cream: "#F7F3EA", // Warm cream / ivory — light background
+        ivory: "#F1E7DA", // Warm ivory — hero watermark background
         offwhite: "#FDFBF7", // Off-white — card / surface light
 
         // --- Text ---

@@ -44,7 +44,7 @@ export const CONTACT = {
     display: "info@mehwaj.pk",
     href: "mailto:info@mehwaj.pk",
   },
-  cities: ["Multan", "Lahore", "Karachi"] as const,
+  cities: ["Islamabad", "Lahore", "Multan", "Karachi"] as const,
 } as const;
 
 /** Pre-filled WhatsApp message for the consultation CTAs. */
@@ -62,11 +62,11 @@ export const SOCIALS = [
 // --- Primary navigation (anchors on the single-page home) ---
 export const NAV_LINKS = [
   { label: "Home", href: "/#home" },
-  { label: "About", href: "/#about" },
   { label: "Services", href: "/#services" },
+  { label: "About Us", href: "/#about" },
   { label: "Why Us", href: "/#why-us" },
   { label: "FAQ", href: "/#faq" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact Us", href: "/#contact" },
 ] as const;
 
 // ============================================================================
@@ -91,7 +91,7 @@ export const SERVICES: Service[] = [
     group: "Audit & Assurance",
     icon: "clipboard-check",
     short:
-      "Independent statutory audits that give stakeholders confidence in your financial statements.",
+      "Our external audit services provide an independent, objective examination of your financial statements, offering assurance on their accuracy and compliance with relevant reporting standards. This service enhances stakeholder confidence and transparency.",
     long: "Independent, ICAP-compliant statutory and financial statement audits that give shareholders, lenders, and regulators confidence in the numbers — delivered with rigour, objectivity, and clear communication.",
   },
   {
@@ -100,7 +100,7 @@ export const SERVICES: Service[] = [
     group: "Audit & Assurance",
     icon: "shield-search",
     short:
-      "Risk-based reviews of controls and processes to safeguard assets and improve efficiency.",
+      "We conduct risk-based internal audits to evaluate and improve the effectiveness of your organization's risk management, control, and governance processes. Our focus is on safeguarding assets and optimizing operational efficiency.",
     long: "Risk-based internal audit and controls assurance that strengthen governance, safeguard assets, and surface practical improvements to your processes and operating efficiency.",
   },
   {
@@ -109,7 +109,7 @@ export const SERVICES: Service[] = [
     group: "Tax",
     icon: "scale",
     short:
-      "Strategic tax planning to legally minimise liability and keep you fully compliant.",
+      "Our strategic tax consultation helps you navigate complex tax legislation. We provide proactive advice on legal tax planning to optimize your position, minimize liabilities, and ensure full regulatory compliance.",
     long: "Strategic, forward-looking tax advice for individuals and businesses — structuring, planning, and FBR advisory that legally optimises your position while keeping you fully compliant.",
   },
   {
@@ -118,7 +118,7 @@ export const SERVICES: Service[] = [
     group: "Tax",
     icon: "file-invoice",
     short:
-      "Accurate, on-time income and sales tax return filing with the FBR — hassle-free.",
+      "We ensure accurate and timely income and sales tax return filing with regulatory bodies like the FBR. Our services guarantee full compliance and a completely hassle-free experience for your business.",
     long: "End-to-end tax compliance: NTN registration, income and sales tax return preparation, and accurate, on-time e-filing with the FBR — so you meet every deadline without the stress.",
   },
   {
@@ -203,6 +203,121 @@ export const VALUES = [
 ] as const;
 
 // ============================================================================
+// LEADERSHIP — firm leaders featured in the "Our Leadership" section
+// ============================================================================
+export interface LeaderDetail {
+  icon: string;
+  label: string;
+  text: string;
+}
+
+export interface Leader {
+  name: string;
+  title: string;
+  image: string;
+  credential?: string;
+  bio: string[];
+  expertiseTitle: string;
+  expertise: LeaderDetail[];
+  regionTitle: string;
+  regions: LeaderDetail[];
+}
+
+export const LEADERS: Leader[] = [
+  {
+    name: "Syed Muhammad Wajahat",
+    credential: "ACA",
+    title: "Partner & Sole Proprietor at MW & Co.",
+    image: "/images/partner-portrait.png",
+    bio: [
+      "Syed Muhammad Wajahat is a qualified Chartered Accountant (ACA) and a member of the Institute of Chartered Accountants of Pakistan (ICAP). With extensive professional experience spanning cross-border markets in Saudi Arabia and Pakistan, he specializes in delivering high-value financial advisory, corporate compliance, and strategic accounting solutions.",
+      "Throughout his career, Syed Muhammad Wajahat has built deep operational and financial insights across a diverse range of economic sectors. His professional portfolio includes driving fiscal discipline, regulatory compliance, and business process optimizations for entities operating within complex regulatory environments.",
+    ],
+    expertiseTitle: "Core Industry Expertise",
+    expertise: [
+      {
+        icon: "calculator",
+        label: "Manufacturing & FMCG",
+        text: "Optimizing supply chain finances, cost accounting frameworks, inventory controls, and working capital management.",
+      },
+      {
+        icon: "building",
+        label: "Construction & Real Estate",
+        text: "Advising on long-term contract accounting, project financing, risk mitigation, and sector-specific tax structures.",
+      },
+      {
+        icon: "star",
+        label: "Hospitality & Service Sectors",
+        text: "Enhancing revenue management systems, operational audits, internal control frameworks, and service-delivery cost structures.",
+      },
+      {
+        icon: "scale",
+        label: "Financial Services",
+        text: "Navigating complex financial reporting standards, regulatory compliance frameworks, and corporate governance.",
+      },
+    ],
+    regionTitle: "Geographic Footprint",
+    regions: [
+      {
+        icon: "map-pin",
+        label: "Pakistan",
+        text: "Comprehensive hands-on experience with local corporate laws, Federal Board of Revenue (FBR) compliance, and local business practices.",
+      },
+      {
+        icon: "globe",
+        label: "Saudi Arabia",
+        text: "Strong familiarity with regional financial landscapes, Saudi corporate regulations, and localized business frameworks.",
+      },
+    ],
+  },
+  {
+    name: "Syeda Mehar Fatima",
+    title: "Managing Director at MW & Co.",
+    image: "/images/leader-mehar.png",
+    bio: [
+      "Syeda Mehar Fatima serves as the Managing Director of the firm, overseeing its strategic direction, operational workflows, and client engagement frameworks. With a strong foundation in advanced corporate finance and accounting methodologies, she brings executive leadership and structured problem-solving to the firm's core management team.",
+      "Her professional background includes managing complex financial portfolios and driving organizational efficiency across diverse regulatory landscapes in Pakistan and Saudi Arabia. She excels at aligning financial strategies with operational goals, ensuring robust internal controls, and fostering cross-functional team collaboration.",
+    ],
+    expertiseTitle: "Core Areas of Management Expertise",
+    expertise: [
+      {
+        icon: "chart-growth",
+        label: "Strategic Operations",
+        text: "Overseeing firm-wide service delivery, project timelines, and operational resource allocation.",
+      },
+      {
+        icon: "shield-check",
+        label: "Corporate Governance",
+        text: "Implementing internal policy frameworks, risk assessment matrices, and organizational compliance standards.",
+      },
+      {
+        icon: "handshake",
+        label: "Client Relationship Management",
+        text: "Serving as a key liaison for corporate clients to align firm services with complex business needs.",
+      },
+      {
+        icon: "file-invoice",
+        label: "Financial Oversight",
+        text: "Monitoring performance benchmarks, business process mapping, and operational financial planning.",
+      },
+    ],
+    regionTitle: "Regional Exposure",
+    regions: [
+      {
+        icon: "map-pin",
+        label: "Pakistan Market",
+        text: "Strong alignment with local corporate cultures, management practices, and administrative operational workflows.",
+      },
+      {
+        icon: "globe",
+        label: "Saudi Arabia Market",
+        text: "Exposure to cross-border operational coordination and regional business practices.",
+      },
+    ],
+  },
+];
+
+// ============================================================================
 // CITIES — dedicated local landing pages for local SEO
 // ============================================================================
 export interface City {
@@ -215,12 +330,12 @@ export interface City {
 
 export const CITIES: City[] = [
   {
-    slug: "multan",
-    name: "Multan",
-    region: "Punjab",
+    slug: "islamabad",
+    name: "Islamabad",
+    region: "Capital Territory",
     blurb:
-      "As Chartered Accountants serving Multan and Southern Punjab, MW & Co. supports local traders, manufacturers, agriculturists, and SMEs with audit, tax filing, and advisory services rooted in the city's business community.",
-    landmarks: "the City of Saints",
+      "In Islamabad, the nation's capital, MW & Co. supports corporates, IT and consultancy firms, NGOs, and government contractors with audit, FBR tax compliance, company registration, and advisory services suited to the capital's regulatory environment.",
+    landmarks: "the nation's capital",
   },
   {
     slug: "lahore",
@@ -229,6 +344,14 @@ export const CITIES: City[] = [
     blurb:
       "In Lahore, Pakistan's commercial and cultural heart, MW & Co. serves growing startups, established SMEs, and corporate clients with statutory audits, FBR tax compliance, IFRS advisory, and strategic financial guidance.",
     landmarks: "Pakistan's cultural capital",
+  },
+  {
+    slug: "multan",
+    name: "Multan",
+    region: "Punjab",
+    blurb:
+      "As Chartered Accountants serving Multan and Southern Punjab, MW & Co. supports local traders, manufacturers, agriculturists, and SMEs with audit, tax filing, and advisory services rooted in the city's business community.",
+    landmarks: "the City of Saints",
   },
   {
     slug: "karachi",
@@ -250,34 +373,27 @@ export interface FaqItem {
 
 export const FAQS: FaqItem[] = [
   {
-    question: "How do I file my income tax return in Pakistan?",
+    question:
+      "What is the difference between an external audit and an internal audit?",
     answer:
-      "To file your income tax return in Pakistan you first need an NTN and an active IRIS account with the FBR. You then declare your income, wealth, and deductions for the tax year and submit the return before the deadline. MW & Co. handles the entire process for you — registration, preparation, and accurate e-filing — for salaried individuals, freelancers, and businesses.",
+      "An external audit is an independent examination of your financial statements carried out for outside stakeholders — shareholders, lenders, and regulators — to give an opinion on whether the statements present a true and fair view; it is often a statutory requirement. An internal audit, by contrast, is an ongoing, risk-based review carried out for management to evaluate and improve the effectiveness of internal controls, risk management, and governance. In short, external audit looks outward to provide assurance to others, while internal audit looks inward to help you run the business more effectively. MW & Co. provides both.",
   },
   {
-    question: "What is the difference between an external audit and an internal audit?",
+    question:
+      "What are the key compliance requirements for a private limited company in Pakistan?",
     answer:
-      "An external audit is an independent examination of your financial statements carried out for shareholders, lenders, and regulators to confirm they give a true and fair view. An internal audit is an ongoing, risk-based review of your own controls, processes, and governance to help management reduce risk and improve efficiency. MW & Co. provides both.",
+      "A private limited company in Pakistan must meet obligations with both the SECP and the FBR. Key requirements include incorporation and maintaining statutory records with the SECP; filing the annual return (Form A) and audited financial statements; obtaining an NTN and, where applicable, sales tax registration with the FBR; filing the annual income tax return along with periodic sales tax and withholding statements; correctly deducting and depositing withholding taxes; holding the Annual General Meeting; and keeping proper books of account. MW & Co. keeps you fully compliant with every SECP and FBR requirement and deadline.",
   },
   {
-    question: "Do freelancers in Pakistan need to file a tax return?",
+    question: "Can you assist with business setup and company registration?",
     answer:
-      "Yes. Freelancers and IT exporters in Pakistan are generally required to register with the FBR and file an annual income tax return, and doing so keeps you on the Active Taxpayer List (ATL) — which reduces withholding tax on many transactions and unlocks concessional tax treatment on export income. We help freelancers register and file correctly.",
+      "Yes. MW & Co. provides end-to-end business setup and company registration services — advising on the right structure (sole proprietorship, partnership/AOP, or private limited company), name reservation and incorporation with the SECP, drafting the Memorandum and Articles of Association, NTN and sales tax registration with the FBR, and setting up your initial accounting and compliance framework — so you can start operating quickly and correctly.",
   },
   {
-    question: "What is IFRS and why does my business need it?",
+    question:
+      "What are the benefits of outsourcing payroll and bookkeeping services to MW & Co.?",
     answer:
-      "IFRS (International Financial Reporting Standards) is the globally recognised framework for preparing financial statements. Applying IFRS correctly makes your accounts comparable, credible, and acceptable to investors, banks, and regulators. MW & Co. provides IFRS advisory covering first-time adoption and complex accounting treatments.",
-  },
-  {
-    question: "Which cities does MW & Co. serve?",
-    answer:
-      "MW & Co., Chartered Accountants serves clients across Pakistan, with a presence in Multan, Lahore, and Karachi. We support individuals, startups, SMEs, and corporate clients both on-site and remotely.",
-  },
-  {
-    question: "How do I get started with MW & Co.?",
-    answer:
-      "Getting started is simple. Message us on WhatsApp at +92 317 6609 843, call +92 304 6451 848, or email info@mehwaj.pk to book a free initial consultation. We'll discuss your needs and recommend the right audit, tax, or advisory service for you.",
+      "Outsourcing your payroll and bookkeeping to MW & Co. saves time and reduces cost, keeps your books accurate and up to date, and ensures compliance with tax and withholding requirements. You gain timely management accounts and reliable data for decision-making, freedom from hiring and managing in-house staff, and the confidence of having qualified professionals handle your records with discretion and accuracy — letting you focus on growing your business.",
   },
 ];
 

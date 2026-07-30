@@ -30,7 +30,15 @@
       "Bash(curl -s -o /dev/null -w \"skyline.svg: HTTP %{http_code}  type=%{content_type}  %{size_download} bytes\\\\n\" http://localhost:3100/images/skyline.svg)",
       "Bash(node \"scripts/_vectorize-logo.mjs\")",
       "Bash(rm -f scripts/_faqwave.png)",
-      "Bash(node \"node_modules/next/dist/bin/next\" lint)"
+      "Bash(node \"node_modules/next/dist/bin/next\" lint)",
+      "Bash(curl -s -o /dev/null -w \"hero-bg.jpg: HTTP %{http_code} %{size_download}b\\\\n\" http://localhost:3100/images/hero-bg.jpg)",
+      "Bash(curl -s -o /dev/null -w \"leader-mehar.jpg: HTTP %{http_code}\\\\n\" http://localhost:3100/images/leader-mehar.jpg)",
+      "Bash(curl -s -o /dev/null -w \"optimizer png→ HTTP %{http_code}  type=%{content_type}  %{size_download} bytes\\\\n\" \"http://localhost:3100/_next/image?url=%2Fimages%2Fpartner-portrait.png&w=750&q=75\")",
+      "Bash(SRC=\"C:/Users/HP/Downloads/WhatsApp Image 2026-07-29 at 8.42.50 PM.jpeg\" OUT=\"D:/Websites/mw&co/public/images/leader-mehar.png\" node \"scripts/_remove-bg.mjs\")",
+      "Bash(rm -f scripts/_remove-bg.mjs scripts/_bg_preview.png public/images/leader-mehar.jpg)",
+      "Bash(curl -s -o /dev/null -w \"leader-mehar.png: HTTP %{http_code}\\\\n\" http://localhost:3100/images/leader-mehar.png)",
+      "Bash(curl -s -o /dev/null -w \"optimizer: HTTP %{http_code} %{content_type}\\\\n\" \"http://localhost:3100/_next/image?url=%2Fimages%2Fleader-mehar.png&w=750&q=75\")",
+      "Bash(curl -s -o /dev/null -w \"islamabad page: HTTP %{http_code}\\\\n\" http://localhost:3100/chartered-accountant-islamabad)"
     ]
   }
 }

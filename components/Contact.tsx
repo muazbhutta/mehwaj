@@ -183,7 +183,7 @@ export default function Contact() {
             </form>
           </Reveal>
 
-          {/* ---- Contact details + locations ---- */}
+          {/* ---- Contact methods (stretch to match the form height) ---- */}
           <Reveal direction="left" delay={0.1}>
             <div className="flex h-full flex-col gap-4">
               {contactMethods.map((m) => (
@@ -192,7 +192,7 @@ export default function Contact() {
                   href={m.href}
                   target={m.icon === "whatsapp" ? "_blank" : undefined}
                   rel={m.icon === "whatsapp" ? "noopener noreferrer" : undefined}
-                  className="group flex items-center gap-4 rounded-2xl border border-bronze/20 bg-offwhite p-5 shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/50"
+                  className="group flex flex-1 items-center gap-4 rounded-2xl border border-bronze/20 bg-offwhite p-5 shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/50"
                 >
                   <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gold-gradient text-espresso">
                     <Icon name={m.icon} className="h-6 w-6" />
@@ -208,28 +208,38 @@ export default function Contact() {
                   </span>
                 </a>
               ))}
-
-              {/* Location cards */}
-              <div className="mt-1 grid grid-cols-3 gap-3">
-                {CITIES.map((city) => (
-                  <a
-                    key={city.slug}
-                    href={`/chartered-accountant-${city.slug}`}
-                    className="group flex flex-col items-center gap-2 rounded-2xl border border-bronze/20 bg-espresso p-4 text-center transition-all duration-300 hover:-translate-y-0.5 hover:shadow-gold"
-                  >
-                    <Icon name="map-pin" className="h-6 w-6 text-gold" />
-                    <span className="font-serif text-sm font-bold text-cream">
-                      {city.name}
-                    </span>
-                    <span className="text-[0.65rem] uppercase tracking-wide text-champagne/70">
-                      {city.region}
-                    </span>
-                  </a>
-                ))}
-              </div>
             </div>
           </Reveal>
         </div>
+
+        {/* ---- Office locations (full-width row, compact) ---- */}
+        <Reveal className="mt-8">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {CITIES.map((city) => (
+              <a
+                key={city.slug}
+                href={`/chartered-accountant-${city.slug}`}
+                className="group relative flex items-center justify-center overflow-hidden rounded-xl border border-bronze/20 bg-espresso px-4 py-3.5 text-center transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/50 hover:shadow-gold"
+              >
+                {/* gold left accent on hover */}
+                <span className="absolute inset-y-0 left-0 w-1 origin-center scale-y-0 bg-gold-gradient transition-transform duration-300 group-hover:scale-y-100" />
+                {/* location pin — left side */}
+                <span className="absolute left-3.5 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-gold/10 text-gold ring-1 ring-bronze/30 transition-all duration-300 group-hover:bg-gold-gradient group-hover:text-espresso">
+                  <Icon name="map-pin" className="h-5 w-5" />
+                </span>
+                {/* centered text */}
+                <span className="flex flex-col">
+                  <span className="font-serif text-base font-bold leading-tight text-cream">
+                    {city.name}
+                  </span>
+                  <span className="mt-0.5 text-[0.6rem] font-semibold uppercase tracking-wide text-champagne/70">
+                    {city.region}
+                  </span>
+                </span>
+              </a>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );
