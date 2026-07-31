@@ -101,7 +101,7 @@ export function organizationSchema() {
   };
 }
 
-/** FAQPage schema — drives FAQ rich snippets in Google. */
+/** FAQPage schema - drives FAQ rich snippets in Google. */
 export function faqSchema() {
   return {
     "@context": "https://schema.org",
@@ -137,13 +137,13 @@ export function cityBusinessSchema(city: { name: string; slug: string }) {
     "@context": "https://schema.org",
     "@type": ["AccountingService", "LocalBusiness"],
     "@id": `${SITE_URL}/chartered-accountant-${city.slug}#localbusiness`,
-    name: `${SITE.name} — ${city.name}`,
+    name: `${SITE.name} - ${city.name}`,
     image: `${SITE_URL}/images/og-image.jpg`,
     url: `${SITE_URL}/chartered-accountant-${city.slug}`,
     telephone: CONTACT.phone.tel,
     email: CONTACT.email.display,
     priceRange: SITE.priceRange,
-    description: `Chartered Accountants in ${city.name} — audit, tax, accounting, and financial advisory services from MW & Co.`,
+    description: `Chartered Accountants in ${city.name} - audit, tax, accounting, and financial advisory services from MW & Co.`,
     address: {
       "@type": "PostalAddress",
       addressLocality: city.name,

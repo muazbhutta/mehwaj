@@ -1,5 +1,5 @@
 // ============================================================================
-// CityLanding — shared template for the per-city local SEO landing pages
+// CityLanding - shared template for the per-city local SEO landing pages
 // (/chartered-accountant-multan, -lahore, -karachi). Emits city LocalBusiness
 // JSON-LD and reuses the site's service + contact data with local framing.
 // ============================================================================
@@ -30,7 +30,7 @@ export default function CityLanding({ city }: { city: City }) {
         <PageHero
           eyebrow={`Chartered Accountants in ${city.name}`}
           title={`Chartered Accountant in ${city.name}`}
-          subtitle={`Audit, tax, accounting, and financial advisory services in ${city.name}, ${city.region} — from MW & Co., Chartered Accountants.`}
+          subtitle={`Audit, tax, accounting, and financial advisory services in ${city.name}, ${city.region} - from MW & Co., Chartered Accountants.`}
           crumbs={[]}
         />
 
@@ -48,7 +48,7 @@ export default function CityLanding({ city }: { city: City }) {
                 </p>
                 <p className="mt-4 text-lg leading-relaxed text-coffee/90">
                   As {city.landmarks}, {city.name} is home to a diverse business
-                  community — and MW &amp; Co. brings the same rigour, integrity,
+                  community - and MW &amp; Co. brings the same rigour, integrity,
                   and personal attention to every client here, whether you are an
                   individual taxpayer, a growing SME, or an established corporate.
                   Led personally by {" "}
@@ -80,7 +80,7 @@ export default function CityLanding({ city }: { city: City }) {
                   <div className="flex items-center gap-3">
                     <Icon name="map-pin" className="h-6 w-6 text-gold" />
                     <h3 className="font-serif text-xl font-bold text-cream">
-                      MW &amp; Co. — {city.name}
+                      MW &amp; Co. - {city.name}
                     </h3>
                   </div>
                   <div className="mt-5 space-y-4 text-sm">

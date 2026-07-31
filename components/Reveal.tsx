@@ -1,7 +1,7 @@
 "use client";
 
 // ============================================================================
-// Reveal — subtle fade / slide-in on scroll (AOS-style) via Framer Motion.
+// Reveal - subtle fade / slide-in on scroll (AOS-style) via Framer Motion.
 // Honours prefers-reduced-motion automatically (Framer's useReducedMotion).
 // ============================================================================
 

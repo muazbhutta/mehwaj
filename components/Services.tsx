@@ -1,5 +1,5 @@
 // ============================================================================
-// Services — the 8 core offerings on a dark espresso stage, split into two
+// Services - the 8 core offerings on a dark espresso stage, split into two
 // groups (Audit/Assurance/Tax and Advisory/Other) each under a gold heading.
 // Gold line-icons, hover lift + gold glow. Wave divider cream → brown at top.
 // ============================================================================
@@ -88,12 +88,12 @@ export default function Services() {
             Comprehensive <span className="text-gold-gradient">financial expertise</span>
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-cream/70">
-            From audit and assurance to tax and advisory — everything your
+            From audit and assurance to tax and advisory - everything your
             business needs, delivered under one trusted roof.
           </p>
         </Reveal>
 
-        {/* Group 1 — Audit, Assurance & Tax */}
+        {/* Group 1 - Audit, Assurance & Tax */}
         <div className="mt-14">
           <GroupHeading title="Audit, Assurance and Tax Core Services" />
         </div>
@@ -103,7 +103,7 @@ export default function Services() {
           ))}
         </div>
 
-        {/* Group 2 — Financial Advisory & Other */}
+        {/* Group 2 - Financial Advisory & Other */}
         <div className="mt-16">
           <GroupHeading title="Financial Advisory and Other Services" />
         </div>

@@ -9,7 +9,7 @@ import Icon from "@/components/Icons";
 import { BLOG_POSTS } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Insights & Guides — Tax, Audit & Accounting in Pakistan",
+  title: "Insights & Guides - Tax, Audit & Accounting in Pakistan",
   description:
     "Practical guides on tax filing, audit, IFRS, and accounting in Pakistan from MW & Co., Chartered Accountants. Learn how to stay compliant and grow with confidence.",
   alternates: { canonical: "/blog" },

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/constants";
 
-// /robots.txt — allow all crawlers, point to the sitemap.
+// /robots.txt - allow all crawlers, point to the sitemap.
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {

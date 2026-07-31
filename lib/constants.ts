@@ -1,10 +1,10 @@
 // ============================================================================
-// MW & Co., Chartered Accountants — central site data (single source of truth)
+// MW & Co., Chartered Accountants - central site data (single source of truth)
 // Update NAP, services, cities, and FAQ here and it flows through the whole site
 // (UI, metadata, sitemap, and JSON-LD structured data).
 // ============================================================================
 
-/** Canonical production URL — used for metadata, OG, canonical tags, sitemap. */
+/** Canonical production URL - used for metadata, OG, canonical tags, sitemap. */
 export const SITE_URL = "https://www.mehwaj.pk";
 
 export const SITE = {
@@ -14,7 +14,7 @@ export const SITE = {
   tagline: "Commitment to Excellence",
   secondaryLine: "Trust. Expertise. Excellence.",
   description:
-    "MW & Co., Chartered Accountants — expert audit, tax, accounting, and financial advisory services in Multan, Lahore & Karachi. Commitment to Excellence.",
+    "MW & Co., Chartered Accountants - expert audit, tax, accounting, and financial advisory services in Multan, Lahore & Karachi. Commitment to Excellence.",
   positioning:
     "Delivering reliable financial solutions and strategic insights that help businesses grow with confidence. Serving individuals, startups, SMEs, and corporate clients.",
   founder: {
@@ -26,7 +26,7 @@ export const SITE = {
   foundingYear: "2020",
 } as const;
 
-// --- NAP (Name, Address, Phone) — keep 100% consistent across the whole site ---
+// --- NAP (Name, Address, Phone) - keep 100% consistent across the whole site ---
 export const CONTACT = {
   whatsapp: {
     display: "+92 317 6609 843",
@@ -54,9 +54,21 @@ export const WHATSAPP_CTA_HREF = `${CONTACT.whatsapp.href}?text=${encodeURICompo
 
 // --- Social profiles (used in footer + schema `sameAs`) ---
 export const SOCIALS = [
-  { name: "LinkedIn", href: "https://www.linkedin.com/", handle: "MW & Co." },
-  { name: "Facebook", href: "https://www.facebook.com/", handle: "MW & Co." },
-  { name: "Instagram", href: "https://www.instagram.com/", handle: "MW & Co." },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/syed-muhammad-wajahat-aca",
+    handle: "Syed Muhammad Wajahat, ACA",
+  },
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/share/1JPh2uzvCC/",
+    handle: "MW & Co.",
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/syedwajahataca",
+    handle: "@syedwajahataca",
+  },
 ] as const;
 
 // --- Primary navigation (anchors on the single-page home) ---
@@ -70,7 +82,7 @@ export const NAV_LINKS = [
 ] as const;
 
 // ============================================================================
-// SERVICES — the 8 core offerings, grouped by discipline.
+// SERVICES - the 8 core offerings, grouped by discipline.
 // `icon` maps to a key in components/Icons.tsx.
 // ============================================================================
 export type ServiceGroup = "Audit & Assurance" | "Tax" | "Advisory";
@@ -92,7 +104,7 @@ export const SERVICES: Service[] = [
     icon: "clipboard-check",
     short:
       "Our external audit services provide an independent, objective examination of your financial statements, offering assurance on their accuracy and compliance with relevant reporting standards. This service enhances stakeholder confidence and transparency.",
-    long: "Independent, ICAP-compliant statutory and financial statement audits that give shareholders, lenders, and regulators confidence in the numbers — delivered with rigour, objectivity, and clear communication.",
+    long: "Independent, ICAP-compliant statutory and financial statement audits that give shareholders, lenders, and regulators confidence in the numbers - delivered with rigour, objectivity, and clear communication.",
   },
   {
     slug: "internal-audit",
@@ -110,7 +122,7 @@ export const SERVICES: Service[] = [
     icon: "scale",
     short:
       "Our strategic tax consultation helps you navigate complex tax legislation. We provide proactive advice on legal tax planning to optimize your position, minimize liabilities, and ensure full regulatory compliance.",
-    long: "Strategic, forward-looking tax advice for individuals and businesses — structuring, planning, and FBR advisory that legally optimises your position while keeping you fully compliant.",
+    long: "Strategic, forward-looking tax advice for individuals and businesses - structuring, planning, and FBR advisory that legally optimises your position while keeping you fully compliant.",
   },
   {
     slug: "tax-compliance-return-filing",
@@ -119,7 +131,7 @@ export const SERVICES: Service[] = [
     icon: "file-invoice",
     short:
       "We ensure accurate and timely income and sales tax return filing with regulatory bodies like the FBR. Our services guarantee full compliance and a completely hassle-free experience for your business.",
-    long: "End-to-end tax compliance: NTN registration, income and sales tax return preparation, and accurate, on-time e-filing with the FBR — so you meet every deadline without the stress.",
+    long: "End-to-end tax compliance: NTN registration, income and sales tax return preparation, and accurate, on-time e-filing with the FBR - so you meet every deadline without the stress.",
   },
   {
     slug: "accounting-bookkeeping",
@@ -128,7 +140,7 @@ export const SERVICES: Service[] = [
     icon: "calculator",
     short:
       "Clean, reliable books and management accounts so you always know where you stand.",
-    long: "Outsourced accounting and bookkeeping — day-to-day record keeping, reconciliations, payroll, and monthly management accounts that give you a clear, real-time view of your finances.",
+    long: "Outsourced accounting and bookkeeping - day-to-day record keeping, reconciliations, payroll, and monthly management accounts that give you a clear, real-time view of your finances.",
   },
   {
     slug: "business-valuation",
@@ -137,7 +149,7 @@ export const SERVICES: Service[] = [
     icon: "chart-growth",
     short:
       "Defensible valuations for investment, sale, disputes, or financial reporting.",
-    long: "Robust, defensible business and share valuations for transactions, fundraising, disputes, and financial reporting — grounded in recognised methodologies and sound professional judgement.",
+    long: "Robust, defensible business and share valuations for transactions, fundraising, disputes, and financial reporting - grounded in recognised methodologies and sound professional judgement.",
   },
   {
     slug: "ifrs-advisory",
@@ -146,7 +158,7 @@ export const SERVICES: Service[] = [
     icon: "globe",
     short:
       "Practical guidance on adopting and applying International Financial Reporting Standards.",
-    long: "Practical IFRS advisory — first-time adoption, complex accounting treatments, and reporting under International Financial Reporting Standards, translated into clear, actionable steps for your team.",
+    long: "Practical IFRS advisory - first-time adoption, complex accounting treatments, and reporting under International Financial Reporting Standards, translated into clear, actionable steps for your team.",
   },
   {
     slug: "financial-business-advisory",
@@ -155,7 +167,7 @@ export const SERVICES: Service[] = [
     icon: "handshake",
     short:
       "Strategic insight on growth, finance, and structure to help your business scale.",
-    long: "Strategic financial and business advisory — budgeting, forecasting, feasibility studies, financing, and structuring — partnering with you to make confident decisions and grow sustainably.",
+    long: "Strategic financial and business advisory - budgeting, forecasting, feasibility studies, financing, and structuring - partnering with you to make confident decisions and grow sustainably.",
   },
 ];
 
@@ -177,7 +189,7 @@ export const STATS = [
 ] as const;
 
 // ============================================================================
-// WHY CHOOSE US — core values
+// WHY CHOOSE US - core values
 // ============================================================================
 export const VALUES = [
   {
@@ -188,12 +200,12 @@ export const VALUES = [
   {
     icon: "shield-check",
     title: "Integrity",
-    text: "Honest, independent, and ethical advice you can rely on — always in your best interest.",
+    text: "Honest, independent, and ethical advice you can rely on - always in your best interest.",
   },
   {
     icon: "lightbulb",
     title: "Practical Solutions",
-    text: "Clear, actionable guidance tailored to your business — not textbook theory.",
+    text: "Clear, actionable guidance tailored to your business - not textbook theory.",
   },
   {
     icon: "star",
@@ -203,7 +215,7 @@ export const VALUES = [
 ] as const;
 
 // ============================================================================
-// LEADERSHIP — firm leaders featured in the "Our Leadership" section
+// LEADERSHIP - firm leaders featured in the "Our Leadership" section
 // ============================================================================
 export interface LeaderDetail {
   icon: string;
@@ -318,7 +330,7 @@ export const LEADERS: Leader[] = [
 ];
 
 // ============================================================================
-// CITIES — dedicated local landing pages for local SEO
+// CITIES - dedicated local landing pages for local SEO
 // ============================================================================
 export interface City {
   slug: string; // used in /chartered-accountant-<slug>
@@ -364,7 +376,7 @@ export const CITIES: City[] = [
 ];
 
 // ============================================================================
-// FAQ — question-based content targeting long-tail search (FAQPage schema)
+// FAQ - question-based content targeting long-tail search (FAQPage schema)
 // ============================================================================
 export interface FaqItem {
   question: string;
@@ -376,7 +388,7 @@ export const FAQS: FaqItem[] = [
     question:
       "What is the difference between an external audit and an internal audit?",
     answer:
-      "An external audit is an independent examination of your financial statements carried out for outside stakeholders — shareholders, lenders, and regulators — to give an opinion on whether the statements present a true and fair view; it is often a statutory requirement. An internal audit, by contrast, is an ongoing, risk-based review carried out for management to evaluate and improve the effectiveness of internal controls, risk management, and governance. In short, external audit looks outward to provide assurance to others, while internal audit looks inward to help you run the business more effectively. MW & Co. provides both.",
+      "An external audit is an independent examination of your financial statements carried out for outside stakeholders - shareholders, lenders, and regulators - to give an opinion on whether the statements present a true and fair view; it is often a statutory requirement. An internal audit, by contrast, is an ongoing, risk-based review carried out for management to evaluate and improve the effectiveness of internal controls, risk management, and governance. In short, external audit looks outward to provide assurance to others, while internal audit looks inward to help you run the business more effectively. MW & Co. provides both.",
   },
   {
     question:
@@ -387,18 +399,18 @@ export const FAQS: FaqItem[] = [
   {
     question: "Can you assist with business setup and company registration?",
     answer:
-      "Yes. MW & Co. provides end-to-end business setup and company registration services — advising on the right structure (sole proprietorship, partnership/AOP, or private limited company), name reservation and incorporation with the SECP, drafting the Memorandum and Articles of Association, NTN and sales tax registration with the FBR, and setting up your initial accounting and compliance framework — so you can start operating quickly and correctly.",
+      "Yes. MW & Co. provides end-to-end business setup and company registration services - advising on the right structure (sole proprietorship, partnership/AOP, or private limited company), name reservation and incorporation with the SECP, drafting the Memorandum and Articles of Association, NTN and sales tax registration with the FBR, and setting up your initial accounting and compliance framework - so you can start operating quickly and correctly.",
   },
   {
     question:
       "What are the benefits of outsourcing payroll and bookkeeping services to MW & Co.?",
     answer:
-      "Outsourcing your payroll and bookkeeping to MW & Co. saves time and reduces cost, keeps your books accurate and up to date, and ensures compliance with tax and withholding requirements. You gain timely management accounts and reliable data for decision-making, freedom from hiring and managing in-house staff, and the confidence of having qualified professionals handle your records with discretion and accuracy — letting you focus on growing your business.",
+      "Outsourcing your payroll and bookkeeping to MW & Co. saves time and reduces cost, keeps your books accurate and up to date, and ensures compliance with tax and withholding requirements. You gain timely management accounts and reliable data for decision-making, freedom from hiring and managing in-house staff, and the confidence of having qualified professionals handle your records with discretion and accuracy - letting you focus on growing your business.",
   },
 ];
 
 // ============================================================================
-// BLOG — SEO content structure (starter posts)
+// BLOG - SEO content structure (starter posts)
 // ============================================================================
 export interface BlogPost {
   slug: string;
@@ -415,16 +427,16 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "how-to-file-income-tax-return-pakistan-2026",
     title: "How to File Your Income Tax Return in Pakistan (2026 Guide)",
     excerpt:
-      "A step-by-step guide to filing your income tax return with the FBR in 2026 — from NTN registration to submitting through IRIS and staying on the Active Taxpayer List.",
+      "A step-by-step guide to filing your income tax return with the FBR in 2026 - from NTN registration to submitting through IRIS and staying on the Active Taxpayer List.",
     date: "2026-06-15",
     readingTime: "6 min read",
     category: "Tax",
     body: [
-      "Filing your income tax return in Pakistan is an annual obligation for most earners — and staying compliant keeps you on the Active Taxpayer List (ATL), which meaningfully lowers the withholding tax you pay on banking, property, and vehicle transactions.",
-      "Step 1 — Register for an NTN. Before you can file, you need a National Tax Number. Registration is done online through the FBR's IRIS portal using your CNIC, and it typically takes only a short time to complete.",
-      "Step 2 — Gather your documents. Collect your salary certificate or business income records, bank statements, details of assets and liabilities, and any tax already deducted at source during the year.",
-      "Step 3 — Declare income and wealth. In IRIS you complete the income tax return and the wealth statement, reconciling the change in your net assets with your declared income for the tax year.",
-      "Step 4 — File before the deadline. Submitting on time is what places you on the ATL. Late filers can still appear on the list but usually pay a surcharge first.",
+      "Filing your income tax return in Pakistan is an annual obligation for most earners - and staying compliant keeps you on the Active Taxpayer List (ATL), which meaningfully lowers the withholding tax you pay on banking, property, and vehicle transactions.",
+      "Step 1 - Register for an NTN. Before you can file, you need a National Tax Number. Registration is done online through the FBR's IRIS portal using your CNIC, and it typically takes only a short time to complete.",
+      "Step 2 - Gather your documents. Collect your salary certificate or business income records, bank statements, details of assets and liabilities, and any tax already deducted at source during the year.",
+      "Step 3 - Declare income and wealth. In IRIS you complete the income tax return and the wealth statement, reconciling the change in your net assets with your declared income for the tax year.",
+      "Step 4 - File before the deadline. Submitting on time is what places you on the ATL. Late filers can still appear on the list but usually pay a surcharge first.",
       "If any of this feels daunting, MW & Co. files returns for salaried individuals, freelancers, and businesses every year. Reach out and we'll handle the whole process accurately and on time.",
     ],
   },
@@ -432,14 +444,14 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "external-vs-internal-audit-difference",
     title: "External vs Internal Audit: What's the Difference?",
     excerpt:
-      "Both protect your business, but they answer to different audiences and serve different goals. Here's how external and internal audit compare — and when you need each.",
+      "Both protect your business, but they answer to different audiences and serve different goals. Here's how external and internal audit compare - and when you need each.",
     date: "2026-05-02",
     readingTime: "5 min read",
     category: "Audit & Assurance",
     body: [
-      "The words 'audit' can mean very different things depending on who the work is for. The two most common are external audit and internal audit — and understanding the difference helps you invest in the right assurance for your business.",
+      "The words 'audit' can mean very different things depending on who the work is for. The two most common are external audit and internal audit - and understanding the difference helps you invest in the right assurance for your business.",
       "An external audit is an independent examination of your financial statements. Its purpose is to give an opinion, to outside stakeholders such as shareholders, banks, and regulators, on whether those statements present a true and fair view. It is often a statutory requirement.",
-      "An internal audit, by contrast, is carried out for management. It is an ongoing, risk-based review of your internal controls, processes, and governance — designed to reduce risk, prevent fraud, and improve operational efficiency.",
+      "An internal audit, by contrast, is carried out for management. It is an ongoing, risk-based review of your internal controls, processes, and governance - designed to reduce risk, prevent fraud, and improve operational efficiency.",
       "In short: external audit looks backward and outward to give assurance to others; internal audit looks forward and inward to help you run a tighter ship. Many growing companies benefit from both.",
       "MW & Co. provides independent external audits and risk-based internal audit services. Get in touch to discuss which is right for your organisation.",
     ],
@@ -453,10 +465,10 @@ export const BLOG_POSTS: BlogPost[] = [
     readingTime: "5 min read",
     category: "Advisory",
     body: [
-      "IFRS — International Financial Reporting Standards — is the globally recognised framework for preparing and presenting financial statements. It sets out how transactions and events should be recognised, measured, and disclosed.",
+      "IFRS - International Financial Reporting Standards - is the globally recognised framework for preparing and presenting financial statements. It sets out how transactions and events should be recognised, measured, and disclosed.",
       "Why does it matter? Because IFRS makes your financial statements comparable across companies and borders, and credible in the eyes of investors, lenders, and regulators. If you plan to raise capital, attract foreign investment, or work with international partners, IFRS-compliant accounts are often expected.",
       "Adopting IFRS for the first time, or applying it to complex areas such as revenue, leases, or financial instruments, can be technically demanding. Getting it wrong can distort your reported results.",
-      "MW & Co. provides practical IFRS advisory — from first-time adoption to complex accounting treatments — translating the standards into clear, actionable steps for your finance team.",
+      "MW & Co. provides practical IFRS advisory - from first-time adoption to complex accounting treatments - translating the standards into clear, actionable steps for your finance team.",
     ],
   },
 ];

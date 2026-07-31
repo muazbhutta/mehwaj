@@ -1,5 +1,5 @@
 // ============================================================================
-// WhyUs — dark banner "COMMITMENT TO EXCELLENCE" + the firm's core values.
+// WhyUs - dark banner "COMMITMENT TO EXCELLENCE" + the firm's core values.
 // ============================================================================
 
 import Reveal from "./Reveal";
@@ -28,14 +28,14 @@ export default function WhyUs() {
           <p className="mt-4 font-script text-3xl text-champagne sm:text-4xl">
             Commitment to Excellence
           </p>
-          <h2 className="mt-3 font-serif text-4xl font-bold uppercase tracking-wide text-cream sm:text-5xl">
-            Your success is <span className="text-gold-gradient">our priority</span>
+          <h2 className="mt-3 font-serif text-4xl font-bold text-cream sm:text-5xl">
+            Why <span className="text-gold-gradient">Us</span>
           </h2>
           <div className="mx-auto mt-6 max-w-md">
             <div className="gold-rule" />
           </div>
           <p className="mt-6 text-lg leading-relaxed text-cream/70">
-            We do not just balance the books — we build lasting relationships
+            We do not just balance the books - we build lasting relationships
             founded on reliability, discretion, and a genuine commitment to
             helping you succeed.
           </p>

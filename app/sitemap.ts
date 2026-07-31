@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL, CITIES, BLOG_POSTS } from "@/lib/constants";
 
-// /sitemap.xml — every indexable route with sensible priorities.
+// /sitemap.xml - every indexable route with sensible priorities.
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 

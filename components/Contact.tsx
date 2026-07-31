@@ -1,7 +1,7 @@
 "use client";
 
 // ============================================================================
-// Contact — cream card contact form (with gold-accent inputs) + NAP details
+// Contact - cream card contact form (with gold-accent inputs) + NAP details
 // and three city location cards.
 //
 // No backend is assumed: on submit the form composes a pre-filled WhatsApp
@@ -20,21 +20,18 @@ const contactMethods = [
     label: "WhatsApp",
     value: CONTACT.whatsapp.display,
     href: CONTACT.whatsapp.href,
-    note: "Fastest response",
   },
   {
     icon: "phone",
     label: "Call us",
     value: CONTACT.phone.display,
     href: CONTACT.phone.href,
-    note: "Mon–Sat, 9am–6pm",
   },
   {
     icon: "mail",
     label: "Email",
     value: CONTACT.email.display,
     href: CONTACT.email.href,
-    note: "We reply within a day",
   },
 ];
 
@@ -50,7 +47,7 @@ export default function Contact() {
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const lines = [
-      "New consultation request — MW & Co.",
+      "New consultation request - MW & Co.",
       "",
       `Name: ${form.name}`,
       `Email: ${form.email}`,
@@ -204,7 +201,6 @@ export default function Contact() {
                     <span className="font-serif text-lg font-bold text-espresso transition-colors group-hover:text-bronze">
                       {m.value}
                     </span>
-                    <span className="text-xs text-coffee/60">{m.note}</span>
                   </span>
                 </a>
               ))}
@@ -214,7 +210,7 @@ export default function Contact() {
 
         {/* ---- Office locations (full-width row, compact) ---- */}
         <Reveal className="mt-8">
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {CITIES.map((city) => (
               <a
                 key={city.slug}
@@ -223,7 +219,7 @@ export default function Contact() {
               >
                 {/* gold left accent on hover */}
                 <span className="absolute inset-y-0 left-0 w-1 origin-center scale-y-0 bg-gold-gradient transition-transform duration-300 group-hover:scale-y-100" />
-                {/* location pin — left side */}
+                {/* location pin - left side */}
                 <span className="absolute left-3.5 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-gold/10 text-gold ring-1 ring-bronze/30 transition-all duration-300 group-hover:bg-gold-gradient group-hover:text-espresso">
                   <Icon name="map-pin" className="h-5 w-5" />
                 </span>

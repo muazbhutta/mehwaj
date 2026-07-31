@@ -1,7 +1,7 @@
 "use client";
 
 // ============================================================================
-// Faq — accessible accordion of question-based content (targets long-tail
+// Faq - accessible accordion of question-based content (targets long-tail
 // search). Wave divider transitions brown → cream at the top (from Services).
 // FAQPage JSON-LD is emitted by the page that renders this component.
 // ============================================================================

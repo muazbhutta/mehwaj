@@ -1,5 +1,5 @@
 // ============================================================================
-// About — centered, stacked layout: intro text → row of stat/trust boxes →
+// About - centered, stacked layout: intro text → row of stat/trust boxes →
 // cities banner → centered partner card.
 // ============================================================================
 
@@ -31,7 +31,7 @@ export default function About() {
             corporate clients, we help businesses grow with confidence.
           </p>
           <p className="mt-4 text-lg leading-relaxed text-coffee/90">
-            Our mission is simple — combine technical excellence with genuine
+            Our mission is simple - combine technical excellence with genuine
             care for our clients, guided always by our core values of{" "}
             <span className="font-semibold text-espresso">
               Quality, Integrity, and Practical Solutions
@@ -86,7 +86,7 @@ export default function About() {
             </p>
             <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-coffee/80">
               A qualified Associate Chartered Accountant (ICAP) leading every
-              engagement personally — so you always deal directly with a seasoned
+              engagement personally - so you always deal directly with a seasoned
               professional invested in your success.
             </p>
           </div>

@@ -1,5 +1,5 @@
 // ============================================================================
-// Logo — MW monogram + wordmark lockup, reused in the navbar and footer.
+// Logo - MW monogram + wordmark lockup, reused in the navbar and footer.
 // ============================================================================
 
 import Image from "next/image";
@@ -27,7 +27,7 @@ export default function Logo({
   return (
     <Link
       href="/#home"
-      aria-label={`${SITE.name} — home`}
+      aria-label={`${SITE.name} - home`}
       className={`group flex items-center gap-3 ${className}`}
     >
       <Image

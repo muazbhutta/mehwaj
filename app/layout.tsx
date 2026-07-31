@@ -5,7 +5,7 @@ import { SITE, SITE_URL } from "@/lib/constants";
 import { organizationSchema, jsonLd } from "@/lib/schema";
 
 // ---------------------------------------------------------------------------
-// Fonts (self-hosted via next/font — no render-blocking external requests)
+// Fonts (self-hosted via next/font - no render-blocking external requests)
 // ---------------------------------------------------------------------------
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default:
-      "MW & Co. | Chartered Accountants — Audit, Tax & Advisory in Pakistan",
+      "MW & Co. | Chartered Accountants - Audit, Tax & Advisory in Pakistan",
     template: "%s | MW & Co., Chartered Accountants",
   },
   description: SITE.description,
@@ -66,21 +66,21 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: SITE.name,
     title:
-      "MW & Co. | Chartered Accountants — Audit, Tax & Advisory in Pakistan",
+      "MW & Co. | Chartered Accountants - Audit, Tax & Advisory in Pakistan",
     description: SITE.description,
     images: [
       {
         url: "/images/og-image.jpg",
         width: 900,
         height: 1600,
-        alt: "MW & Co., Chartered Accountants — Commitment to Excellence",
+        alt: "MW & Co., Chartered Accountants - Commitment to Excellence",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "MW & Co. | Chartered Accountants — Audit, Tax & Advisory in Pakistan",
+      "MW & Co. | Chartered Accountants - Audit, Tax & Advisory in Pakistan",
     description: SITE.description,
     images: ["/images/og-image.jpg"],
   },

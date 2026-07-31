@@ -1,5 +1,5 @@
 // ============================================================================
-// WaveDivider — smooth curved separator between cream and brown blocks,
+// WaveDivider - smooth curved separator between cream and brown blocks,
 // with a bright gold edge line (mirrors the MW & Co. brand poster).
 // ============================================================================
 

@@ -38,7 +38,11 @@
       "Bash(rm -f scripts/_remove-bg.mjs scripts/_bg_preview.png public/images/leader-mehar.jpg)",
       "Bash(curl -s -o /dev/null -w \"leader-mehar.png: HTTP %{http_code}\\\\n\" http://localhost:3100/images/leader-mehar.png)",
       "Bash(curl -s -o /dev/null -w \"optimizer: HTTP %{http_code} %{content_type}\\\\n\" \"http://localhost:3100/_next/image?url=%2Fimages%2Fleader-mehar.png&w=750&q=75\")",
-      "Bash(curl -s -o /dev/null -w \"islamabad page: HTTP %{http_code}\\\\n\" http://localhost:3100/chartered-accountant-islamabad)"
+      "Bash(curl -s -o /dev/null -w \"islamabad page: HTTP %{http_code}\\\\n\" http://localhost:3100/chartered-accountant-islamabad)",
+      "Bash(rm -rf .next)",
+      "Bash(git add *)",
+      "Bash(git commit -q -m ' *)",
+      "Bash(xargs echo \"remaining uncommitted:\")"
     ]
   }
 }

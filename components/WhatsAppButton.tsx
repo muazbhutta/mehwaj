@@ -1,7 +1,7 @@
 "use client";
 
 // ============================================================================
-// WhatsAppButton — floating bottom-right click-to-chat button.
+// WhatsAppButton - floating bottom-right click-to-chat button.
 // Green base with a gold ring; gentle attention pulse; appears after scroll.
 // ============================================================================
 
@@ -27,7 +27,7 @@ export default function WhatsAppButton() {
           href={WHATSAPP_CTA_HREF}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`Chat with MW & Co. on WhatsApp — ${CONTACT.whatsapp.display}`}
+          aria-label={`Chat with MW & Co. on WhatsApp - ${CONTACT.whatsapp.display}`}
           initial={{ opacity: 0, scale: 0.5, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.5, y: 20 }}

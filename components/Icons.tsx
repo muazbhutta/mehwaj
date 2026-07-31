@@ -1,5 +1,5 @@
 // ============================================================================
-// Gold line-icon set — lightweight inline SVGs (no icon library).
+// Gold line-icon set - lightweight inline SVGs (no icon library).
 // Stroke-based, 24x24, inherit `currentColor` so colour is controlled by class.
 // Reference an icon by key: <Icon name="scale" className="h-7 w-7" />
 // ============================================================================

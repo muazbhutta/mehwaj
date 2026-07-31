@@ -8,7 +8,7 @@ import Icon from "@/components/Icons";
 import { SERVICES, SERVICE_GROUPS, WHATSAPP_CTA_HREF } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Our Services — Audit, Tax & Advisory",
+  title: "Our Services - Audit, Tax & Advisory",
   description:
     "Explore MW & Co.'s chartered accountancy services: external & internal audit, tax consultation, FBR return filing, accounting & bookkeeping, business valuation, IFRS advisory, and financial advisory in Multan, Lahore & Karachi.",
   alternates: { canonical: "/services" },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const groupIntro: Record<string, string> = {
   "Audit & Assurance":
     "Independent assurance that builds confidence with shareholders, lenders, and regulators.",
-  Tax: "Plan, comply, and file with confidence — optimising your position while staying fully compliant with the FBR.",
+  Tax: "Plan, comply, and file with confidence - optimising your position while staying fully compliant with the FBR.",
   Advisory:
     "Strategic financial guidance and reporting expertise to help your business make confident decisions.",
 };
@@ -30,7 +30,7 @@ export default function ServicesPage() {
         <PageHero
           eyebrow="What We Do"
           title="Our Services"
-          subtitle="A full spectrum of chartered accountancy services — audit and assurance, tax, and advisory — delivered with rigour and a genuine commitment to your success."
+          subtitle="A full spectrum of chartered accountancy services - audit and assurance, tax, and advisory - delivered with rigour and a genuine commitment to your success."
           crumbs={[]}
         />
 

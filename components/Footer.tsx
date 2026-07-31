@@ -1,5 +1,5 @@
 // ============================================================================
-// Footer — espresso brown, MW lockup + quick links + contact + city list,
+// Footer - espresso brown, MW lockup + quick links + contact + city list,
 // with a gold city-skyline line-art image (Pakistani landmarks) in the
 // background.
 // ============================================================================
@@ -154,7 +154,7 @@ export default function Footer() {
             </span>
           </p>
           <p className="text-xs text-cream/50">
-            Audit • Tax • Advisory — Multan, Lahore &amp; Karachi
+            Audit • Tax • Advisory - Islamabad, Lahore, Multan &amp; Karachi
           </p>
         </div>
       </div>

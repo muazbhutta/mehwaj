@@ -1,7 +1,7 @@
 "use client";
 
 // ============================================================================
-// Navbar — sticky. Transparent over the hero, solid espresso once scrolled.
+// Navbar - sticky. Transparent over the hero, solid espresso once scrolled.
 // Collapses to a gold hamburger menu on mobile.
 // ============================================================================
 

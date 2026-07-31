@@ -1,5 +1,5 @@
 // ============================================================================
-// Leadership — "Our Leadership" section. Each leader is a compact profile card:
+// Leadership - "Our Leadership" section. Each leader is a compact profile card:
 // a portrait + identity header, then bio and detail blocks below. Keeps cards
 // tight and professional (no oversized floating photo).
 // ============================================================================
@@ -54,7 +54,7 @@ function LeaderProfile({ leader, index }: { leader: Leader; index: number }) {
           <div className="absolute inset-x-0 top-0 z-10 h-1 bg-gold-gradient" />
           <Image
             src={leader.image}
-            alt={`${leader.name} — ${leader.title}`}
+            alt={`${leader.name} - ${leader.title}`}
             width={480}
             height={600}
             className="absolute inset-0 h-full w-full object-cover object-top"
@@ -102,19 +102,10 @@ export default function Leadership() {
 
       <div className="container-mw relative pb-20 pt-6 sm:pb-24 lg:pb-28">
         {/* Heading */}
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="eyebrow flex items-center justify-center gap-3">
-            <span className="gold-diamond" /> Our Leadership{" "}
-            <span className="gold-diamond" />
-          </p>
-          <h2 className="mt-4 font-serif text-4xl font-bold text-espresso sm:text-5xl">
-            The people behind{" "}
-            <span className="text-gold-gradient">MW &amp; Co.</span>
+        <Reveal className="text-center">
+          <h2 className="font-serif text-4xl font-bold text-espresso sm:text-5xl">
+            Our <span className="text-gold-gradient">Leadership</span>
           </h2>
-          <p className="mt-5 text-lg leading-relaxed text-coffee/80">
-            Seasoned professionals combining cross-border experience with a deep
-            commitment to excellence.
-          </p>
         </Reveal>
 
         {/* Profiles */}

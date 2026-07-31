@@ -1,7 +1,7 @@
 "use client";
 
 // ============================================================================
-// Hero — modern split (50/50) layout on an ivory stage with a faint gold
+// Hero - modern split (50/50) layout on an ivory stage with a faint gold
 // Pakistani-monument watermark behind everything. Text left, framed portrait
 // right; stacks (text above image) on mobile. Fade-in on load (Framer Motion).
 // ============================================================================
@@ -75,8 +75,8 @@ export default function Hero() {
             <span className="font-semibold text-espresso">ICAP-approved</span>{" "}
             services firm, delivering financial excellence and strategic insights
             across Pakistan. With a deep commitment to trust, integrity, and
-            technical expertise, we empower businesses of all sizes — from
-            ambitious startups to established enterprises — to achieve{" "}
+            technical expertise, we empower businesses of all sizes - from
+            ambitious startups to established enterprises - to achieve{" "}
             <span className="font-semibold text-espresso">sustainable growth</span>.
           </motion.p>
 
@@ -131,7 +131,7 @@ export default function Hero() {
               <div className="overflow-hidden rounded-[1.85rem] bg-cream">
                 <Image
                   src="/images/team.jpg"
-                  alt="The MW & Co. team — audit, tax and advisory professionals collaborating in a client meeting"
+                  alt="The MW & Co. team - audit, tax and advisory professionals collaborating in a client meeting"
                   width={1400}
                   height={933}
                   priority

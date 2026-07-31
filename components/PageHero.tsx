@@ -1,5 +1,5 @@
 // ============================================================================
-// PageHero — dark espresso header band for interior pages, with visual
+// PageHero - dark espresso header band for interior pages, with visual
 // breadcrumbs and matching BreadcrumbList JSON-LD.
 // ============================================================================
 
