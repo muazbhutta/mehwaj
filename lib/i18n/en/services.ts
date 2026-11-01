@@ -4,7 +4,7 @@ export const servicesIndex: Dictionary["servicesIndex"] = {
   meta: {
     title: "Our Services | M.W. & Co., Chartered Accountants",
     description:
-      "Assurance, tax and zakat, advisory, and accounting and outsourcing for businesses in Pakistan and the Gulf, planned and reviewed by a Chartered Accountant.",
+      "Assurance, tax and zakat, advisory, and accounting and outsourcing for businesses in Pakistan and across the GCC, reviewed by a Chartered Accountant.",
   },
   title: "Our Services",
   intro:

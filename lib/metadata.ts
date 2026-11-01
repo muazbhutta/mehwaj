@@ -17,6 +17,7 @@ export const OG_IMAGE = {
 
 const KEYWORDS: Record<Locale, string[]> = {
   en: [
+    "chartered accountants Pakistan",
     "chartered accountant Multan",
     "chartered accountant Lahore",
     "chartered accountant Karachi",
@@ -26,23 +27,40 @@ const KEYWORDS: Record<Locale, string[]> = {
     "sales tax filing Pakistan",
     "SECP compliance",
     "IFRS 18 Pakistan",
+    "audit secondment GCC",
     "audit secondment Saudi Arabia",
     "audit secondment UAE",
     "audit secondment Qatar",
-    "outsourced accounting Gulf",
+    "audit secondment Kuwait",
+    "audit secondment Bahrain",
+    "audit secondment Oman",
+    "outsourced accounting GCC",
+    "outsourced accounting Dubai",
+    "remote audit support Gulf firms",
     "zakat and VAT Saudi Arabia",
+    "offshore accounting team Pakistan",
+    "international clients accounting Pakistan",
   ],
   ar: [
     "الإعارة المهنية للمدققين",
-    "تدقيق",
+    "محاسبون قانونيون",
     "محاسب قانوني",
+    "تدقيق",
     "الزكاة وضريبة القيمة المضافة",
     "محاسبون قانونيون في باكستان",
+    "إعارة مدققين في السعودية",
+    "إعارة مدققين في الإمارات",
+    "إعارة مدققين في قطر",
+    "إعارة مدققين في الكويت",
+    "إعارة مدققين في البحرين",
+    "إعارة مدققين في سلطنة عمان",
+    "المحاسبة بالإسناد الخارجي في الخليج",
     "دعم التدقيق عن بُعد",
     "الامتثال لدى SECP",
     "IFRS 18",
   ],
 };
+
 
 /**
  * Builds the Metadata object for one page.

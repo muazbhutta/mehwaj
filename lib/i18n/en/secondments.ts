@@ -4,7 +4,7 @@ export const secondments: Dictionary["secondments"] = {
   meta: {
     title: "Audit Secondments for Gulf Firms | M.W. & Co.",
     description:
-      "Audit seniors, supervisors, managers, accountants and FP&A professionals on secondment to accounting firms and companies across the GCC, on site or remote.",
+      "Audit and finance professionals on secondment to firms in Saudi Arabia, the UAE, Qatar, Kuwait, Bahrain and Oman, on site or remote, for weeks or months.",
   },
 
   hero: {

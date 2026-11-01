@@ -10,6 +10,8 @@ import type { FaqItem, Locale } from "./i18n/types";
 
 const ORG_ID = `${SITE_URL}/#organization`;
 const BUSINESS_ID = `${SITE_URL}/#accountingservice`;
+const WEBSITE_ID = `${SITE_URL}/#website`;
+const PROPRIETOR_ID = `${SITE_URL}/#proprietor`;
 
 const POSTAL_ADDRESS = {
   "@type": "PostalAddress",
@@ -89,6 +91,8 @@ export function organizationSchema() {
         priceRange: "$$",
         foundingDate: FIRM.foundingYear,
         parentOrganization: { "@id": ORG_ID },
+        founder: { "@id": PROPRIETOR_ID },
+        employee: { "@id": PROPRIETOR_ID },
         address: POSTAL_ADDRESS,
         areaServed: AREA_SERVED,
         contactPoint: CONTACT_POINTS,
@@ -119,6 +123,41 @@ export function organizationSchema() {
           },
         ],
         sameAs: [...FIRM.social],
+      },
+      {
+        "@type": "WebSite",
+        "@id": WEBSITE_ID,
+        url: SITE_URL,
+        name: FIRM.fullName,
+        description: en.home.meta.description,
+        inLanguage: ["en", "ar"],
+        publisher: { "@id": ORG_ID },
+      },
+      {
+        // The named professional behind the work. Search engines and the
+        // assistants that read this page both lean on it to judge whether a
+        // firm is a real practice with a qualified person answerable for it.
+        "@type": "Person",
+        "@id": PROPRIETOR_ID,
+        name: FIRM.proprietor,
+        honorificSuffix: "ACA",
+        jobTitle: "Proprietor",
+        worksFor: { "@id": ORG_ID },
+        url: `${SITE_URL}/about#syed-muhammad-wajahat`,
+        image: `${SITE_URL}/images/partner-portrait.png`,
+        sameAs: [FIRM.linkedin],
+        memberOf: {
+          "@type": "Organization",
+          name: "Institute of Chartered Accountants of Pakistan",
+          alternateName: "ICAP",
+        },
+        hasCredential: {
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "professional membership",
+          name: `Associate Member, ICAP, Membership No. ${FIRM.membershipNo}`,
+        },
+        knowsAbout: SERVICES.map((s) => en.services[s.slug].title),
+        knowsLanguage: ["en", "ur", "ar"],
       },
     ],
   };

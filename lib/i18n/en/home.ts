@@ -4,7 +4,7 @@ export const home: Dictionary["home"] = {
   meta: {
     title: "M.W. & Co. | Chartered Accountants in Pakistan & the Gulf",
     description:
-      "Audit, tax, accounting and advisory for businesses in Pakistan, and audit and finance professionals on secondment for firms across the Gulf.",
+      "Chartered Accountants in Pakistan and across the GCC. Audit, tax and accounting, plus audit and finance professionals on secondment to Gulf firms.",
   },
 
   hero: {
