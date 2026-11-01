@@ -9,6 +9,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import CountrySelect from "./CountrySelect";
+import Dropdown from "./Dropdown";
 import { FIRM, mailtoHref, whatsappHref } from "@/lib/site";
 import { localePath } from "@/lib/i18n";
 import type { Dictionary, Locale } from "@/lib/i18n/types";
@@ -147,24 +148,20 @@ export default function ContactForm({
           dir="ltr"
         />
 
-        <div>
-          <label className="field-label" htmlFor="cf-choice">
-            {selectLabel}
-          </label>
-          <select
-            id="cf-choice"
-            className="field"
-            value={values.choice}
-            onChange={(e) => set("choice")(e.target.value)}
-          >
-            <option value="">{f.choosePlaceholder}</option>
-            {selectOptions.map((opt) => (
-              <option key={opt} value={opt}>
-                {opt}
-              </option>
-            ))}
-          </select>
-        </div>
+        <Dropdown
+          label={selectLabel}
+          value={values.choice}
+          onChange={set("choice")}
+          placeholder={f.choosePlaceholder}
+          groups={[
+            {
+              options: selectOptions.map((option) => ({
+                key: option,
+                label: option,
+              })),
+            },
+          ]}
+        />
       </div>
 
       <div className="mt-5">

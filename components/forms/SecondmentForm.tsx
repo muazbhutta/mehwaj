@@ -9,6 +9,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Arrow } from "../Icons";
 import CountrySelect from "./CountrySelect";
+import Dropdown from "./Dropdown";
 import { mailtoHref, whatsappHref, ROLE_KEYS, GCC_CODES } from "@/lib/site";
 import { localePath } from "@/lib/i18n";
 import type { Dictionary, Locale } from "@/lib/i18n/types";
@@ -115,27 +116,36 @@ export default function SecondmentForm({
         <Text id="sf-email" label={`${f.email} *`} type="email" value={values.email} onChange={set("email")} autoComplete="email" dir="ltr" />
         <Text id="sf-phone" label={f.phone} type="tel" value={values.phone} onChange={set("phone")} autoComplete="tel" dir="ltr" />
 
-        <Select
-          id="sf-role"
+        <Dropdown
           label={f.roleNeeded}
-          placeholder={f.choosePlaceholder}
           value={values.role}
           onChange={set("role")}
-          options={ROLE_KEYS.map((key) => roles[key].role)}
+          placeholder={f.choosePlaceholder}
+          groups={[
+            {
+              options: ROLE_KEYS.map((key) => ({
+                key,
+                label: roles[key].role,
+              })),
+            },
+          ]}
         />
 
         <Text id="sf-people" label={f.numberOfPeople} type="number" value={values.people} onChange={set("people")} />
 
-        <Select
-          id="sf-mode"
+        <Dropdown
           label={f.workMode}
-          placeholder={f.choosePlaceholder}
           value={values.mode}
           onChange={set("mode")}
-          options={[
-            dict.common.workModes.onSite,
-            dict.common.workModes.remote,
-            dict.common.workModes.hybrid,
+          placeholder={f.choosePlaceholder}
+          groups={[
+            {
+              options: [
+                { key: "onSite", label: dict.common.workModes.onSite },
+                { key: "remote", label: dict.common.workModes.remote },
+                { key: "hybrid", label: dict.common.workModes.hybrid },
+              ],
+            },
           ]}
         />
 
@@ -228,43 +238,6 @@ function Text({
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />
-    </div>
-  );
-}
-
-function Select({
-  id,
-  label,
-  placeholder,
-  value,
-  onChange,
-  options,
-}: {
-  id: string;
-  label: string;
-  placeholder: string;
-  value: string;
-  onChange: (value: string) => void;
-  options: string[];
-}) {
-  return (
-    <div>
-      <label className="field-label" htmlFor={id}>
-        {label}
-      </label>
-      <select
-        id={id}
-        className="field"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-      >
-        <option value="">{placeholder}</option>
-        {options.map((opt) => (
-          <option key={opt} value={opt}>
-            {opt}
-          </option>
-        ))}
-      </select>
     </div>
   );
 }

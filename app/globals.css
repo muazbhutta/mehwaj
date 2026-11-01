@@ -201,4 +201,18 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Hides the scrollbar while the area still scrolls. Used inside the
+     dropdown panel, where the browser bar sits awkwardly over the rounded
+     corner; a soft fade at the foot of the list marks that it runs on. */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+  }
 }
