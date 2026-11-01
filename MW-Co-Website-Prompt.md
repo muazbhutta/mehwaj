@@ -1,4 +1,4 @@
-# Website Build Prompt — MW & Co., Chartered Accountants
+# Website Build Prompt — M.W. & Co., Chartered Accountants
 
 > Copy-paste this entire prompt into your AI website builder (v0, Lovable, Cursor, Bolt) or hand it to a developer.
 
@@ -8,7 +8,7 @@
 You are a senior front-end developer and UI/UX designer specializing in premium, corporate financial-services websites. Build a modern, fully responsive, professional website for a Chartered Accountancy (CA) firm. The site must convey **trust, expertise, and excellence** — the standard expected in the audit and financial-advisory industry.
 
 ## COMPANY / BRAND
-- **Firm Name:** MW & Co., Chartered Accountants
+- **Firm Name:** M.W. & Co., Chartered Accountants
 - **Tagline / Slogan:** "Commitment to Excellence"
 - **Secondary line:** "Trust. Expertise. Excellence."
 - **Partner & Sole Proprietor:** Syed Muhammad Wajahat, ACA
@@ -58,7 +58,7 @@ Logo left; links: Home, About, Services, Why Us, Contact; a gold "Get a Consulta
 - Right side: professional portrait of the partner (use provided image) inside an elegant gold-ringed frame/oval.
 
 ### 3. About Section
-- Short intro to MW & Co. and the firm's mission.
+- Short intro to M.W. & Co. and the firm's mission.
 - Highlight the partner: **Syed Muhammad Wajahat, ACA — Partner & Sole Proprietor**.
 - 3–4 small stat/trust cards (e.g., "3 Cities", "ACA Qualified", "Individuals to Corporates", "Commitment to Excellence").
 
@@ -91,7 +91,7 @@ Each card: icon + title + 1–2 line description. Optional grouping: "Audit & As
 ### 7. Footer (dark espresso brown)
 - MW logo + tagline, quick links, contact info, city list.
 - Faint gold skyline line-art background motif.
-- Bottom bar: "© 2026 MW & Co., Chartered Accountants. Together, we commit to excellence." plus small social icons.
+- Bottom bar: "© 2026 M.W. & Co., Chartered Accountants. Together, we commit to excellence." plus small social icons.
 
 ## DESIGN / UX REQUIREMENTS
 - **Fully responsive** (mobile-first): navbar collapses to a gold hamburger menu; service grid → single column on mobile; hero stacks vertically.
@@ -101,8 +101,8 @@ Each card: icon + title + 1–2 line description. Optional grouping: "Audit & As
 - Fast & clean: optimized images, no heavy libraries unless needed.
 
 ## SEO / META
-- Page `<title>`: "MW & Co. | Chartered Accountants — Audit, Tax & Advisory in Pakistan"
-- Meta description: "MW & Co., Chartered Accountants — expert audit, tax, accounting, and financial advisory services in Multan, Lahore & Karachi. Commitment to Excellence."
+- Page `<title>`: "M.W. & Co. | Chartered Accountants — Audit, Tax & Advisory in Pakistan"
+- Meta description: "M.W. & Co., Chartered Accountants — expert audit, tax, accounting, and financial advisory services in Multan, Lahore & Karachi. Commitment to Excellence."
 - Add Open Graph tags (title, description, logo image) and the favicon set described above.
 - Keywords focus: chartered accountants Pakistan, audit services, tax return filing, IFRS advisory, bookkeeping Multan Lahore Karachi.
 

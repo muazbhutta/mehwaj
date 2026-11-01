@@ -1,5 +1,5 @@
 // ============================================================================
-// Favicon generator — MW & Co., Chartered Accountants
+// Favicon generator M.W. & Co., Chartered Accountants
 // Builds the full favicon set from the MW monogram, keeping a solid espresso
 // brown circle background with a gold ring so it reads clearly in browser tabs.
 //

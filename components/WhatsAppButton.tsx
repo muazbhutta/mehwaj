@@ -1,16 +1,16 @@
 "use client";
 
 // ============================================================================
-// WhatsAppButton - floating bottom-right click-to-chat button.
-// Green base with a gold ring; gentle attention pulse; appears after scroll.
+// WhatsAppButton: floating click to chat button, shown after a little scroll.
 // ============================================================================
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Icon from "./Icons";
-import { CONTACT, WHATSAPP_CTA_HREF } from "@/lib/constants";
+import { FIRM, whatsappHref } from "@/lib/site";
+import type { Dictionary } from "@/lib/i18n/types";
 
-export default function WhatsAppButton() {
+export default function WhatsAppButton({ dict }: { dict: Dictionary }) {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -24,25 +24,21 @@ export default function WhatsAppButton() {
     <AnimatePresence>
       {show && (
         <motion.a
-          href={WHATSAPP_CTA_HREF}
+          href={whatsappHref(dict.common.whatsappConsultMessage)}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`Chat with MW & Co. on WhatsApp - ${CONTACT.whatsapp.display}`}
-          initial={{ opacity: 0, scale: 0.5, y: 20 }}
+          aria-label={`${dict.common.chatOnWhatsApp} ${FIRM.whatsapp.display}`}
+          initial={{ opacity: 0, scale: 0.6, y: 16 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.5, y: 20 }}
-          transition={{ type: "spring", stiffness: 260, damping: 20 }}
-          className="group fixed bottom-5 right-5 z-40 flex items-center gap-3 sm:bottom-7 sm:right-7"
+          exit={{ opacity: 0, scale: 0.6, y: 16 }}
+          transition={{ type: "spring", stiffness: 260, damping: 22 }}
+          className="group fixed bottom-5 end-5 z-40 flex items-center gap-3 sm:bottom-7 sm:end-7"
         >
-          {/* Tooltip label (desktop) */}
-          <span className="pointer-events-none hidden translate-x-2 rounded-full border border-bronze/30 bg-espresso px-4 py-2 text-sm font-medium text-cream opacity-0 shadow-gold transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 lg:block">
-            Chat on WhatsApp
+          <span className="pointer-events-none hidden rounded-full border border-bronze/30 bg-espresso px-4 py-2 text-sm font-medium text-cream opacity-0 transition-opacity duration-200 group-hover:opacity-100 lg:block">
+            {dict.common.chatOnWhatsApp}
           </span>
-
-          <span className="relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-gold ring-2 ring-champagne transition-transform duration-300 group-hover:scale-110 sm:h-16 sm:w-16">
-            {/* pulse ring */}
-            <span className="absolute inset-0 animate-ping rounded-full bg-[#25D366] opacity-40" />
-            <Icon name="whatsapp" className="relative h-8 w-8 sm:h-9 sm:w-9" />
+          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#1EA952] text-white ring-2 ring-champagne transition-transform duration-200 group-hover:scale-105 sm:h-16 sm:w-16">
+            <Icon name="whatsapp" className="h-7 w-7 sm:h-8 sm:w-8" />
           </span>
         </motion.a>
       )}

@@ -1,44 +1,58 @@
-# MW & Co., Chartered Accountants — Website
+# M.W. & Co., Chartered Accountants
 
-A premium, fully responsive website for **MW & Co., Chartered Accountants** — built
-with **Next.js (App Router)**, **Tailwind CSS**, and **Framer Motion**. Luxury
-espresso-brown + metallic-gold brand identity, full white-hat SEO, and
-deployment-ready for Vercel.
+Marketing website for **M.W. & Co., Chartered Accountants** (ICAP Certificate of
+Practice No. 002196), Multan, Pakistan.
 
-**Tagline:** _Commitment to Excellence_ · Trust. Expertise. Excellence.
+The site serves two audiences: businesses in Pakistan that need audit, tax,
+accounting and advisory work, and accounting firms and companies across the GCC
+that need audit and finance professionals on secondment.
 
----
-
-## Tech stack
-
-| Layer      | Choice                                   |
-| ---------- | ---------------------------------------- |
-| Framework  | Next.js 14 (App Router)                  |
-| Styling    | Tailwind CSS 3 (brand tokens in config)  |
-| Animation  | Framer Motion                            |
-| Fonts      | Playfair Display · Inter · Great Vibes (via `next/font`) |
-| Icons      | Inline SVG line-icons (no icon library)  |
-| Deploy     | Vercel (zero-config)                     |
+Built with Next.js 14 (App Router), TypeScript, Tailwind CSS and Framer Motion.
+Everything is statically generated; there is no backend and no database.
 
 ---
 
 ## Getting started
 
 ```bash
-npm install        # install dependencies
-npm run dev        # start dev server → http://localhost:3000
-npm run build      # production build
-npm run start      # serve the production build
+npm install
+npm run dev      # http://localhost:3100
 ```
 
-Node 18.18+ (tested on Node 20).
+| Script             | What it does                                           |
+| ------------------ | ------------------------------------------------------ |
+| `npm run dev`      | Dev server on port 3100                                 |
+| `npm run build`    | Production build                                        |
+| `npm run start`    | Serve the production build                              |
+| `npm run lint`     | ESLint through `next lint`                              |
+| `npm run check:copy` | House style check, see **Copy rules** below           |
+| `npm run gen:favicons` | Regenerate the favicon set from the logo            |
 
-> **Note on the folder name:** this project lives in a folder containing an
-> `&` (`mw&co`). Because Windows' `npm` script runner mis-parses `&` in a path,
-> the `dev`/`build`/`start`/`lint` scripts call the Next.js binary through
-> `node` directly (see `package.json`) so they work regardless. For the
-> smoothest tooling experience you may optionally rename the folder to
-> `mw-and-co` and revert the scripts to the plain `next dev` / `next build` form.
+The folder name contains an ampersand, which breaks the plain `next` binary
+resolution on Windows, so every script calls node against
+`node_modules/next/dist/bin/next` directly. Keep that form if you add scripts.
+
+---
+
+## Pages
+
+Every page exists in English at its normal URL and in Arabic under `/ar`.
+
+| English                              | Arabic                                  |
+| ------------------------------------ | --------------------------------------- |
+| `/`                                  | `/ar`                                   |
+| `/services`                          | `/ar/services`                          |
+| `/services/<slug>` (14 pages)        | `/ar/services/<slug>`                   |
+| `/secondments`                       | `/ar/secondments`                       |
+| `/about`                             | `/ar/about`                             |
+| `/insights`                          | `/ar/insights`                          |
+| `/insights/<slug>` (7 articles)      | `/ar/insights/<slug>`                   |
+| `/contact`                           | `/ar/contact`                           |
+| `/chartered-accountant-<city>` (4)   | `/ar/chartered-accountant-<city>`       |
+| `/privacy`, `/terms`, `/disclaimer`  | `/ar/privacy`, `/ar/terms`, `/ar/disclaimer` |
+
+`/blog` and `/blog/:slug` redirect permanently to `/insights` and
+`/insights/:slug` (see `next.config.mjs`).
 
 ---
 
@@ -46,94 +60,104 @@ Node 18.18+ (tested on Node 20).
 
 ```
 app/
-  layout.tsx                    # fonts, site metadata, OG, Organization JSON-LD
-  page.tsx                      # single-page home (all sections) + FAQ JSON-LD
-  globals.css                   # Tailwind layers + brand component classes
-  manifest.ts                   # PWA / site.webmanifest
-  robots.ts                     # /robots.txt
-  sitemap.ts                    # /sitemap.xml
-  not-found.tsx                 # branded 404
-  icon.png / apple-icon.png / favicon.ico   # auto-linked by Next.js
-  services/page.tsx             # services detail page
-  chartered-accountant-multan/  # local SEO landing pages (one per city)
-  chartered-accountant-lahore/
-  chartered-accountant-karachi/
-  blog/page.tsx                 # blog index
-  blog/[slug]/page.tsx          # blog post (statically generated)
-components/                     # Navbar, Hero, About, Services, WhyUs, Faq,
-                                # Contact, Footer, WhatsAppButton, + primitives
+  (en)/              English root layout: <html lang="en" dir="ltr">
+  (ar)/ar/           Arabic root layout:  <html lang="ar" dir="rtl">
+  fonts.ts           Playfair, Inter, Great Vibes, IBM Plex Sans Arabic
+  globals.css        Brand component classes (.card, .btn-gold, .dot-pattern)
+  manifest.ts robots.ts sitemap.ts
+components/
+  Header, Footer, Logo, Icons, Reveal, SiteShell, WhatsAppButton
+  home/ services/ secondments/ about/ insights/ contact/ cities/ legal/
+  forms/             Contact and secondment request forms (client components)
+  ui/                Breadcrumb, PageBand, StepsBand, Avatar, RichText
 lib/
-  constants.ts                  # ← single source of truth (NAP, services, FAQ…)
-  schema.ts                     # JSON-LD structured data builders
+  site.ts            Firm facts, slugs, groupings. One source of truth.
+  metadata.ts        Title, description, canonical and hreflang per page
+  schema.ts          JSON-LD: Organization, Service, Breadcrumb, FAQ, Article
+  assets.ts          Build time checks for optional files in /public
+  i18n/
+    types.ts         The shape both dictionaries must satisfy
+    en/  ar/         All visible copy, split by page
 scripts/
-  generate-favicons.mjs         # regenerate the favicon set from the monogram
-public/
-  images/                       # mw-logo.png, partner-portrait.jpg, og-image.jpg
-  favicon-*.png, apple-touch-icon.png, android-chrome-*.png, favicon.ico
+  check-copy.mjs     House style check
 ```
 
----
-
-## Editing content
-
-Almost everything lives in **`lib/constants.ts`** — change it once and it flows
-through the UI, metadata, sitemap, and structured data:
-
-- **Contact / NAP** — `CONTACT` (WhatsApp, phone, email, cities)
-- **Services** — `SERVICES` (title, group, icon, descriptions)
-- **FAQ** — `FAQS`
-- **Cities** — `CITIES` (drives the local landing pages + sitemap)
-- **Blog** — `BLOG_POSTS`
-- **Production URL** — `SITE_URL` (used for canonical, OG, sitemap) → set this to
-  your real domain before deploying.
-
-Brand colours live in **`tailwind.config.js`** under `theme.extend.colors`
-(`espresso`, `coffee`, `gold`, `champagne`, `bronze`, `cream`, `offwhite`).
-
-### Contact form
-
-The form composes a **pre-filled WhatsApp message** on submit (no backend
-required). To wire it to email/CRM instead, edit `handleSubmit` in
-`components/Contact.tsx` to `POST` to your endpoint (e.g. Formspree or a Next.js
-Route Handler).
-
-### Favicons
-
-Regenerate the full favicon set from the MW monogram any time:
-
-```bash
-npm run gen:favicons
-```
-
-(Outputs a brown-circle + gold-ring icon in 16/32/180/192/512 + `favicon.ico`.)
+There are **two root layouts**, one per language, so each sets its own `lang`
+and `dir` on `<html>`. Because of that there is no `app/layout.tsx`, and each
+route group carries its own `not-found.tsx` plus a `[...notfound]` catch all so
+an unknown URL still shows the header, the footer and the language switch.
 
 ---
 
-## SEO checklist (built in)
+## Editing copy
 
-- ✅ Unique title + meta description + canonical per page (Metadata API)
-- ✅ Open Graph + Twitter cards
-- ✅ Semantic HTML, one `<h1>` per page, logical heading hierarchy, alt text
-- ✅ JSON-LD: `Organization`, `AccountingService`/`LocalBusiness`, `FAQPage`,
-  `BreadcrumbList`, `BlogPosting`
-- ✅ `sitemap.xml` + `robots.txt`
-- ✅ Per-city local landing pages (`/chartered-accountant-<city>`)
-- ✅ Blog structure ready for content marketing
-- ✅ Modern image formats (AVIF/WebP), lazy loading, `next/font` (no render-block)
+**All visible text lives in `lib/i18n/en/*` and `lib/i18n/ar/*`.** Components
+never hold copy; they take `locale` and read from the dictionary. Both
+dictionaries satisfy the `Dictionary` type in `lib/i18n/types.ts`, so a string
+added to one language has to be added to the other or the build fails.
 
-**After deploying:** set `SITE_URL`, verify the domain in **Google Search
-Console**, submit the sitemap, and create a **Google Business Profile** for each
-city (biggest local-SEO win). See `MW-Co-SEO-Strategy.md`.
+Firm facts (phone numbers, address, ICAP number, service slugs, article slugs,
+the people list) live in `lib/site.ts` and are shared by both languages.
+
+Inside an article or a biography, `**text**` renders bold. Nothing else is
+interpreted.
+
+### Copy rules
+
+`npm run check:copy` scans `app/`, `components/` and `lib/` and fails on:
+
+- the em dash and the en dash
+- a spaced hyphen used as a dash (`" - "`)
+- `MW & Co` written without the dots (it is always **M.W. & Co.**)
+- the words `premier` and `ICAP-approved`
+
+Number ranges are written with "to": "3 to 5 working days". Ordinary hyphenated
+words (`agreed-upon`, `month-end`, `part-time`, `SOCPA-licensed`) are fine. The
+same rules apply to the Arabic copy, which uses the Arabic comma `،`.
+
+Run it before every commit; it is also worth running after a content paste from
+a word processor, which is where curly dashes usually come from.
 
 ---
 
-## Deploy to Vercel
+## Files to drop in
 
-1. Push this folder to a Git repo (GitHub/GitLab/Bitbucket).
-2. Import the repo at [vercel.com/new](https://vercel.com/new) — Vercel
-   auto-detects Next.js. No config needed.
-3. Set your custom domain and update `SITE_URL` in `lib/constants.ts`.
+Some blocks only appear once the client supplies a file. Nothing breaks while
+the file is missing.
+
+| File                            | What it turns on                                              |
+| ------------------------------- | ------------------------------------------------------------- |
+| `public/images/office.jpg`      | The home hero shows this photo instead of the brand panel. Use a real photo of the team, the office or a set of working papers, not a stock image. Landscape, about 1200 by 900. |
+| `public/firm-profile.pdf`       | The "Download firm profile" button appears in the secondments hero. |
+
+### Team photos
+
+`lib/site.ts` holds a `PEOPLE` array. A person without an `image` shows their
+initials on a beige circle. To add a photo, drop the file into `public/images`
+and set `image: "/images/<file>"` on that person. Square images, about 600 by
+600, work best.
 
 ---
 
-© MW & Co., Chartered Accountants. Together, we commit to excellence.
+## SEO
+
+- Each page sets its own title, description, canonical and
+  `alternates.languages` (`en`, `ar`, `x-default`) through
+  `pageMetadata(locale, path, meta)` in `lib/metadata.ts`.
+- `lib/schema.ts` emits the JSON-LD: an Organization plus AccountingService
+  graph site wide, then BreadcrumbList, Service, FAQPage, BlogPosting and a per
+  city AccountingService where they apply.
+- The firm has **one** address, in Multan. City pages describe how each city is
+  served from it; they must never claim a local office.
+- `app/sitemap.ts` lists every English and Arabic URL with its alternates.
+- The Open Graph image is `public/images/og-image.jpg` at 900 by 1600.
+
+## Factual guardrails
+
+- Secondment **experience** is only Saudi Arabia, the United Arab Emirates,
+  Qatar and the British Virgin Islands. Never list Kuwait, Bahrain or Oman as
+  places the team has worked.
+- The firm **serves** accounting firms and companies across the whole GCC, so
+  those six countries do belong in the country dropdowns and in "who we serve".
+- No invented statistics, no superlatives, no claim of ICAP approval beyond the
+  Certificate of Practice.
