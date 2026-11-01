@@ -13,7 +13,11 @@ import { publicFileExists } from "@/lib/assets";
 import { localePath } from "@/lib/i18n";
 import type { Dictionary, Locale } from "@/lib/i18n/types";
 
+// A real photo of the team, the office or a set of working papers belongs at
+// public/images/office.jpg. Until one is supplied the hero falls back to the
+// photo the earlier site used, and then to the brand panel.
 const OFFICE_IMAGE = "/images/office.jpg";
+const FALLBACK_IMAGE = "/images/team.jpg";
 
 export default function Hero({
   locale,
@@ -23,7 +27,13 @@ export default function Hero({
   dict: Dictionary;
 }) {
   const hero = dict.home.hero;
-  const hasPhoto = publicFileExists("images/office.jpg");
+  const hasOfficePhoto = publicFileExists("images/office.jpg");
+  const hasFallbackPhoto = publicFileExists("images/team.jpg");
+  const photo = hasOfficePhoto
+    ? { src: OFFICE_IMAGE, alt: hero.imageAlt }
+    : hasFallbackPhoto
+      ? { src: FALLBACK_IMAGE, alt: hero.imageAltFallback }
+      : null;
 
   // The Arabic home page leads with secondments, so its buttons differ.
   const primaryHref =
@@ -82,14 +92,15 @@ export default function Hero({
         </Reveal>
 
         <Reveal delay={0.1}>
-          {hasPhoto ? (
+          {photo ? (
             <div className="overflow-hidden rounded-3xl border border-bronze/25">
               <Image
-                src={OFFICE_IMAGE}
-                alt={hero.imageAlt}
-                width={1200}
-                height={900}
+                src={photo.src}
+                alt={photo.alt}
+                width={1400}
+                height={932}
                 priority
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 className="h-full w-full object-cover"
               />
             </div>

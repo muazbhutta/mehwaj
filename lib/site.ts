@@ -213,7 +213,13 @@ export const PEOPLE: PersonMeta[] = [
     initials: "MW",
     image: "/images/partner-portrait.png",
   },
-  { slug: "syeda-mehar-fatima", initials: "MF" },
+  {
+    slug: "syeda-mehar-fatima",
+    initials: "MF",
+    // Headshot cropped from images/leader-mehar.png, which is a full length
+    // portrait and frames badly in a circle.
+    image: "/images/mehar-fatima.png",
+  },
   { slug: "anas-farooq-maniya", initials: "AF" },
   {
     slug: "tax-manager",

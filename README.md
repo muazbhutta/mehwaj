@@ -144,15 +144,24 @@ the file is missing.
 
 | File                            | What it turns on                                              |
 | ------------------------------- | ------------------------------------------------------------- |
-| `public/images/office.jpg`      | The home hero shows this photo instead of the brand panel. Use a real photo of the team, the office or a set of working papers, not a stock image. Landscape, about 1200 by 900. |
+| `public/images/office.jpg`      | The home hero shows this photo in place of the one it falls back to. Use a real photo of the team, the office or a set of working papers. Landscape, about 1400 by 930. |
 | `public/firm-profile.pdf`       | The "Download firm profile" button appears in the secondments hero. |
+
+The hero picks its image in this order: `office.jpg` if it is there, then
+`team.jpg`, which is the photo the earlier site used, and only then the
+espresso brand panel. So dropping a real office photo in replaces the stock one
+with no code change.
 
 ### Team photos
 
 `lib/site.ts` holds a `PEOPLE` array. A person without an `image` shows their
 initials on a beige circle. To add a photo, drop the file into `public/images`
-and set `image: "/images/<file>"` on that person. Square images, about 600 by
-600, work best.
+and set `image: "/images/<file>"` on that person.
+
+Use a **square headshot, about 600 by 600, framed head and shoulders**. The
+avatar is a circle, so a full length portrait crops to the middle of the body
+and the face comes out tiny. `mehar-fatima.png` is such a crop, taken from the
+full length `leader-mehar.png`, which is kept for other uses.
 
 ---
 

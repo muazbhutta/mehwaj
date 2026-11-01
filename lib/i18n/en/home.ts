@@ -18,6 +18,8 @@ export const home: Dictionary["home"] = {
       "Head office: Multan · Clients across Pakistan · Secondment experience in Saudi Arabia, UAE, Qatar and BVI",
     panelCaption: "Commitment to Excellence",
     imageAlt: "The M.W. & Co. office in Royal Orchard, Multan",
+    imageAltFallback:
+      "Finance professionals reviewing management reports around a laptop",
   },
 
   trustBar: [

@@ -202,6 +202,8 @@ export interface Dictionary {
       /** Shown inside the brand panel when no office photo is present. */
       panelCaption: string;
       imageAlt: string;
+      /** Alt text for the photo used until a real office photo is supplied. */
+      imageAltFallback: string;
       /** Arabic hero shows chips instead of a footnote line. */
       chipsLabel?: string;
       chips?: string[];
