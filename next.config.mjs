@@ -23,15 +23,20 @@ const nextConfig = {
       },
     ];
   },
-  // Long lived caching for hashed static assets
   async headers() {
     return [
       {
+        // Files under /public are not content hashed, so an immutable year
+        // long cache would leave anyone who had seen an old photo looking at
+        // it for a year after it was replaced. A day of freshness with a week
+        // of stale-while-revalidate keeps these cheap to serve while letting a
+        // swapped image reach people. Next's own assets under /_next/static
+        // are hashed and already cached for a year by the framework.
         source: "/images/:all*",
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
+            value: "public, max-age=86400, stale-while-revalidate=604800",
           },
         ],
       },

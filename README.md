@@ -186,6 +186,11 @@ avatar is a circle, so a full length portrait crops to the middle of the body
 and the face comes out tiny. `mehar-fatima.png` is such a crop, taken from the
 full length `leader-mehar.png`, which is kept for other uses.
 
+**Replacing a photo: give the new file a new name.** Files in `/public` are not
+content hashed, so overwriting `foo.png` leaves anyone who has already seen it
+looking at the old one until their cache expires. Add the new file as
+`foo-v2.png` and point `image` at it, the way `anas-farooq-v2.png` does.
+
 ---
 
 ## Motion
