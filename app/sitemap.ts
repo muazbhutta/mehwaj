@@ -1,29 +1,66 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL, CITIES, BLOG_POSTS } from "@/lib/constants";
+import {
+  SITE_URL,
+  SERVICE_SLUGS,
+  CITY_SLUGS,
+  POST_SLUGS,
+  LEGAL_SLUGS,
+} from "@/lib/site";
+import { getDictionary, localePath } from "@/lib/i18n";
+import type { Locale } from "@/lib/i18n/types";
 
-// /sitemap.xml - every indexable route with sensible priorities.
+/**
+ * Every English and Arabic URL, each one carrying the language alternates so
+ * Google can pair them.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
+  const en = getDictionary("en");
 
-  const staticRoutes: MetadataRoute.Sitemap = [
-    { url: `${SITE_URL}/`, lastModified: now, changeFrequency: "monthly", priority: 1 },
-    { url: `${SITE_URL}/services`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${SITE_URL}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+  const paths: { path: string; priority: number; lastModified: Date }[] = [
+    { path: "/", priority: 1, lastModified: now },
+    { path: "/services", priority: 0.9, lastModified: now },
+    { path: "/secondments", priority: 0.9, lastModified: now },
+    { path: "/about", priority: 0.7, lastModified: now },
+    { path: "/insights", priority: 0.7, lastModified: now },
+    { path: "/contact", priority: 0.8, lastModified: now },
+    ...SERVICE_SLUGS.map((slug) => ({
+      path: `/services/${slug}`,
+      priority: 0.8,
+      lastModified: now,
+    })),
+    ...CITY_SLUGS.map((slug) => ({
+      path: `/chartered-accountant-${slug}`,
+      priority: 0.8,
+      lastModified: now,
+    })),
+    ...POST_SLUGS.map((slug) => ({
+      path: `/insights/${slug}`,
+      priority: 0.6,
+      lastModified: new Date(en.posts[slug].isoDate),
+    })),
+    ...LEGAL_SLUGS.map((slug) => ({
+      path: `/${slug}`,
+      priority: 0.3,
+      lastModified: now,
+    })),
   ];
 
-  const cityRoutes: MetadataRoute.Sitemap = CITIES.map((c) => ({
-    url: `${SITE_URL}/chartered-accountant-${c.slug}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.9,
-  }));
+  const locales: Locale[] = ["en", "ar"];
 
-  const blogRoutes: MetadataRoute.Sitemap = BLOG_POSTS.map((p) => ({
-    url: `${SITE_URL}/blog/${p.slug}`,
-    lastModified: new Date(p.date),
-    changeFrequency: "yearly",
-    priority: 0.6,
-  }));
-
-  return [...staticRoutes, ...cityRoutes, ...blogRoutes];
+  return paths.flatMap(({ path, priority, lastModified }) =>
+    locales.map((locale) => ({
+      url: `${SITE_URL}${localePath(locale, path)}`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority,
+      alternates: {
+        languages: {
+          en: `${SITE_URL}${localePath("en", path)}`,
+          ar: `${SITE_URL}${localePath("ar", path)}`,
+          "x-default": `${SITE_URL}${localePath("en", path)}`,
+        },
+      },
+    }))
+  );
 }

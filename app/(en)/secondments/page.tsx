@@ -1,0 +1,14 @@
+import type { Metadata } from "next";
+import SecondmentsPage from "@/components/secondments/SecondmentsPage";
+import { getDictionary } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/metadata";
+
+export const metadata: Metadata = pageMetadata(
+  "en",
+  "/secondments",
+  getDictionary("en").secondments.meta
+);
+
+export default function Page() {
+  return <SecondmentsPage locale="en" />;
+}

@@ -1,4 +1,4 @@
-# SEO Strategy Addendum — MW & Co., Chartered Accountants
+# SEO Strategy Addendum — M.W. & Co., Chartered Accountants
 
 > Attach this to the main website prompt. Goal: rank the site **#1 for all RELEVANT searches** (CA / audit / tax / advisory in Multan, Lahore, Karachi & Pakistan) using only Google-approved white-hat SEO. No black-hat tricks (they get the site penalized/banned).
 
@@ -25,17 +25,17 @@ Rank on page 1 (ideally #1) for high-intent keywords that real clients search, e
 
 ## 2. ON-PAGE SEO (per page)
 Each page must have a unique, keyword-optimized:
-- **Title tag** (50–60 chars), e.g. `Chartered Accountant in Multan | Audit & Tax — MW & Co.`
+- **Title tag** (50–60 chars), e.g. `Chartered Accountant in Multan | Audit & Tax — M.W. & Co.`
 - **Meta description** (150–160 chars) with a call to action.
 - **H1** containing the primary keyword naturally.
 - Keyword-rich but natural body content (no stuffing) — mention services + city names organically.
 - Internal links between pages (hero → services → contact).
-- Descriptive image `alt` text (`chartered accountant office Multan MW & Co`).
+- Descriptive image `alt` text (`chartered accountant office Multan M.W. & Co`).
 
 ## 3. STRUCTURED DATA (Schema.org — VERY important for CA firm)
 Add JSON-LD structured data so Google shows rich results:
 - **`AccountingService`** / **`ProfessionalService`** / **`LocalBusiness`** schema with:
-  - name: "MW & Co., Chartered Accountants"
+  - name: "M.W. & Co., Chartered Accountants"
   - description, logo, URL, image
   - `address` for each office (Multan, Lahore, Karachi)
   - `telephone`: +92 304 6451 848
@@ -87,5 +87,5 @@ This is where you'll actually beat competitors:
 
 ## ⚠️ HONEST NOTE
 - SEO is **not instant** — it takes weeks to a few months to climb, but the ranking is durable and free (unlike paid ads).
-- No one can guarantee #1 for *every* search — but done right, this plan will put MW & Co. at the **top for the searches that bring real clients**.
+- No one can guarantee #1 for *every* search — but done right, this plan will put M.W. & Co. at the **top for the searches that bring real clients**.
 - If you want **fast top-of-page visibility** while SEO builds up, run **Google Ads (paid search)** targeting the same keywords — that gives instant #1 placement (marked "Ad") from day one.

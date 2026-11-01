@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 /* ==========================================================================
-   MW & Co. — global base styles + reusable brand components
+   M.W. & Co. global base styles and reusable brand components.
+   Flat sections in cream and off white, white cards with thin bronze borders,
+   espresso bands carrying a faint gold dot pattern, gold pill buttons.
    ========================================================================== */
 
 @layer base {
@@ -13,7 +15,8 @@
 
   html {
     -webkit-text-size-adjust: 100%;
-    scroll-padding-top: var(--header-height); /* offset sticky nav for anchors */
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-height) + 1rem);
   }
 
   body {
@@ -29,7 +32,26 @@
     text-wrap: balance;
   }
 
-  /* Respect users who prefer reduced motion */
+  /* Arabic pages use IBM Plex Sans Arabic for headings too. */
+  html[lang="ar"] h1,
+  html[lang="ar"] h2,
+  html[lang="ar"] h3,
+  html[lang="ar"] h4 {
+    font-family: var(--font-plex-arabic), system-ui, sans-serif;
+    font-weight: 700;
+  }
+
+  html[lang="ar"] body {
+    font-family: var(--font-plex-arabic), system-ui, sans-serif;
+  }
+
+  /* Great Vibes has no Arabic glyphs, so the script line falls back to the
+     Arabic face at a lighter weight on Arabic pages. */
+  html[lang="ar"] .font-script {
+    font-family: var(--font-plex-arabic), system-ui, sans-serif;
+    font-weight: 500;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -41,7 +63,6 @@
     }
   }
 
-  /* Elegant gold selection */
   ::selection {
     background-color: #e5c87e;
     color: #2b1b10;
@@ -54,73 +75,261 @@
     @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
   }
 
-  /* --- All-caps tracked label (e.g. "OUR SERVICES") --- */
+  /* --- Vertical rhythm for a page section --- */
+  .section {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  /* --- All caps tracked gold label above a heading --- */
   .eyebrow {
-    @apply font-sans text-xs font-semibold uppercase tracking-label text-bronze sm:text-sm;
+    @apply font-sans text-xs font-semibold uppercase tracking-label text-bronze;
   }
 
-  /* --- Gold gradient text (headline accent word) --- */
-  .text-gold-gradient {
-    @apply bg-gold-gradient bg-clip-text text-transparent;
+  .eyebrow-light {
+    @apply font-sans text-xs font-semibold uppercase tracking-label text-gold;
   }
 
-  /* --- Primary gold button --- */
+  /* --- Section heading --- */
+  .h-section {
+    @apply mt-3 font-serif text-3xl font-bold text-espresso sm:text-4xl lg:text-[2.6rem];
+  }
+
+  .h-section-light {
+    @apply mt-3 font-serif text-3xl font-bold text-cream sm:text-4xl lg:text-[2.6rem];
+  }
+
+  /* --- Primary gold pill button --- */
   .btn-gold {
-    @apply inline-flex items-center justify-center gap-2 rounded-full
-      bg-gold-gradient px-7 py-3.5 font-sans text-sm font-semibold uppercase
-      tracking-wide text-espresso shadow-gold transition-all duration-300
-      hover:shadow-gold-lg hover:brightness-105 focus-visible:outline-none
-      focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2
-      focus-visible:ring-offset-transparent active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-bronze
+      px-7 py-3.5 font-sans text-sm font-semibold uppercase tracking-wide
+      text-white transition-all duration-300 ease-out hover:-translate-y-0.5
+      hover:bg-[#8e6829] hover:shadow-gold focus-visible:outline-none
+      focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2
+      active:translate-y-0 active:scale-[0.99];
   }
 
-  /* --- Outline button (light context) --- */
+  /* --- Outline pill button on a light background --- */
   .btn-outline {
     @apply inline-flex items-center justify-center gap-2 rounded-full border
-      border-bronze/60 bg-transparent px-7 py-3.5 font-sans text-sm font-semibold
-      uppercase tracking-wide text-espresso transition-all duration-300
-      hover:border-gold hover:bg-gold/10 focus-visible:outline-none
-      focus-visible:ring-2 focus-visible:ring-champagne active:scale-[0.98];
+      border-espresso/30 bg-transparent px-7 py-3.5 font-sans text-sm
+      font-semibold uppercase tracking-wide text-espresso transition-all
+      duration-300 ease-out hover:-translate-y-0.5 hover:border-bronze
+      hover:bg-bronze/10 focus-visible:outline-none focus-visible:ring-2
+      focus-visible:ring-gold active:translate-y-0 active:scale-[0.99];
   }
 
-  /* --- Outline button (dark context) --- */
+  /* --- Outline pill button on an espresso band --- */
   .btn-outline-light {
     @apply inline-flex items-center justify-center gap-2 rounded-full border
-      border-champagne/50 bg-transparent px-7 py-3.5 font-sans text-sm font-semibold
-      uppercase tracking-wide text-champagne transition-all duration-300
-      hover:border-champagne hover:bg-champagne/10 focus-visible:outline-none
-      focus-visible:ring-2 focus-visible:ring-champagne active:scale-[0.98];
+      border-champagne/60 bg-transparent px-7 py-3.5 font-sans text-sm
+      font-semibold uppercase tracking-wide text-champagne transition-all
+      duration-300 ease-out hover:-translate-y-0.5 hover:border-champagne
+      hover:bg-champagne/10 focus-visible:outline-none focus-visible:ring-2
+      focus-visible:ring-gold active:translate-y-0 active:scale-[0.99];
   }
 
-  /* --- Thin gold divider line --- */
-  .gold-rule {
-    @apply h-px w-full bg-gradient-to-r from-transparent via-bronze/60 to-transparent;
+  /* --- White card with a thin bronze border --- */
+  .card {
+    @apply rounded-2xl border border-bronze/25 bg-white p-6 sm:p-8;
+  }
+
+  /* --- Card on an espresso band --- */
+  .card-dark {
+    @apply rounded-2xl border border-champagne/20 bg-white/5 p-6 sm:p-8;
+  }
+
+  /* --- Outline pill, used for values, chips and city links --- */
+  .pill {
+    @apply inline-flex items-center rounded-full border border-bronze/40 px-4
+      py-2 text-sm text-espresso transition-all duration-300 ease-out
+      hover:-translate-y-0.5 hover:border-bronze hover:bg-bronze/10;
+  }
+
+  .pill-light {
+    @apply inline-flex items-center rounded-full border border-champagne/40
+      px-4 py-2 text-sm text-cream;
+  }
+
+  /* --- Gold inline link with an arrow --- */
+  .link-gold {
+    @apply inline-flex items-center gap-1.5 font-sans text-sm font-semibold
+      text-bronze hover:text-espresso;
+    transition: color 0.2s ease, gap 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* The arrow drifts away from the label on hover. Animating the gap rather
+     than the arrow keeps it correct in both reading directions. */
+  .link-gold:hover,
+  .group:hover .link-gold {
+    gap: 0.6rem;
+  }
+
+  .btn-gold:hover,
+  .btn-outline:hover,
+  .btn-outline-light:hover {
+    gap: 0.75rem;
+  }
+
+  /* --- Form field --- */
+  .field {
+    @apply w-full rounded-xl border border-bronze/30 bg-offwhite px-4 py-3
+      font-sans text-sm text-espresso outline-none transition-colors
+      placeholder:text-espresso/40 focus:border-bronze focus:ring-2
+      focus:ring-gold/30;
+  }
+
+  .field-label {
+    @apply mb-1.5 block font-sans text-sm font-medium text-espresso;
+  }
+
+  /* --- Content card that answers to the pointer --- */
+  .card-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .card-lift:hover {
+    @apply -translate-y-1 border-bronze/50 shadow-card;
+  }
+
+  /* --- Header link with a gold underline that grows on hover --- */
+  .nav-link {
+    @apply relative transition-colors duration-200;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: -0.45rem;
+    height: 2px;
+    border-radius: 2px;
+    background-color: #c79a4b;
+    transform: scaleX(0);
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .nav-link:hover::after,
+  .nav-link[aria-current="page"]::after {
+    transform: scaleX(1);
+  }
+
+  /* --- The dropdown panel settles in rather than appearing --- */
+  .dropdown-panel {
+    transform-origin: top center;
+    animation: dropdown-in 0.18s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   /* --- Decorative gold diamond separator --- */
   .gold-diamond {
-    @apply inline-block h-2 w-2 rotate-45 bg-gold-gradient;
+    @apply inline-block h-1.5 w-1.5 rotate-45 bg-gold;
+  }
+}
+
+@layer components {
+  /* --- Scroll reveal ---------------------------------------------------
+     Visible by default. The inline script in the layout adds `js-reveal` to
+     <html> before the page paints, which is the only thing that turns the
+     hidden state on, so content is never lost when JavaScript does not run. */
+  .reveal {
+    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .js-reveal .reveal:not(.is-visible) {
+    opacity: 0;
+    transform: translateY(24px);
   }
 }
 
 @layer utilities {
-  /* Shimmering gold text used sparingly for the wordmark */
-  .shimmer-gold {
-    background: linear-gradient(
-      110deg,
-      #a87b33 20%,
-      #e5c87e 40%,
-      #c79a4b 60%,
-      #a87b33 80%
+  /* Faint gold dot pattern used on every espresso band. */
+  .dot-pattern {
+    background-image: radial-gradient(
+      rgba(199, 154, 75, 0.28) 1px,
+      transparent 1px
     );
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: shimmer 6s linear infinite;
+    background-size: 24px 24px;
   }
 
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Children of a revealed block rise one after another. Like .reveal itself
+     this only arms once the inline script has set `js-reveal`, so without
+     JavaScript every child stays visible. */
+  .js-reveal .reveal.stagger > *,
+  .js-reveal .reveal .stagger > * {
+    opacity: 0;
+  }
+
+  /* The delay rides on a custom property: the rule that starts the animation
+     is far more specific than the nth-child rules, and the `animation`
+     shorthand would reset an `animation-delay` they set directly. */
+  .js-reveal .reveal.is-visible.stagger > *,
+  .js-reveal .reveal.is-visible .stagger > * {
+    animation: rise 0.6s cubic-bezier(0.22, 1, 0.36, 1)
+      var(--stagger-delay, 0s) forwards;
+  }
+
+  .stagger > *:nth-child(1) {
+    --stagger-delay: 0.04s;
+  }
+  .stagger > *:nth-child(2) {
+    --stagger-delay: 0.1s;
+  }
+  .stagger > *:nth-child(3) {
+    --stagger-delay: 0.16s;
+  }
+  .stagger > *:nth-child(4) {
+    --stagger-delay: 0.22s;
+  }
+  .stagger > *:nth-child(5) {
+    --stagger-delay: 0.28s;
+  }
+  .stagger > *:nth-child(6) {
+    --stagger-delay: 0.34s;
+  }
+  .stagger > *:nth-child(7) {
+    --stagger-delay: 0.4s;
+  }
+  .stagger > *:nth-child(n + 8) {
+    --stagger-delay: 0.46s;
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes dropdown-in {
+    from {
+      opacity: 0;
+      transform: translateY(-6px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* Hides the scrollbar while the area still scrolls. Used inside the
+     dropdown panel, where the browser bar sits awkwardly over the rounded
+     corner; a soft fade at the foot of the list marks that it runs on. */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
   }
 }

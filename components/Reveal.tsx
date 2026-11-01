@@ -1,62 +1,71 @@
 "use client";
 
 // ============================================================================
-// Reveal - subtle fade / slide-in on scroll (AOS-style) via Framer Motion.
-// Honours prefers-reduced-motion automatically (Framer's useReducedMotion).
+// Reveal: a subtle fade and slide in as a section scrolls into view.
+//
+// The content is visible by default. The hidden state is only applied once the
+// inline script in the layout has added `js-reveal` to <html>, so a visitor
+// without JavaScript, or a crawler that does not run it, still sees everything.
+// A short safety timer shows the content even if the observer never reports.
 // ============================================================================
 
-import { motion, useReducedMotion, type Variants } from "framer-motion";
-import type { ReactNode } from "react";
+import { useEffect, useRef, useState } from "react";
 
-type Direction = "up" | "down" | "left" | "right" | "none";
+type Element = "div" | "li" | "section" | "article";
 
 interface RevealProps {
-  children: ReactNode;
-  direction?: Direction;
+  children: React.ReactNode;
+  /** Seconds of delay before this block fades in. */
   delay?: number;
   className?: string;
-  /** Render as a different element (default div). */
-  as?: "div" | "li" | "span" | "section" | "article";
+  as?: Element;
 }
-
-const offset: Record<Direction, { x?: number; y?: number }> = {
-  up: { y: 28 },
-  down: { y: -28 },
-  left: { x: 28 },
-  right: { x: -28 },
-  none: {},
-};
 
 export default function Reveal({
   children,
-  direction = "up",
   delay = 0,
   className = "",
-  as = "div",
+  as: Tag = "div",
 }: RevealProps) {
-  const reduce = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
 
-  const variants: Variants = {
-    hidden: { opacity: 0, ...(reduce ? {} : offset[direction]) },
-    visible: {
-      opacity: 1,
-      x: 0,
-      y: 0,
-      transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
-    },
-  };
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
 
-  const MotionTag = motion[as] as typeof motion.div;
+    if (typeof IntersectionObserver === "undefined") {
+      setVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "0px 0px -40px 0px" }
+    );
+    observer.observe(el);
+
+    // Never leave content hidden if the observer does not report.
+    const timer = window.setTimeout(() => setVisible(true), 1500);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(timer);
+    };
+  }, []);
 
   return (
-    <MotionTag
-      className={className}
-      variants={variants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
+    <Tag
+      ref={ref as React.RefObject<HTMLDivElement & HTMLLIElement>}
+      className={`reveal ${visible ? "is-visible" : ""} ${className}`.trim()}
+      style={delay ? { transitionDelay: `${delay}s` } : undefined}
     >
       {children}
-    </MotionTag>
+    </Tag>
   );
 }

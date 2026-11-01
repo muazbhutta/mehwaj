@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 // ============================================================================
-// MW & Co., Chartered Accountants — Tailwind configuration
+// M.W. & Co., Chartered Accountants Tailwind configuration
 // Brand tokens (luxury espresso brown + metallic gold + warm cream).
 // Reuse these tokens across the site instead of hard-coding hex values.
 // ============================================================================
@@ -16,18 +16,18 @@ module.exports = {
     extend: {
       colors: {
         // --- Dark tones ---
-        espresso: "#2B1B10", // Primary dark — backgrounds, footer
+        espresso: "#2B1B10", // Primary dark backgrounds, footer
         coffee: "#4A2E1C", // Secondary dark
 
         // --- Gold family ---
-        gold: "#C79A4B", // Primary accent — metallic gold
-        champagne: "#E5C87E", // Light gold — highlights, hover
-        bronze: "#A87B33", // Deep gold — borders, dividers
+        gold: "#C79A4B", // Primary accent metallic gold
+        champagne: "#E5C87E", // Light gold highlights, hover
+        bronze: "#A87B33", // Deep gold borders, dividers
 
         // --- Light tones ---
-        cream: "#F7F3EA", // Warm cream / ivory — light background
-        ivory: "#F1E7DA", // Warm ivory — hero watermark background
-        offwhite: "#FDFBF7", // Off-white — card / surface light
+        cream: "#F7F3EA", // Warm cream / ivory light background
+        ivory: "#F1E7DA", // Warm ivory hero watermark background
+        offwhite: "#FDFBF7", // Off-white card / surface light
 
         // --- Text ---
         charcoal: "#2B1B10", // Body text on light (dark charcoal brown)
@@ -50,7 +50,7 @@ module.exports = {
         script: ["var(--font-greatvibes)", "cursive"],
       },
       backgroundImage: {
-        // Signature gold gradient — bronze → champagne → gold
+        // Signature gold gradient bronze → champagne → gold
         "gold-gradient":
           "linear-gradient(135deg, #A87B33 0%, #E5C87E 50%, #C79A4B 100%)",
         "gold-gradient-vert":

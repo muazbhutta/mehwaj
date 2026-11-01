@@ -32,3 +32,6 @@ yarn-error.log*
 next-env.d.ts
 ".claude" 
 ".claude" 
+
+# handoff brief and design screenshots (not committed)
+/_handoff/
