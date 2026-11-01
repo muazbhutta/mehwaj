@@ -5,10 +5,12 @@
 // browser default, whose open list is drawn by the operating system and cannot
 // be brought in line with the brand.
 //
-// It is a combobox in the ARIA sense: the button owns the listbox, the active
-// option is announced through aria-activedescendant, and the arrow keys, Enter,
-// Escape, Home and End behave the way a native select does. Long lists can turn
-// on a search box; short ones leave it off.
+// It comes in two shapes. A short list keeps a button and a panel. A long one,
+// such as the country list, turns the field itself into the search box: you
+// click it, type straight into it, and the list below narrows as you go. Both
+// follow the ARIA combobox pattern, so the arrow keys, Enter, Escape, Home and
+// End behave the way a native select does and the active row is announced
+// through aria-activedescendant.
 // ============================================================================
 
 import { useEffect, useId, useMemo, useRef, useState } from "react";
@@ -33,7 +35,7 @@ interface Props {
   onChange: (value: string) => void;
   groups: DropdownGroup[];
   placeholder: string;
-  /** Turns the search box on, for a list too long to scan. */
+  /** Present for a list long enough to need typing. */
   search?: { placeholder: string; noMatch: string };
 }
 
@@ -54,7 +56,7 @@ export default function Dropdown({
   search,
 }: Props) {
   const baseId = useId();
-  const buttonId = `${baseId}-button`;
+  const fieldId = `${baseId}-field`;
   const listId = `${baseId}-list`;
 
   const [open, setOpen] = useState(false);
@@ -62,7 +64,7 @@ export default function Dropdown({
   const [active, setActive] = useState(0);
 
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const searchRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
 
   const filtered = useMemo(() => {
@@ -95,14 +97,13 @@ export default function Dropdown({
     return () => document.removeEventListener("mousedown", onPointerDown);
   }, [open]);
 
-  // Put the caret in the search box as soon as the panel opens, and start on
-  // the row that is already selected.
+  // Opening starts on the row that is already selected and clears what was
+  // typed last time; closing puts the chosen label back in the field.
   useEffect(() => {
     if (!open) {
       setQuery("");
       return;
     }
-    if (search) searchRef.current?.focus();
     const current = flat.findIndex((option) => option.label === value);
     setActive(current >= 0 ? current : 0);
     // Only when the panel opens, not on every keystroke.
@@ -120,11 +121,14 @@ export default function Dropdown({
   function choose(option: DropdownOption) {
     onChange(option.label);
     setOpen(false);
+    if (search) inputRef.current?.blur();
   }
 
   function onKeyDown(event: React.KeyboardEvent) {
     if (!open) {
       if (["ArrowDown", "Enter", " "].includes(event.key)) {
+        // A space belongs to the search field once it is open for typing.
+        if (event.key === " " && search) return;
         event.preventDefault();
         setOpen(true);
       }
@@ -134,6 +138,9 @@ export default function Dropdown({
     switch (event.key) {
       case "Escape":
         event.preventDefault();
+        setOpen(false);
+        break;
+      case "Tab":
         setOpen(false);
         break;
       case "ArrowDown":
@@ -147,10 +154,12 @@ export default function Dropdown({
         );
         break;
       case "Home":
+        if (search) break;
         event.preventDefault();
         setActive(0);
         break;
       case "End":
+        if (search) break;
         event.preventDefault();
         setActive(Math.max(0, flat.length - 1));
         break;
@@ -163,70 +172,92 @@ export default function Dropdown({
     }
   }
 
+  const chevron = (
+    <svg
+      aria-hidden
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={`h-4 w-4 shrink-0 text-bronze transition-transform duration-200 ${
+        open ? "rotate-180" : ""
+      }`}
+    >
+      <path d="M6 9l6 6 6-6" />
+    </svg>
+  );
+
+  const fieldClasses = `field flex items-center justify-between gap-3 text-start ${
+    open ? "border-bronze ring-2 ring-gold/30" : ""
+  }`;
+
   let index = -1;
 
   return (
     <div ref={wrapperRef} className="relative">
-      <label className="field-label" htmlFor={buttonId}>
+      <label className="field-label" htmlFor={fieldId}>
         {label}
       </label>
 
-      <button
-        id={buttonId}
-        type="button"
-        role="combobox"
-        aria-expanded={open}
-        aria-controls={open ? listId : undefined}
-        aria-haspopup="listbox"
-        aria-activedescendant={
-          open && flat[active] ? `${listId}-option-${active}` : undefined
-        }
-        onClick={() => setOpen((v) => !v)}
-        onKeyDown={onKeyDown}
-        className={`field flex items-center justify-between gap-3 text-start ${
-          open ? "border-bronze ring-2 ring-gold/30" : ""
-        }`}
-      >
-        <span className={value ? "text-espresso" : "text-espresso/40"}>
-          {value || placeholder}
-        </span>
-        <svg
-          aria-hidden
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className={`h-4 w-4 shrink-0 text-bronze transition-transform duration-200 ${
-            open ? "rotate-180" : ""
-          }`}
+      {search ? (
+        // The field is the search box: one place to type in and to choose from.
+        <div
+          className={fieldClasses}
+          onClick={() => {
+            setOpen(true);
+            inputRef.current?.focus();
+          }}
         >
-          <path d="M6 9l6 6 6-6" />
-        </svg>
-      </button>
+          <input
+            ref={inputRef}
+            id={fieldId}
+            type="text"
+            role="combobox"
+            autoComplete="off"
+            aria-expanded={open}
+            aria-controls={open ? listId : undefined}
+            aria-autocomplete="list"
+            aria-activedescendant={
+              open && flat[active] ? `${listId}-option-${active}` : undefined
+            }
+            value={open ? query : value}
+            placeholder={open ? value || search.placeholder : placeholder}
+            onChange={(event) => {
+              setOpen(true);
+              setQuery(event.target.value);
+              setActive(0);
+            }}
+            onKeyDown={onKeyDown}
+            className="w-full bg-transparent font-sans text-sm text-espresso outline-none placeholder:text-espresso/40"
+          />
+          {chevron}
+        </div>
+      ) : (
+        <button
+          id={fieldId}
+          type="button"
+          role="combobox"
+          aria-expanded={open}
+          aria-controls={open ? listId : undefined}
+          aria-haspopup="listbox"
+          aria-activedescendant={
+            open && flat[active] ? `${listId}-option-${active}` : undefined
+          }
+          onClick={() => setOpen((v) => !v)}
+          onKeyDown={onKeyDown}
+          className={fieldClasses}
+        >
+          <span className={value ? "text-espresso" : "text-espresso/40"}>
+            {value || placeholder}
+          </span>
+          {chevron}
+        </button>
+      )}
 
       {open && (
         <div className="dropdown-panel absolute inset-x-0 top-full z-30 mt-2 rounded-xl border border-bronze/30 bg-white shadow-card">
-          {search && (
-            <div className="border-b border-bronze/20 p-2">
-              <input
-                ref={searchRef}
-                type="text"
-                value={query}
-                onChange={(event) => {
-                  setQuery(event.target.value);
-                  setActive(0);
-                }}
-                onKeyDown={onKeyDown}
-                placeholder={search.placeholder}
-                aria-label={search.placeholder}
-                aria-controls={listId}
-                className="w-full rounded-lg border border-bronze/25 bg-offwhite px-3 py-2 font-sans text-sm text-espresso outline-none placeholder:text-espresso/40 focus:border-bronze"
-              />
-            </div>
-          )}
-
           <div className="relative">
             <ul
               ref={listRef}

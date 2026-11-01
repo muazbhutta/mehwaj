@@ -43,13 +43,7 @@ export default function CityPage({
         dangerouslySetInnerHTML={jsonLd(cityBusinessSchema(locale, slug))}
       />
 
-      <PageBand
-        crumbs={[
-          { label: dict.common.home, href: localePath(locale, "/") },
-          { label: crumbLabel },
-        ]}
-        title={city.h1}
-      />
+      <PageBand title={city.h1} />
 
       <section className="section bg-cream">
         <div className="container-mw grid gap-10 lg:grid-cols-[1.5fr_1fr] lg:gap-14">

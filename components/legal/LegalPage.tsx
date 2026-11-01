@@ -3,8 +3,7 @@
 // Shared layout for the privacy policy, terms of use and disclaimer.
 // ============================================================================
 
-import Breadcrumb from "../ui/Breadcrumb";
-import { getDictionary, localePath } from "@/lib/i18n";
+import { getDictionary } from "@/lib/i18n";
 import { breadcrumbSchema, jsonLd } from "@/lib/schema";
 import type { LegalSlug } from "@/lib/site";
 import type { Locale } from "@/lib/i18n/types";
@@ -33,14 +32,7 @@ export default function LegalPage({
 
       <section className="section bg-cream">
         <div className="container-mw max-w-3xl">
-          <Breadcrumb
-            items={[
-              { label: dict.common.home, href: localePath(locale, "/") },
-              { label: page.title },
-            ]}
-          />
-
-          <p className="eyebrow mt-6">{page.eyebrow}</p>
+          <p className="eyebrow">{page.eyebrow}</p>
           <h1 className="h-section">{page.title}</h1>
           <p className="mt-5 font-sans text-base leading-relaxed text-espresso/75">
             {page.intro}

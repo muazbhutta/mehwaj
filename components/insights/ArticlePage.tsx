@@ -5,7 +5,6 @@
 
 import Link from "next/link";
 import Icon from "../Icons";
-import Breadcrumb from "../ui/Breadcrumb";
 import RichText from "../ui/RichText";
 import { getDictionary, localePath } from "@/lib/i18n";
 import { articleSchema, breadcrumbSchema, jsonLd } from "@/lib/schema";
@@ -41,15 +40,7 @@ export default function ArticlePage({
 
       <article className="section bg-cream">
         <div className="container-mw max-w-3xl">
-          <Breadcrumb
-            items={[
-              { label: dict.common.home, href: localePath(locale, "/") },
-              { label: idx.eyebrow, href: localePath(locale, "/insights") },
-              { label: post.tag },
-            ]}
-          />
-
-          <p className="eyebrow mt-6">{post.tag}</p>
+          <p className="eyebrow">{post.tag}</p>
           <h1 className="mt-3 font-serif text-3xl font-bold leading-tight text-espresso sm:text-4xl">
             {post.title}
           </h1>

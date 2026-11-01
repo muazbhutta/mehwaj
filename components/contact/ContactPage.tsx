@@ -5,10 +5,9 @@
 
 import { Suspense } from "react";
 import Reveal from "../Reveal";
-import Breadcrumb from "../ui/Breadcrumb";
 import ContactFormWithService from "../forms/ContactFormWithService";
 import { FIRM } from "@/lib/site";
-import { getDictionary, localePath } from "@/lib/i18n";
+import { getDictionary } from "@/lib/i18n";
 import { breadcrumbSchema, jsonLd } from "@/lib/schema";
 import type { Locale } from "@/lib/i18n/types";
 
@@ -34,15 +33,8 @@ export default function ContactPage({ locale }: { locale: Locale }) {
       <section className="section bg-cream">
         <div className="container-mw grid gap-10 lg:grid-cols-2 lg:gap-14">
           <div>
-            <Breadcrumb
-              items={[
-                { label: dict.common.home, href: localePath(locale, "/") },
-                { label: c.title },
-              ]}
-            />
-
             <Reveal>
-              <p className="eyebrow mt-6">{c.eyebrow}</p>
+              <p className="eyebrow">{c.eyebrow}</p>
               <h1 className="h-section">{c.title}</h1>
               <p className="mt-4 max-w-md font-sans text-base leading-relaxed text-espresso/75">
                 {c.intro}

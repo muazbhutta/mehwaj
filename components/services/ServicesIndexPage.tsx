@@ -54,14 +54,7 @@ export default function ServicesIndexPage({ locale }: { locale: Locale }) {
         )}
       />
 
-      <PageBand
-        crumbs={[
-          { label: dict.common.home, href: localePath(locale, "/") },
-          { label: idx.title },
-        ]}
-        title={idx.title}
-        intro={idx.intro}
-      />
+      <PageBand title={idx.title} intro={idx.intro} />
 
       <section className="section bg-cream">
         <div className="container-mw grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

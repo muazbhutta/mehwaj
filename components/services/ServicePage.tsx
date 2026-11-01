@@ -6,7 +6,6 @@
 import Link from "next/link";
 import Icon, { Arrow } from "../Icons";
 import Reveal from "../Reveal";
-import Breadcrumb from "../ui/Breadcrumb";
 import { serviceGroupOf } from "@/lib/site";
 import { getDictionary, localePath } from "@/lib/i18n";
 import { breadcrumbSchema, serviceSchema, jsonLd } from "@/lib/schema";
@@ -45,16 +44,9 @@ export default function ServicePage({
       <section className="section bg-cream">
         <div className="container-mw grid gap-12 lg:grid-cols-[1.5fr_1fr] lg:gap-14">
           <div>
-            <Breadcrumb
-              items={[
-                { label: dict.common.home, href: localePath(locale, "/") },
-                { label: idx.title, href: localePath(locale, "/services") },
-                { label: groupLabel },
-              ]}
-            />
-
             <Reveal>
-              <h1 className="mt-5 font-serif text-3xl font-bold text-espresso sm:text-4xl lg:text-5xl">
+              <p className="eyebrow">{groupLabel}</p>
+              <h1 className="mt-3 font-serif text-3xl font-bold text-espresso sm:text-4xl lg:text-5xl">
                 {service.title}
               </h1>
               <p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-espresso/75 sm:text-lg">

@@ -5,10 +5,9 @@
 
 import Reveal from "../Reveal";
 import Avatar from "../ui/Avatar";
-import Breadcrumb from "../ui/Breadcrumb";
 import RichText from "../ui/RichText";
 import { PEOPLE } from "@/lib/site";
-import { getDictionary, localePath } from "@/lib/i18n";
+import { getDictionary } from "@/lib/i18n";
 import { breadcrumbSchema, jsonLd } from "@/lib/schema";
 import type { Locale } from "@/lib/i18n/types";
 
@@ -32,14 +31,7 @@ export default function AboutPage({ locale }: { locale: Locale }) {
       <section className="dot-pattern bg-espresso">
         <div className="container-mw grid gap-10 py-12 lg:grid-cols-[1.5fr_1fr] lg:gap-14 lg:py-16">
           <div>
-            <Breadcrumb
-              variant="light"
-              items={[
-                { label: dict.common.home, href: localePath(locale, "/") },
-                { label: a.h1 },
-              ]}
-            />
-            <p className="eyebrow-light mt-5">{a.eyebrow}</p>
+            <p className="eyebrow-light">{a.eyebrow}</p>
             <h1 className="mt-3 font-serif text-3xl font-bold text-cream sm:text-4xl lg:text-5xl">
               {a.h1}
             </h1>
