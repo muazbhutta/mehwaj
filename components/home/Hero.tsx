@@ -46,7 +46,7 @@ export default function Hero({
   return (
     <section className="bg-cream">
       <div className="container-mw grid items-center gap-12 py-14 lg:grid-cols-2 lg:gap-16 lg:py-20">
-        <Reveal>
+        <Reveal className="stagger">
           <p className="eyebrow">{hero.eyebrow}</p>
           <h1 className="mt-5 font-serif text-[2.1rem] font-bold leading-[1.15] text-espresso sm:text-5xl lg:text-[3.4rem]">
             {hero.h1}

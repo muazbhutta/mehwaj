@@ -114,7 +114,7 @@ export default function SecondmentsPage({ locale }: { locale: Locale }) {
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {JURISDICTION_CODES.map((code, i) => (
               <Reveal key={code} delay={i * 0.06}>
-                <div className="card h-full">
+                <div className="card card-lift h-full">
                   <span
                     aria-hidden
                     className="flex h-12 w-12 items-center justify-center rounded-full bg-espresso font-sans text-xs font-bold text-gold"

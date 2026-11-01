@@ -165,6 +165,31 @@ full length `leader-mehar.png`, which is kept for other uses.
 
 ---
 
+## Motion
+
+The site moves, but quietly: sections fade and rise as they come into view,
+cards lift a few pixels under the pointer, the arrow on a button drifts away
+from its label, the header picks up a shadow once the page scrolls, and the FAQ
+answers slide rather than jump.
+
+Three rules keep it maintainable:
+
+- Everything is CSS, driven by the classes in `globals.css`. The only
+  JavaScript is `Reveal`, which adds `is-visible`, and the two small scroll
+  listeners in `Header` and `WhatsAppButton`.
+- Nothing is hidden by motion. The hidden state only arms once the inline
+  script sets `js-reveal` on `<html>`, so without JavaScript the page is simply
+  static and complete.
+- `prefers-reduced-motion` is honoured by one blanket rule in `globals.css`,
+  so a new animation is covered without extra work.
+
+Useful classes: `.reveal` (fade and rise on scroll), `.stagger` on a parent
+inside a `.reveal` so its children arrive one after another, `.card-lift` for a
+card that answers to the pointer, and `.nav-link` for the growing gold
+underline.
+
+---
+
 ## SEO
 
 - Each page sets its own title, description, canonical and

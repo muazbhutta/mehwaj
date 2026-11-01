@@ -31,7 +31,7 @@ export default function ServicesGrid({
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {SERVICE_GROUPS.map((group, i) => (
             <Reveal key={group} delay={i * 0.06}>
-              <div className="card h-full p-6">
+              <div className="card card-lift h-full p-6">
                 <h3 className="eyebrow">{dict.common.serviceGroups[group]}</h3>
                 <ul className="mt-4">
                   {HOME_SERVICE_LINES[group].map((slug) => {

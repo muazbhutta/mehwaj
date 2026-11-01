@@ -67,7 +67,7 @@ export default function ServicesIndexPage({ locale }: { locale: Locale }) {
         <div className="container-mw grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {SERVICE_GROUPS.map((group, gi) => (
             <Reveal key={group} delay={gi * 0.06}>
-              <div className="card h-full p-6">
+              <div className="card card-lift h-full p-6">
                 <h2 className="eyebrow">
                   <span className="text-espresso/40">
                     {String(gi + 1).padStart(2, "0")}

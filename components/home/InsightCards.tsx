@@ -29,7 +29,7 @@ export default function InsightCards({
             const post = dict.posts[slug];
             return (
               <Reveal key={slug} delay={i * 0.06}>
-                <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-bronze/25 bg-white">
+                <article className="card-lift flex h-full flex-col overflow-hidden rounded-2xl border border-bronze/25 bg-white">
                   <p className="dot-pattern bg-espresso px-6 py-4 font-sans text-xs font-semibold uppercase tracking-label text-gold">
                     {post.tag}
                   </p>

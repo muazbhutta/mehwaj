@@ -73,7 +73,7 @@ export default function AboutPage({ locale }: { locale: Locale }) {
                 <Reveal key={person.slug} delay={i * 0.06}>
                   <article
                     id={person.slug}
-                    className="card h-full scroll-mt-28"
+                    className="card card-lift h-full scroll-mt-28"
                   >
                     <div className="flex items-start gap-5">
                       <Avatar

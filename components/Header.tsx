@@ -30,6 +30,7 @@ export default function Header({
 }) {
   const pathname = usePathname() || "/";
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const here = neutralPath(pathname);
   const otherHref = locale === "en" ? localePath("ar", here) : here;
@@ -39,13 +40,28 @@ export default function Header({
     setOpen(false);
   }, [pathname]);
 
+  // A soft shadow appears once the page has moved, so the bar reads as a
+  // layer above the content rather than part of it.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const isActive = (href: string) =>
     href === "/" ? here === "/" : here === href || here.startsWith(`${href}/`);
 
   const consultHref = whatsappHref(dict.common.whatsappConsultMessage);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-bronze/20 bg-white">
+    <header
+      className={`sticky top-0 z-50 border-b bg-white transition-shadow duration-300 ${
+        scrolled
+          ? "border-bronze/25 shadow-[0_6px_24px_-16px_rgba(43,27,16,0.5)]"
+          : "border-bronze/20"
+      }`}
+    >
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:start-4 focus:top-3 focus:z-50 focus:rounded-full focus:bg-espresso focus:px-4 focus:py-2 focus:text-sm focus:text-cream"
@@ -65,9 +81,9 @@ export default function Header({
               key={item.href}
               href={localePath(locale, item.href)}
               aria-current={isActive(item.href) ? "page" : undefined}
-              className={`font-sans text-[0.95rem] transition-colors ${
+              className={`nav-link font-sans text-[0.95rem] ${
                 isActive(item.href)
-                  ? "border-b-2 border-gold pb-1 text-bronze"
+                  ? "text-bronze"
                   : "text-espresso hover:text-bronze"
               }`}
             >

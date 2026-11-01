@@ -40,17 +40,27 @@ export default function Faq({ dict }: { dict: Dictionary }) {
                     <span>{item.question}</span>
                     <Icon
                       name={isOpen ? "minus" : "plus"}
-                      className="h-5 w-5 shrink-0 text-bronze"
+                      className={`h-5 w-5 shrink-0 text-bronze transition-transform duration-300 ${
+                        isOpen ? "rotate-180" : ""
+                      }`}
                     />
                   </button>
                 </h3>
-                {isOpen && (
-                  <div id={`faq-panel-${i}`} className="pb-6">
-                    <p className="font-sans text-base leading-relaxed text-espresso/75">
+                {/* The grid row collapses from 1fr to 0fr, which gives the
+                    answer a real height to animate between. */}
+                <div
+                  id={`faq-panel-${i}`}
+                  aria-hidden={!isOpen}
+                  className={`grid transition-[grid-template-rows] duration-300 ease-out ${
+                    isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <p className="pb-6 font-sans text-base leading-relaxed text-espresso/75">
                       {item.answer}
                     </p>
                   </div>
-                )}
+                </div>
               </div>
             );
           })}

@@ -207,7 +207,7 @@ export default function Dropdown({
       </button>
 
       {open && (
-        <div className="absolute inset-x-0 top-full z-30 mt-2 rounded-xl border border-bronze/30 bg-white shadow-card">
+        <div className="dropdown-panel absolute inset-x-0 top-full z-30 mt-2 rounded-xl border border-bronze/30 bg-white shadow-card">
           {search && (
             <div className="border-b border-bronze/20 p-2">
               <input

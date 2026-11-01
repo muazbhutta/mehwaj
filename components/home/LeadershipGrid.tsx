@@ -31,7 +31,7 @@ export default function LeadershipGrid({
             const copy = dict.about.people[person.slug];
             return (
               <Reveal key={person.slug} delay={i * 0.06}>
-                <div className="card flex h-full items-center gap-5">
+                <div className="card card-lift flex h-full items-center gap-5">
                   <Avatar
                     image={person.image}
                     initials={person.initials}

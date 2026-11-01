@@ -26,7 +26,7 @@ function Card({
 }) {
   return (
     <Reveal delay={delay}>
-      <div className="card h-full">
+      <div className="card card-lift h-full">
         <p className="eyebrow">{eyebrow}</p>
         <h2 className="mt-3 font-serif text-2xl font-bold text-espresso sm:text-[1.7rem]">
           {title}

@@ -70,7 +70,7 @@ export default function CityPage({
                 <li key={chip.label}>
                   <Link
                     href={localePath(locale, `/services/${chip.slug}`)}
-                    className="flex items-center justify-between gap-3 rounded-xl border border-bronze/30 bg-white px-4 py-3 font-sans text-sm text-espresso transition-colors hover:border-bronze hover:text-bronze"
+                    className="card-lift flex items-center justify-between gap-3 rounded-xl border border-bronze/30 bg-white px-4 py-3 font-sans text-sm text-espresso hover:border-bronze hover:text-bronze"
                   >
                     <span>{chip.label}</span>
                     <Arrow className="h-4 w-4 shrink-0 text-bronze" />
