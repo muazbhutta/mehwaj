@@ -167,31 +167,11 @@ export const ROLE_KEYS = [
 export type RoleKey = (typeof ROLE_KEYS)[number];
 
 // ---------------------------------------------------------------------------
-// Country options for the forms. Arabic pages put the Gulf countries first and
-// Pakistan after Oman, which each dictionary handles through `countryOrder`.
+// Countries. The full list lives in lib/countries.ts; these are the codes the
+// forms pin to the top. Each dictionary sets its own order for the general
+// forms, while the secondments form always leads with the Gulf.
 // ---------------------------------------------------------------------------
-export const COUNTRY_KEYS = [
-  "pakistan",
-  "saudiArabia",
-  "uae",
-  "qatar",
-  "kuwait",
-  "bahrain",
-  "oman",
-  "other",
-] as const;
-export type CountryKey = (typeof COUNTRY_KEYS)[number];
-
-/** Countries offered on the secondments request form (Gulf firms only). */
-export const SECONDMENT_COUNTRY_KEYS: CountryKey[] = [
-  "saudiArabia",
-  "uae",
-  "qatar",
-  "kuwait",
-  "bahrain",
-  "oman",
-  "other",
-];
+export const GCC_CODES = ["SA", "AE", "QA", "KW", "BH", "OM"];
 
 // ---------------------------------------------------------------------------
 // Insights: article slugs in display order (four new ones, then the three

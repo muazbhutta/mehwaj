@@ -8,6 +8,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import CountrySelect from "./CountrySelect";
 import { FIRM, mailtoHref, whatsappHref } from "@/lib/site";
 import { localePath } from "@/lib/i18n";
 import type { Dictionary, Locale } from "@/lib/i18n/types";
@@ -116,24 +117,14 @@ export default function ContactForm({
           autoComplete="organization"
         />
 
-        <div>
-          <label className="field-label" htmlFor="cf-country">
-            {f.country}
-          </label>
-          <select
-            id="cf-country"
-            className="field"
-            value={values.country}
-            onChange={(e) => set("country")(e.target.value)}
-          >
-            <option value="">{f.choosePlaceholder}</option>
-            {dict.common.countryOrder.map((key) => (
-              <option key={key} value={dict.common.countries[key]}>
-                {dict.common.countries[key]}
-              </option>
-            ))}
-          </select>
-        </div>
+        <CountrySelect
+          label={f.country}
+          value={values.country}
+          onChange={set("country")}
+          locale={locale}
+          dict={dict}
+          priorityCodes={dict.common.priorityCountryCodes}
+        />
 
         <Field
           id="cf-email"

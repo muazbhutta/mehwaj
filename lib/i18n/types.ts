@@ -6,7 +6,6 @@
 
 import type {
   CitySlug,
-  CountryKey,
   JurisdictionCode,
   LegalSlug,
   RoleKey,
@@ -155,8 +154,14 @@ export interface Dictionary {
     languageSwitchLabel: string;
     otherLanguage: string;
     serviceGroups: Record<ServiceGroupKey, string>;
-    countries: Record<CountryKey, string>;
-    countryOrder: CountryKey[];
+    /** Label for the final "Other" entry in a country list. */
+    countryOther: string;
+    countrySearch: string;
+    countryCommon: string;
+    countryAll: string;
+    countryNoMatch: string;
+    /** ISO codes pinned to the top of a country list, in reading order. */
+    priorityCountryCodes: string[];
     workModes: { onSite: string; remote: string; hybrid: string };
     serviceOptions: string[];
     iNeedOptions: string[];

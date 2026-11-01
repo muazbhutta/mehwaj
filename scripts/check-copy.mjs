@@ -65,6 +65,28 @@ function isCommentLine(line) {
   );
 }
 
+/**
+ * The parts of a line that are actually copy: string literals, JSX text
+ * between tags, and a bare prose line inside a multi line JSX block. Code is
+ * left alone, so arithmetic such as `length - 1` is not mistaken for a dash.
+ */
+function copySegments(line) {
+  const segments = [];
+
+  const literals = line.match(
+    /"(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*'|`(?:[^`\\]|\\.)*`/g
+  );
+  if (literals) segments.push(...literals);
+
+  const jsxText = line.match(/>[^<>{}]+</g);
+  if (jsxText) segments.push(...jsxText);
+
+  // A line of plain prose wrapped across several lines of JSX.
+  if (!/["'`<>{};=()]/.test(line)) segments.push(line);
+
+  return segments;
+}
+
 function walk(dir, files = []) {
   for (const entry of readdirSync(dir)) {
     if (entry === "node_modules" || entry === ".next") continue;
@@ -92,14 +114,18 @@ for (const root of ROOTS) {
     const lines = readFileSync(file, "utf8").split(/\r?\n/);
     lines.forEach((line, i) => {
       if (isCommentLine(line)) return;
+      const segments = copySegments(line);
+      if (segments.length === 0) return;
+
       for (const rule of RULES) {
-        if (rule.test.test(line)) {
+        const hit = segments.find((segment) => rule.test.test(segment));
+        if (hit) {
           problems.push({
             file: relative(cwd, file),
             line: i + 1,
             rule: rule.id,
             message: rule.message,
-            text: line.trim().slice(0, 120),
+            text: hit.trim().slice(0, 120),
           });
         }
       }

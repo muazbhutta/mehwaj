@@ -27,6 +27,7 @@ npm run dev      # http://localhost:3100
 | `npm run lint`     | ESLint through `next lint`                              |
 | `npm run check:copy` | House style check, see **Copy rules** below           |
 | `npm run gen:favicons` | Regenerate the favicon set from the logo            |
+| `npm run gen:countries` | Rebuild `lib/countries.ts` from the Intl data      |
 
 The folder name contains an ampersand, which breaks the plain `next` binary
 resolution on Windows, so every script calls node against
@@ -101,6 +102,22 @@ the people list) live in `lib/site.ts` and are shared by both languages.
 
 Inside an article or a biography, `**text**` renders bold. Nothing else is
 interpreted.
+
+### Countries
+
+The country pickers on the contact and secondment forms offer every country,
+in English and in Arabic. The list is generated, not hand written: run
+`npm run gen:countries` to rebuild `lib/countries.ts` from the Intl data that
+ships with Node. Two things in that script are worth knowing:
+
+- `AR_OVERRIDES` and `EN_OVERRIDES` keep a few names in line with the firm
+  glossary, for example Oman and the British Virgin Islands.
+- The script refuses to write a name containing a dash, so the generated file
+  always satisfies `check:copy`.
+
+Which countries sit in the short group at the top is a copy decision, set by
+`priorityCountryCodes` in each dictionary. The secondments form overrides it
+with `GCC_CODES` from `lib/site.ts`, so that form always leads with the Gulf.
 
 ### Copy rules
 

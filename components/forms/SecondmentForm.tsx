@@ -8,7 +8,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Arrow } from "../Icons";
-import { mailtoHref, whatsappHref, ROLE_KEYS, SECONDMENT_COUNTRY_KEYS } from "@/lib/site";
+import CountrySelect from "./CountrySelect";
+import { mailtoHref, whatsappHref, ROLE_KEYS, GCC_CODES } from "@/lib/site";
 import { localePath } from "@/lib/i18n";
 import type { Dictionary, Locale } from "@/lib/i18n/types";
 
@@ -102,13 +103,13 @@ export default function SecondmentForm({
         <Text id="sf-name" label={`${f.fullName} *`} value={values.fullName} onChange={set("fullName")} autoComplete="name" />
         <Text id="sf-firm" label={`${f.firmCompany} *`} value={values.firm} onChange={set("firm")} autoComplete="organization" />
 
-        <Select
-          id="sf-country"
+        <CountrySelect
           label={f.country}
-          placeholder={f.choosePlaceholder}
           value={values.country}
           onChange={set("country")}
-          options={SECONDMENT_COUNTRY_KEYS.map((key) => dict.common.countries[key])}
+          locale={locale}
+          dict={dict}
+          priorityCodes={GCC_CODES}
         />
 
         <Text id="sf-email" label={`${f.email} *`} type="email" value={values.email} onChange={set("email")} autoComplete="email" dir="ltr" />
