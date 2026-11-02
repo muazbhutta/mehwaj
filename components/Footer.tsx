@@ -19,7 +19,7 @@ function Column({
 }) {
   return (
     <div>
-      <h2 className="font-sans text-xs font-semibold uppercase tracking-label text-white">
+      <h2 className="font-sans text-xs font-semibold uppercase tracking-label text-cream">
         {heading}
       </h2>
       <ul className="mt-4 space-y-2.5">{children}</ul>

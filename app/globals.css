@@ -113,11 +113,13 @@
     @apply font-sans text-xs font-semibold uppercase tracking-label text-bronze;
   }
 
-  /* The same label as .eyebrow, for the espresso bands. White rather than
+  /* The same label as .eyebrow, for the espresso bands. Cream rather than
      gold: at this size and weight the gold sits too close to the brown
-     behind it to read comfortably. */
+     behind it to read comfortably. Cream rather than plain white, so it
+     stays in the same warm family as the brown instead of cutting against
+     it. */
   .eyebrow-light {
-    @apply font-sans text-xs font-semibold uppercase tracking-label text-white;
+    @apply font-sans text-xs font-semibold uppercase tracking-label text-cream;
   }
 
   /* --- Section heading --- */
