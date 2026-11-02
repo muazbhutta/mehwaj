@@ -45,6 +45,34 @@
     font-family: var(--font-plex-arabic), system-ui, sans-serif;
   }
 
+  /* Arabic is a joined script. Letter spacing pulls the joins apart, so the
+     tracked labels the Latin side uses came out as loose, disconnected
+     characters. Tracking is dropped on Arabic pages, except inside the runs
+     that are deliberately Latin, which carry dir="ltr": the wordmark, the
+     phone numbers and the country codes. */
+  html[lang="ar"]
+    :is(
+      .eyebrow,
+      .eyebrow-light,
+      .btn-gold,
+      .btn-outline,
+      .btn-outline-light,
+      .tracking-label,
+      .tracking-wide
+    ):not([dir="ltr"]):not([dir="ltr"] *) {
+    letter-spacing: normal;
+  }
+
+  /* Arabic sits taller than Latin and carries marks above and below the
+     line, so the headline leading tuned for English crowds it. */
+  html[lang="ar"] h1 {
+    line-height: 1.4;
+  }
+
+  html[lang="ar"] :is(h2, h3, h4) {
+    line-height: 1.45;
+  }
+
   /* Great Vibes has no Arabic glyphs, so the script line falls back to the
      Arabic face at a lighter weight on Arabic pages. */
   html[lang="ar"] .font-script {

@@ -22,7 +22,7 @@ export const secondments: Dictionary["secondments"] = {
     eyebrow: "Clients served",
     title: "Experience across the Gulf, offshore and Pakistan",
     intro:
-      "Our professionals have worked on secondment with international accounting networks in Saudi Arabia, Qatar and the BVI (UK), and on audit and tax engagements across Pakistan.",
+      "Our professionals have worked on secondment with international accounting networks in Saudi Arabia, the United Arab Emirates, Qatar and the BVI (UK), and on audit and tax engagements across Pakistan.",
     statsHeading: "Secondment: clients served by our team",
     stats: [
       {
