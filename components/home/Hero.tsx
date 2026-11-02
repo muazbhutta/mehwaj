@@ -107,12 +107,12 @@ export default function Hero({
           ) : (
             <div className="dot-pattern flex aspect-[4/3] flex-col items-center justify-center rounded-3xl bg-espresso px-8 text-center">
               <Image
-                src="/images/mw-logo.svg"
+                src="/images/mw-logo-v2.png"
                 alt=""
-                width={1600}
-                height={1414}
-                unoptimized
-                className="h-24 w-auto"
+                width={1024}
+                height={1024}
+                sizes="96px"
+                className="h-24 w-24"
               />
               <p className="mt-6 font-script text-3xl text-champagne sm:text-4xl">
                 {hero.panelCaption}

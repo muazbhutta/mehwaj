@@ -65,7 +65,7 @@ export function organizationSchema() {
         url: SITE_URL,
         logo: {
           "@type": "ImageObject",
-          url: `${SITE_URL}/images/mw-logo.png`,
+          url: `${SITE_URL}/images/mw-logo-square.png`,
         },
         description: en.home.meta.description,
         foundingDate: FIRM.foundingYear,
@@ -84,7 +84,7 @@ export function organizationSchema() {
         name: FIRM.fullName,
         url: SITE_URL,
         image: `${SITE_URL}/images/og-image.jpg`,
-        logo: `${SITE_URL}/images/mw-logo.png`,
+        logo: `${SITE_URL}/images/mw-logo-square.png`,
         description: en.home.meta.description,
         telephone: FIRM.office.display,
         email: FIRM.email.display,

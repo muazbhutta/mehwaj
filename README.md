@@ -49,7 +49,7 @@ npm run dev      # http://localhost:3100
 | `npm run start`    | Serve the production build                              |
 | `npm run lint`     | ESLint through `next lint`                              |
 | `npm run check:copy` | House style check, see **Copy rules** below           |
-| `npm run gen:favicons` | Regenerate the favicon set from the logo            |
+| `npm run gen:logo` | Rebuild every logo and icon from `MW-Logo.png`          |
 | `npm run gen:countries` | Rebuild `lib/countries.ts` from the Intl data      |
 
 The folder name contains an ampersand, which breaks the plain `next` binary
@@ -125,6 +125,27 @@ the people list) live in `lib/site.ts` and are shared by both languages.
 
 Inside an article or a biography, `**text**` renders bold. Nothing else is
 interpreted.
+
+### The logo
+
+`MW-Logo.png` at the repository root is the master artwork. `npm run gen:logo`
+turns it into everything the site serves: the badge the header and footer use,
+the square logo the structured data points at, the favicons and the home screen
+tiles. Replace that one file and rerun the script rather than editing any of
+the generated images.
+
+Two things in that script are worth knowing. The monogram is white and its
+strokes run out past the brown disc into the white around it, so the letterform
+and the background are one connected region and no amount of keying will
+separate them; the artwork is therefore cut to a circle and used as a badge,
+which is invisible on the white header and reads as a medallion on the espresso
+footer. And the favicons are not the whole mark but a crop of the brown disc,
+because at 16 pixels the outer gold swirl is noise while the disc still reads.
+
+Every icon is declared once, in `lib/metadata.ts`, and served from `/public`.
+There are deliberately no icon files under `app/`, which would add a second,
+unversioned set of links. The `?v=2` on those URLs is what gets a changed
+favicon past browsers, which cache them hard.
 
 ### Countries
 

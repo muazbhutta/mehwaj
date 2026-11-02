@@ -32,13 +32,13 @@ export default function Logo({
       className={`group flex items-center gap-3 ${className}`}
     >
       <Image
-        src="/images/mw-logo.svg"
+        src="/images/mw-logo-v2.png"
         alt=""
-        width={1600}
-        height={1414}
+        width={1024}
+        height={1024}
         priority
-        unoptimized
-        className="h-11 w-auto shrink-0 sm:h-12"
+        sizes="48px"
+        className="h-11 w-11 shrink-0 sm:h-12 sm:w-12"
       />
       <span className="flex flex-col whitespace-nowrap leading-none" dir="ltr">
         <span
