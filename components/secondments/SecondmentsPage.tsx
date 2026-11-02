@@ -102,8 +102,106 @@ export default function SecondmentsPage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      {/* E2. Experience */}
+      {/* E2. Clients served, from page one of the firm profile */}
       <section className="section bg-cream">
+        <div className="container-mw">
+          <Reveal>
+            <p className="eyebrow">{s.clients.eyebrow}</p>
+            <h2 className="h-section">{s.clients.title}</h2>
+            <p className="mt-4 max-w-3xl font-sans text-base leading-relaxed text-espresso/75">
+              {s.clients.intro}
+            </p>
+          </Reveal>
+
+          <Reveal>
+            <p className="eyebrow mt-12">{s.clients.statsHeading}</p>
+            <div className="stagger mt-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {s.clients.stats.map((stat) => (
+                <div key={stat.label} className="card card-lift h-full">
+                  <p className="font-serif text-4xl font-bold text-bronze">
+                    {stat.value}
+                  </p>
+                  <h3 className="mt-3 font-sans text-base font-semibold text-espresso">
+                    {stat.label}
+                  </h3>
+                  <p className="mt-2 font-sans text-sm leading-relaxed text-espresso/70">
+                    {stat.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+
+          <Reveal>
+            <p className="eyebrow mt-12">{s.clients.sectorsHeading}</p>
+            <div className="stagger mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {s.clients.sectors.map((sector) => (
+                <div
+                  key={sector.name}
+                  className="rounded-xl border border-bronze/25 bg-white p-5"
+                >
+                  <h3 className="font-sans text-sm font-semibold text-espresso">
+                    {sector.name}
+                  </h3>
+                  <p className="mt-1.5 font-sans text-sm leading-relaxed text-espresso/70">
+                    {sector.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+
+          <Reveal>
+            <div className="mt-12 grid gap-6 lg:grid-cols-2">
+              {[
+                { heading: s.clients.bviHeading, items: s.clients.bvi },
+                { heading: s.clients.pakistanHeading, items: s.clients.pakistan },
+              ].map((column) => (
+                <div key={column.heading} className="card h-full">
+                  <p className="eyebrow">{column.heading}</p>
+                  <ul className="mt-4 space-y-2.5">
+                    {column.items.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-2.5 font-sans text-sm text-espresso/80"
+                      >
+                        <Icon
+                          name="check"
+                          className="mt-0.5 h-4 w-4 shrink-0 text-bronze"
+                        />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+
+          <Reveal>
+            <p className="eyebrow mt-12">{s.clients.pakistanStatsHeading}</p>
+            <div className="stagger mt-5 grid gap-6 sm:grid-cols-3">
+              {s.clients.pakistanStats.map((stat) => (
+                <div key={stat.text} className="card card-lift h-full">
+                  <p className="font-serif text-4xl font-bold text-bronze">
+                    {stat.value}
+                  </p>
+                  <p className="mt-2 font-sans text-sm leading-relaxed text-espresso/70">
+                    {stat.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-8 max-w-4xl font-sans text-xs leading-relaxed text-espresso/55">
+              {s.clients.note}
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* E2b. Secondment experience, from page two of the firm profile */}
+      <section className="section bg-ivory">
         <div className="container-mw">
           <Reveal>
             <p className="eyebrow">{s.experience.eyebrow}</p>
@@ -129,6 +227,11 @@ export default function SecondmentsPage({ locale }: { locale: Locale }) {
                   <p className="mt-2 font-sans text-sm leading-relaxed text-espresso/70">
                     {s.experience.items[code].text}
                   </p>
+                  {s.experience.items[code].clients && (
+                    <p className="mt-4 font-serif text-2xl font-bold text-bronze">
+                      {s.experience.items[code].clients}
+                    </p>
+                  )}
                 </div>
               </Reveal>
             ))}
@@ -141,7 +244,7 @@ export default function SecondmentsPage({ locale }: { locale: Locale }) {
       </section>
 
       {/* E3. Roles */}
-      <section id="roles" className="section bg-ivory">
+      <section id="roles" className="section bg-cream">
         <div className="container-mw">
           <Reveal>
             <p className="eyebrow">{s.roles.eyebrow}</p>

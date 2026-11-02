@@ -250,7 +250,7 @@ export const services: Dictionary["services"] = {
     ],
     ctaHeading: "Request an internal audit proposal",
     ctaText:
-      "Tell us your key processes and concerns.",
+      "Tell us your key procedures and concerns along with your request, and we will share a proposal.",
     meta: {
       title: "Internal Audit & Controls | M.W. & Co.",
       description:
@@ -420,7 +420,7 @@ export const services: Dictionary["services"] = {
       "Final",
     ],
     weNeed:
-      "Year-end trial balance, ledgers, fixed asset register and prior-year statements.",
+      "The information required is agreed with your team at the outset, based on your reporting framework, year-end and the scope of support. For financial statement preparation, this typically starts with the year-end trial balance, general ledger, fixed asset register and prior-year financial statements. For CFO support, we begin with an understanding of your current reporting, key priorities and the decisions management needs support with.",
     youGet: [
       "Annual financial statements with notes",
       "Audit-ready schedules",
@@ -429,7 +429,7 @@ export const services: Dictionary["services"] = {
     ],
     ctaHeading: "Request a proposal",
     ctaText:
-      "Send your year-end date and latest trial balance.",
+      "Share your year-end date, latest trial balance and a brief outline of the support you need. We will respond with a tailored proposal.",
     meta: {
       title: "Financial Statements & CFO Support | M.W. & Co.",
       description:

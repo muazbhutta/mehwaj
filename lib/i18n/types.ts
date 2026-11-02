@@ -267,11 +267,31 @@ export interface Dictionary {
       cardEyebrow: string;
       cardNote: string;
     };
+    /** Built from page one of the firm profile. */
+    clients: {
+      eyebrow: string;
+      title: string;
+      intro: string;
+      statsHeading: string;
+      stats: { value: string; label: string; text: string }[];
+      sectorsHeading: string;
+      sectors: { name: string; text: string }[];
+      bviHeading: string;
+      bvi: string[];
+      pakistanHeading: string;
+      pakistan: string[];
+      pakistanStatsHeading: string;
+      pakistanStats: { value: string; text: string }[];
+      note: string;
+    };
     experience: {
       eyebrow: string;
       title: string;
       intro: string;
-      items: Record<JurisdictionCode, { name: string; text: string }>;
+      items: Record<
+        JurisdictionCode,
+        { name: string; text: string; clients?: string }
+      >;
       availability: string;
     };
     roles: {

@@ -18,6 +18,89 @@ export const secondments: Dictionary["secondments"] = {
     cardNote: "",
   },
 
+  clients: {
+    eyebrow: "Clients served",
+    title: "Experience across the Gulf, offshore and Pakistan",
+    intro:
+      "Our professionals have worked on secondment with international accounting networks in Saudi Arabia, Qatar and the BVI (UK), and on audit and tax engagements across Pakistan.",
+    statsHeading: "Secondment: clients served by our team",
+    stats: [
+      {
+        value: "100+",
+        label: "Saudi Arabia",
+        text: "Group audits, insurance, construction and hospitality. On site.",
+      },
+      {
+        value: "50+",
+        label: "Qatar",
+        text: "Audit fieldwork and reporting support.",
+      },
+      {
+        value: "30+",
+        label: "BVI (UK)",
+        text: "Audits, AUPs and compilations for offshore entities. Remote.",
+      },
+      {
+        value: "2",
+        label: "Delivery models",
+        text: "On-site and fully remote secondments already delivered.",
+      },
+    ],
+    sectorsHeading: "Sectors served in Saudi Arabia",
+    sectors: [
+      {
+        name: "Holding groups",
+        text: "Group audits and consolidations for multi-entity Saudi groups.",
+      },
+      {
+        name: "Insurance",
+        text: "Cooperative insurers and insurance brokerage companies.",
+      },
+      {
+        name: "Capital markets",
+        text: "Investment and financial services companies.",
+      },
+      {
+        name: "Construction",
+        text: "Contractors, real-estate developers and infrastructure groups.",
+      },
+      {
+        name: "Manufacturing",
+        text: "Packaging and electrical industries.",
+      },
+      { name: "Hospitality", text: "An international-brand hotel." },
+      {
+        name: "Technology",
+        text: "Telecom, technology and security-systems companies.",
+      },
+      {
+        name: "Services & trading",
+        text: "Maintenance, real estate, trading and pharmaceutical companies.",
+      },
+    ],
+    bviHeading: "British Virgin Islands (UK) · Remote",
+    bvi: [
+      "Holding and investment companies",
+      "Insurance agencies and financial services",
+      "Marine and leisure",
+      "Agreed-upon procedures and compilations",
+    ],
+    pakistanHeading: "Pakistan · Audit",
+    pakistan: [
+      "Banks, DFIs and investment banks",
+      "Insurance companies",
+      "Steel, textiles, edible oil, tyres and engineering",
+      "Government, healthcare and education",
+    ],
+    pakistanStatsHeading: "Pakistan: audit and tax experience",
+    pakistanStats: [
+      { value: "500+", text: "Income tax returns prepared and filed" },
+      { value: "50+", text: "FBR cases: notices, audits and appeals" },
+      { value: "50+", text: "Statutory audits by our Proprietor" },
+    ],
+    note: "Figures show clients served by M.W. & Co. professionals, including on secondment with international networks and in roles held before the firm was established in 2026. Client names are withheld for confidentiality.",
+  },
+
   experience: {
     eyebrow: "Secondment experience",
     title: "Secondment experience across four jurisdictions",
@@ -27,15 +110,21 @@ export const secondments: Dictionary["secondments"] = {
       ksa: {
         name: "Saudi Arabia",
         text: "Audit and financial reporting with international accounting networks in Riyadh.",
+        clients: "100+ clients",
       },
       uae: {
         name: "United Arab Emirates",
         text: "Audit and accounting support for firms and companies in the UAE.",
       },
-      qa: { name: "Qatar", text: "Audit fieldwork and reporting support." },
+      qa: {
+        name: "Qatar",
+        text: "Audit fieldwork and reporting support.",
+        clients: "50+ clients",
+      },
       bvi: {
         name: "British Virgin Islands (UK)",
-        text: "Audit and financial statement support for BVI-registered entities.",
+        text: "Audit and financial statement support for BVI-registered entities, remotely.",
+        clients: "30+ clients",
       },
     },
     availability:
