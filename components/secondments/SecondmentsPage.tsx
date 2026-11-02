@@ -193,9 +193,6 @@ export default function SecondmentsPage({ locale }: { locale: Locale }) {
               ))}
             </div>
 
-            <p className="mt-8 max-w-4xl font-sans text-xs leading-relaxed text-espresso/55">
-              {s.clients.note}
-            </p>
           </Reveal>
         </div>
       </section>
@@ -217,7 +214,7 @@ export default function SecondmentsPage({ locale }: { locale: Locale }) {
                 <div className="card card-lift h-full">
                   <span
                     aria-hidden
-                    className="flex h-12 w-12 items-center justify-center rounded-full bg-espresso font-sans text-xs font-bold text-gold"
+                    className="flex h-12 w-12 items-center justify-center rounded-full bg-espresso font-sans text-xs font-bold text-white"
                   >
                     {JURISDICTION_LABELS[code]}
                   </span>
@@ -264,7 +261,7 @@ export default function SecondmentsPage({ locale }: { locale: Locale }) {
                     <th
                       key={col}
                       scope="col"
-                      className="px-6 py-4 text-start font-sans text-xs font-semibold uppercase tracking-label text-gold"
+                      className="px-6 py-4 text-start font-sans text-xs font-semibold uppercase tracking-label text-white"
                     >
                       {col}
                     </th>

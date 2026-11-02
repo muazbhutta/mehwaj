@@ -280,7 +280,6 @@ export interface Dictionary {
       pakistan: string[];
       pakistanStatsHeading: string;
       pakistanStats: { value: string; text: string }[];
-      note: string;
     };
     experience: {
       eyebrow: string;

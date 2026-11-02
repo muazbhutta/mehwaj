@@ -98,7 +98,6 @@ export const secondments: Dictionary["secondments"] = {
       { value: "50+", text: "FBR cases: notices, audits and appeals" },
       { value: "50+", text: "Statutory audits by our Proprietor" },
     ],
-    note: "Figures show clients served by M.W. & Co. professionals, including on secondment with international networks and in roles held before the firm was established in 2026. Client names are withheld for confidentiality.",
   },
 
   experience: {
@@ -128,7 +127,7 @@ export const secondments: Dictionary["secondments"] = {
       },
     },
     availability:
-      "Available to accounting firms and companies in Saudi Arabia, the UAE, Qatar, Kuwait, Bahrain and Oman.",
+      "Available to accounting firms and companies internationally, on site or remotely, with experience in Saudi Arabia, the UAE, Qatar and the British Virgin Islands.",
   },
 
   roles: {

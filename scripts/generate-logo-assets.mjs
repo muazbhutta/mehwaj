@@ -198,15 +198,20 @@ async function main() {
   await writeFile(join(IMAGES_DIR, "mw-logo-square.png"), await badge(512));
   console.log("public/images/mw-logo-square.png  (512, for the structured data)");
 
-  // --- browser tab: the disc alone, which survives 16 pixels ---
-  const discs = {};
-  for (const size of [16, 32, 48]) discs[size] = await disc(size);
+  // --- browser tab ---
+  // From 32 pixels up the whole badge reads, and that is what a modern
+  // screen actually shows in the tab, so the icon matches the logo. Only at
+  // 16 does the gold swirl turn to mush; that one size keeps the brown disc
+  // on its own, which still reads.
+  const disc16 = await disc(16);
+  const badge32 = await badge(32);
+  const badge48 = await badge(48);
 
-  await writeFile(join(PUBLIC_DIR, "favicon-16x16.png"), discs[16]);
-  await writeFile(join(PUBLIC_DIR, "favicon-32x32.png"), discs[32]);
-  console.log("favicon-16x16.png, favicon-32x32.png");
+  await writeFile(join(PUBLIC_DIR, "favicon-16x16.png"), disc16);
+  await writeFile(join(PUBLIC_DIR, "favicon-32x32.png"), badge32);
+  console.log("favicon-16x16.png (disc), favicon-32x32.png (badge)");
 
-  const ico = await pngToIco([discs[16], discs[32], discs[48]]);
+  const ico = await pngToIco([disc16, badge32, badge48]);
   await writeFile(join(PUBLIC_DIR, "favicon.ico"), ico);
   console.log("favicon.ico  (16, 32, 48)");
 

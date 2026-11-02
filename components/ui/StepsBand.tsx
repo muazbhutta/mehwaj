@@ -28,7 +28,7 @@ export default function StepsBand({
               <li key={step.title}>
                 <span
                   aria-hidden
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-gold font-serif text-base text-gold"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-gold font-serif text-base text-white"
                 >
                   {i + 1}
                 </span>
