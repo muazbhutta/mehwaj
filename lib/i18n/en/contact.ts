@@ -4,12 +4,12 @@ export const contact: Dictionary["contact"] = {
   meta: {
     title: "Contact M.W. & Co., Chartered Accountants",
     description:
-      "Contact M.W. & Co. in Multan, Pakistan, or our client contact in Riyadh. Send a short description of what you need and we'll reply within one working day.",
+      "Contact M.W. & Co. in Multan, Pakistan, or our client contact in Riyadh. Send a short description of what you need and we will come back to you.",
   },
   eyebrow: "Contact",
   title: "Contact us",
   intro:
-    "Send a short description of what you need. We'll reply within one working day.",
+    "Send a short description of what you need.",
   saudiEyebrow: "Saudi Arabia · Client contact, Riyadh",
   pakistanEyebrow: "Pakistan · Head office, Multan",
   mapTitle: "Map of Royal Orchard, Multan, where M.W. & Co. has its office",

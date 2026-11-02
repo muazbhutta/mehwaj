@@ -52,7 +52,7 @@ export const about: Dictionary["about"] = {
     },
     "anas-farooq-maniya": {
       name: "Anas Farooq Maniya",
-      role: "Head of Audit & Advisory",
+      role: "Senior Consultant",
       subLine: "Chartered Accountant · ACCA member",
       bio: [
         "Over nine years across external audit, financial reporting, taxation and commercial finance. Trained at EY Ford Rhodes, including an assignment with EY Saudi Arabia, and then worked with KPMG in Riyadh.",

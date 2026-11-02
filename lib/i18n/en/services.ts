@@ -16,7 +16,7 @@ export const servicesIndex: Dictionary["servicesIndex"] = {
   },
   closing: {
     title: "Tell us what you need",
-    text: "We'll reply within one working day with a proposed scope.",
+    text: "Tell us what you are looking for and we will come back with a proposed scope.",
     cta: "Contact us",
   },
   whoFor: "Who it's for",
@@ -42,6 +42,8 @@ export const services: Dictionary["services"] = {
     ],
     weNeed:
       "Trial balance, general ledger, bank statements, fixed asset register, key contracts, prior-year audited accounts.",
+    weNeedNote:
+      "A detailed document list is agreed with your team at the planning stage, tailored to your business and the scope of the engagement.",
     youGet: [
       "Audit opinion on your financial statements",
       "Management letter with control and reporting recommendations",
@@ -50,7 +52,7 @@ export const services: Dictionary["services"] = {
     ],
     ctaHeading: "Request an audit proposal",
     ctaText:
-      "Send your latest trial balance and year-end date. We'll reply within one working day.",
+      "To prepare your proposal, send your last audited financial statements and current trial balance, or management accounts if this is your first audit.",
     meta: {
       title: "Statutory Audit in Pakistan | M.W. & Co.",
       description:
@@ -72,7 +74,7 @@ export const services: Dictionary["services"] = {
       "Report",
     ],
     weNeed:
-      "Draft financial statements, trial balance, prior-period figures and explanations for significant movements.",
+      "We agree the information required with your team at the planning stage, tailored to the period under review and the intended users of the report. Typically this includes draft financial statements, the trial balance, prior-period comparatives and management's explanations for significant movements.",
     youGet: [
       "Review report with a limited-assurance conclusion",
       "Analytical review of significant movements",
@@ -81,7 +83,7 @@ export const services: Dictionary["services"] = {
     ],
     ctaHeading: "Request a review proposal",
     ctaText:
-      "Tell us the period and who will rely on the report. We'll reply within one working day.",
+      "Share your latest financial statements or interim accounts, the period to be reviewed and the intended users of the report. We will prepare a proposal tailored to your requirements.",
     meta: {
       title: "Review Engagements | M.W. & Co.",
       description:
@@ -102,7 +104,7 @@ export const services: Dictionary["services"] = {
       "Report findings",
     ],
     weNeed:
-      "The report user's requirements or template, and the records the procedures cover.",
+      "The requirements or reporting template set by the bank, donor, regulator or other party relying on the report. The procedures are then agreed in writing with management in the engagement letter, and once they are agreed we request the specific records needed to perform them.",
     youGet: [
       "Report of factual findings",
       "Procedures agreed in writing before work starts",
@@ -111,7 +113,7 @@ export const services: Dictionary["services"] = {
     ],
     ctaHeading: "Request an AUP proposal",
     ctaText:
-      "Send the bank's or donor's requirements and we'll scope the work. We'll reply within one working day.",
+      "Share the requirements or reporting template issued by your bank, donor or regulator. We will propose the procedures, scope and fee for agreement with your management.",
     meta: {
       title: "Agreed-Upon Procedures & Certifications | M.W. & Co.",
       description:
@@ -136,7 +138,7 @@ export const services: Dictionary["services"] = {
     ],
     ctaHeading: "Get your return filed",
     ctaText:
-      "Send last year's return and we'll quote a fixed fee. We'll reply within one working day.",
+      "Send last year's return and we'll quote a fixed fee.",
     meta: {
       title: "Income Tax Return Filing in Pakistan | M.W. & Co.",
       description:
@@ -161,7 +163,7 @@ export const services: Dictionary["services"] = {
     ],
     ctaHeading: "Set up monthly compliance",
     ctaText:
-      "Tell us your registrations and monthly volume. We'll reply within one working day.",
+      "Tell us your registrations and monthly volume.",
     meta: {
       title: "Sales Tax & Withholding Compliance | M.W. & Co.",
       description:
@@ -192,7 +194,7 @@ export const services: Dictionary["services"] = {
     ],
     ctaHeading: "Send us your notice",
     ctaText:
-      "We'll review it and reply with next steps and a fee. We'll reply within one working day.",
+      "We'll review it and reply with next steps and a fee.",
     meta: {
       title: "Tax Notices, Audits & Appeals | M.W. & Co.",
       description:
@@ -206,7 +208,13 @@ export const services: Dictionary["services"] = {
       "Zakat base computations, VAT returns and reconciliations for companies in the Kingdom, prepared remotely and delivered with a SOCPA-licensed firm where a licensed signatory is required.",
     whoFor:
       "Saudi companies and branches of foreign groups that need support with ZATCA zakat, income tax, withholding tax and VAT.",
-    steps: ["Collect data", "Compute", "CA review", "Submit", "Follow up"],
+    steps: [
+      "Collect data",
+      "Compute",
+      "Professional review",
+      "Submit",
+      "Follow up",
+    ],
     weNeed:
       "Trial balance, VAT sales and purchase listings, prior returns and financial statements.",
     youGet: [
@@ -217,7 +225,7 @@ export const services: Dictionary["services"] = {
     ],
     ctaHeading: "Request zakat & VAT support",
     ctaText:
-      "Tell us your filing frequency and year-end. We'll reply within one working day.",
+      "Tell us your filing frequency and year-end.",
     meta: {
       title: "Zakat & VAT in Saudi Arabia | M.W. & Co.",
       description:
@@ -242,7 +250,7 @@ export const services: Dictionary["services"] = {
     ],
     ctaHeading: "Request an internal audit proposal",
     ctaText:
-      "Tell us your key processes and concerns. We'll reply within one working day.",
+      "Tell us your key processes and concerns.",
     meta: {
       title: "Internal Audit & Controls | M.W. & Co.",
       description:
@@ -273,7 +281,7 @@ export const services: Dictionary["services"] = {
     ],
     ctaHeading: "Book an IFRS 18 review",
     ctaText:
-      "Send your latest annual report for an initial view. We'll reply within one working day.",
+      "Send your latest annual report for an initial view.",
     meta: {
       title: "IFRS Advisory & IFRS 18 Support | M.W. & Co.",
       description:
@@ -304,7 +312,7 @@ export const services: Dictionary["services"] = {
     ],
     ctaHeading: "Discuss your model",
     ctaText:
-      "Tell us what decision the numbers need to support. We'll reply within one working day.",
+      "Tell us what decision the numbers need to support.",
     meta: {
       title: "Financial Modelling & FP&A | M.W. & Co.",
       description:
@@ -329,7 +337,7 @@ export const services: Dictionary["services"] = {
     ],
     ctaHeading: "Request a valuation proposal",
     ctaText:
-      "Tell us the purpose and the valuation date. We'll reply within one working day.",
+      "Tell us the purpose and the valuation date.",
     meta: {
       title: "Business Valuation in Pakistan | M.W. & Co.",
       description:
@@ -359,7 +367,7 @@ export const services: Dictionary["services"] = {
     ],
     ctaHeading: "Register or update your company",
     ctaText:
-      "Tell us what you need filed. We'll reply within one working day.",
+      "Tell us what you need filed.",
     meta: {
       title: "SECP Corporate Compliance | M.W. & Co.",
       description:
@@ -390,7 +398,7 @@ export const services: Dictionary["services"] = {
     ],
     ctaHeading: "Get a monthly quote",
     ctaText:
-      "Tell us your monthly transaction volume. We'll reply within one working day.",
+      "Tell us your monthly transaction volume.",
     meta: {
       title: "Bookkeeping & Management Accounts | M.W. & Co.",
       description:
@@ -421,7 +429,7 @@ export const services: Dictionary["services"] = {
     ],
     ctaHeading: "Request a proposal",
     ctaText:
-      "Send your year-end date and latest trial balance. We'll reply within one working day.",
+      "Send your year-end date and latest trial balance.",
     meta: {
       title: "Financial Statements & CFO Support | M.W. & Co.",
       description:

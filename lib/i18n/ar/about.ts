@@ -55,7 +55,7 @@ export const about: Dictionary["about"] = {
     "anas-farooq-maniya": {
       name: "أنس فاروق مانيا",
       latinName: "Anas Farooq Maniya",
-      role: "رئيس التدقيق والاستشارات",
+      role: "مستشار أول",
       subLine: "محاسب قانوني · عضو ACCA",
       bio: [
         "أكثر من تسع سنوات في التدقيق الخارجي والتقرير المالي والضرائب والمالية التجارية. تدرب في EY Ford Rhodes، بما في ذلك مهمة مع EY في المملكة العربية السعودية، ثم عمل مع KPMG في الرياض.",

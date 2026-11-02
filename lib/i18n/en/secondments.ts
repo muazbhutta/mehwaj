@@ -15,7 +15,7 @@ export const secondments: Dictionary["secondments"] = {
     primaryCta: "Request a professional",
     downloadCta: "Download firm profile",
     cardEyebrow: "Talk to us",
-    cardNote: "Reply within one working day.",
+    cardNote: "",
   },
 
   experience: {

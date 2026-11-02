@@ -226,7 +226,7 @@ export const PEOPLE: PersonMeta[] = [
     // Headshot cropped from images/anas-farooq-full.jpg. Photos under
     // /images are cached hard, so a replacement gets a new filename rather
     // than overwriting the old one.
-    image: "/images/anas-farooq-v2.png",
+    image: "/images/anas-farooq-v3.png",
   },
   {
     slug: "hamza-amir",

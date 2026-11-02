@@ -127,12 +127,9 @@ export const home: Dictionary["home"] = {
   contact: {
     eyebrow: "Get in touch",
     title: "Tell us what you need",
-    intro: "Send a short description. We'll reply within one working day.",
+    intro: "Send a short description.",
     pakistanLabel: "Pakistan",
     saudiLabel: "Saudi Arabia",
     emailLabel: "Email",
-    citiesEyebrow: "Clients we serve in Pakistan",
-    citiesNote:
-      "Clients outside Multan are served remotely, with on-site visits as required.",
   },
 };

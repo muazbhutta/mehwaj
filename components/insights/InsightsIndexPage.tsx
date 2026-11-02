@@ -43,8 +43,8 @@ export default function InsightsIndexPage({ locale }: { locale: Locale }) {
               return (
                 <Reveal key={slug} delay={(i % 2) * 0.06}>
                   <article className="card-lift flex h-full overflow-hidden rounded-2xl border border-bronze/25 bg-white">
-                    <div className="dot-pattern hidden w-36 shrink-0 flex-col justify-end bg-espresso p-4 sm:flex">
-                      <p className="font-sans text-xs font-semibold uppercase tracking-label text-gold">
+                    <div className="dot-pattern hidden w-36 shrink-0 items-center justify-center bg-espresso p-4 sm:flex">
+                      <p className="text-center font-sans text-xs font-semibold uppercase tracking-label text-white">
                         {post.tag}
                       </p>
                     </div>

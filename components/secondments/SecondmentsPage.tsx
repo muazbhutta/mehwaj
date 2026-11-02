@@ -92,9 +92,11 @@ export default function SecondmentsPage({ locale }: { locale: Locale }) {
                   </a>
                 </li>
               </ul>
-              <p className="mt-5 font-sans text-xs text-cream/60">
-                {s.hero.cardNote}
-              </p>
+              {s.hero.cardNote && (
+                <p className="mt-5 font-sans text-xs text-cream/60">
+                  {s.hero.cardNote}
+                </p>
+              )}
             </div>
           </Reveal>
         </div>

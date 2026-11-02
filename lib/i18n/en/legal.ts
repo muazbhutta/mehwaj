@@ -137,7 +137,7 @@ export const legal: Dictionary["legal"] = {
       {
         heading: "Examples and timelines",
         body: [
-          "Timelines such as a reply within one working day, or matched CVs within 3 to 5 working days, describe how we normally work. They are not contractual commitments and they do not form part of any engagement unless the engagement letter says so.",
+          "Timelines such as matched CVs within 3 to 5 working days describe how we normally work. They are not contractual commitments and they do not form part of any engagement unless the engagement letter says so.",
         ],
       },
       {

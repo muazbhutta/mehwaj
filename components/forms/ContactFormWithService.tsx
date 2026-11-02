@@ -24,8 +24,8 @@ export default function ContactFormWithService({
     <ContactForm
       locale={locale}
       dict={dict}
-      selectLabel={dict.common.form.iNeed}
-      selectOptions={dict.common.iNeedOptions}
+      selectLabel={dict.common.form.servicesLabel}
+      selectOptions={dict.common.servicesOptions}
       initialMessage={
         service ? `${dict.contact.enquiryPrefix} ${service.title}` : ""
       }

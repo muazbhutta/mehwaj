@@ -48,6 +48,8 @@ export interface ServiceCopy {
   whoFor: string;
   steps: string[];
   weNeed: string;
+  /** Optional second paragraph under "What we need from you". */
+  weNeedNote?: string;
   youGet: string[];
   ctaHeading: string;
   ctaText: string;
@@ -107,7 +109,7 @@ export interface FormCopy {
   email: string;
   phone: string;
   service: string;
-  iNeed: string;
+  servicesLabel: string;
   message: string;
   notes: string;
   roleNeeded: string;
@@ -145,7 +147,6 @@ export interface Dictionary {
     sendByEmail: string;
     sendViaWhatsApp: string;
     orSendOnWhatsApp: string;
-    replyLine: string;
     home: string;
     menu: string;
     close: string;
@@ -164,7 +165,7 @@ export interface Dictionary {
     priorityCountryCodes: string[];
     workModes: { onSite: string; remote: string; hybrid: string };
     serviceOptions: string[];
-    iNeedOptions: string[];
+    servicesOptions: string[];
     form: FormCopy;
     emailSubject: string;
     secondmentEmailSubject: string;
@@ -238,8 +239,6 @@ export interface Dictionary {
       pakistanLabel: string;
       saudiLabel: string;
       emailLabel: string;
-      citiesEyebrow: string;
-      citiesNote: string;
     };
   };
 

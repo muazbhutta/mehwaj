@@ -1,13 +1,11 @@
 // ============================================================================
-// Get in touch: contact rows and city pills on the reading side, the form on
-// the other. The form has no backend; it opens email or WhatsApp.
+// Get in touch: the contact rows on the reading side, the form on the other.
+// The form has no backend; it opens email or WhatsApp.
 // ============================================================================
 
-import Link from "next/link";
 import Reveal from "../Reveal";
 import ContactForm from "../forms/ContactForm";
-import { CITY_SLUGS, FIRM } from "@/lib/site";
-import { localePath } from "@/lib/i18n";
+import { FIRM } from "@/lib/site";
 import type { Dictionary, Locale } from "@/lib/i18n/types";
 
 function Row({ label, children }: { label: string; children: React.ReactNode }) {
@@ -62,21 +60,6 @@ export default function ContactSection({
             </Row>
           </div>
 
-          <p className="eyebrow mt-10">{c.citiesEyebrow}</p>
-          <div className="mt-4 flex flex-wrap gap-3">
-            {CITY_SLUGS.map((slug) => (
-              <Link
-                key={slug}
-                href={localePath(locale, `/chartered-accountant-${slug}`)}
-                className="pill"
-              >
-                {dict.cities[slug].name}
-              </Link>
-            ))}
-          </div>
-          <p className="mt-4 max-w-md font-sans text-sm text-espresso/60">
-            {c.citiesNote}
-          </p>
         </Reveal>
 
         <Reveal delay={0.08}>
