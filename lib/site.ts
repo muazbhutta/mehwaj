@@ -233,8 +233,6 @@ export const PEOPLE: PersonMeta[] = [
     initials: "HA",
     // Headshot cropped from images/hamza-amir-full.jpg.
     image: "/images/hamza-amir.png",
-    phoneHref: FIRM.taxManager.href,
-    phoneDisplay: FIRM.taxManager.display,
   },
 ];
 
