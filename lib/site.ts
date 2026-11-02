@@ -229,8 +229,10 @@ export const PEOPLE: PersonMeta[] = [
     image: "/images/anas-farooq-v2.png",
   },
   {
-    slug: "tax-manager",
-    initials: "TM",
+    slug: "hamza-amir",
+    initials: "HA",
+    // Headshot cropped from images/hamza-amir-full.jpg.
+    image: "/images/hamza-amir.png",
     phoneHref: FIRM.taxManager.href,
     phoneDisplay: FIRM.taxManager.display,
   },
