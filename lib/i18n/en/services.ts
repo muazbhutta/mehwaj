@@ -41,8 +41,6 @@ export const services: Dictionary["services"] = {
       "Report",
     ],
     weNeed:
-      "Trial balance, general ledger, bank statements, fixed asset register, key contracts, prior-year audited accounts.",
-    weNeedNote:
       "A detailed document list is agreed with your team at the planning stage, tailored to your business and the scope of the engagement.",
     youGet: [
       "Audit opinion on your financial statements",

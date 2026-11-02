@@ -48,8 +48,6 @@ export interface ServiceCopy {
   whoFor: string;
   steps: string[];
   weNeed: string;
-  /** Optional second paragraph under "What we need from you". */
-  weNeedNote?: string;
   youGet: string[];
   ctaHeading: string;
   ctaText: string;

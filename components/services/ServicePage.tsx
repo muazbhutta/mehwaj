@@ -86,11 +86,6 @@ export default function ServicePage({
               <p className="mt-3 max-w-2xl font-sans text-base leading-relaxed text-espresso/75">
                 {service.weNeed}
               </p>
-              {service.weNeedNote && (
-                <p className="mt-4 max-w-2xl font-sans text-base leading-relaxed text-espresso/75">
-                  {service.weNeedNote}
-                </p>
-              )}
             </Reveal>
           </div>
 
