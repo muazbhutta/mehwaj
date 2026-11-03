@@ -199,19 +199,19 @@ async function main() {
   console.log("public/images/mw-logo-square.png  (512, for the structured data)");
 
   // --- browser tab ---
-  // From 32 pixels up the whole badge reads, and that is what a modern
-  // screen actually shows in the tab, so the icon matches the logo. Only at
-  // 16 does the gold swirl turn to mush; that one size keeps the brown disc
-  // on its own, which still reads.
-  const disc16 = await disc(16);
+  // Every size is the badge, so the tab icon is the same mark as the one in
+  // the header and the footer. At 16 pixels the gold swirl is close to mush,
+  // but a consistent mark matters more than detail nobody can resolve, and a
+  // modern screen renders the 32 anyway.
+  const badge16 = await badge(16);
   const badge32 = await badge(32);
   const badge48 = await badge(48);
 
-  await writeFile(join(PUBLIC_DIR, "favicon-16x16.png"), disc16);
+  await writeFile(join(PUBLIC_DIR, "favicon-16x16.png"), badge16);
   await writeFile(join(PUBLIC_DIR, "favicon-32x32.png"), badge32);
-  console.log("favicon-16x16.png (disc), favicon-32x32.png (badge)");
+  console.log("favicon-16x16.png, favicon-32x32.png");
 
-  const ico = await pngToIco([disc16, badge32, badge48]);
+  const ico = await pngToIco([badge16, badge32, badge48]);
   await writeFile(join(PUBLIC_DIR, "favicon.ico"), ico);
   console.log("favicon.ico  (16, 32, 48)");
 

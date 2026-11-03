@@ -97,8 +97,8 @@ export default function Hero({
               <Image
                 src={photo.src}
                 alt={photo.alt}
-                width={1400}
-                height={932}
+                width={1600}
+                height={900}
                 priority
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="h-full w-full object-cover"

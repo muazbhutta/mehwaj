@@ -17,7 +17,7 @@ export const home: Dictionary["home"] = {
     footnote:
       "Head office: Multan · Clients across Pakistan · Secondment experience in Saudi Arabia, UAE, Qatar and BVI",
     panelCaption: "Commitment to Excellence",
-    imageAlt: "The M.W. & Co. office in Royal Orchard, Multan",
+    imageAlt: "The M.W. & Co. team in a meeting at the Multan office",
     imageAltFallback:
       "Finance professionals reviewing management reports around a laptop",
   },

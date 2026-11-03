@@ -24,7 +24,7 @@ export const home: Dictionary["home"] = {
     ],
     phoneCta: "اتصل بنا:",
     panelCaption: "الالتزام بالتميز",
-    imageAlt: "مكتب M.W. & Co. في رويال أوركارد، ملتان",
+    imageAlt: "فريق M.W. & Co. في اجتماع بمكتب ملتان",
     imageAltFallback: "مختصون ماليون يراجعون التقارير الإدارية حول جهاز حاسوب",
   },
 
