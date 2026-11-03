@@ -13,7 +13,7 @@ export default function NotFound() {
   return (
     <section className="dot-pattern bg-espresso">
       <div className="container-mw flex min-h-[60vh] flex-col items-center justify-center py-20 text-center">
-        <p className="font-serif text-7xl font-bold text-white">404</p>
+        <p className="font-serif text-7xl font-bold text-cream">404</p>
         <h1 className="mt-4 font-serif text-3xl font-bold text-cream sm:text-4xl">
           {dict.notFound.title}
         </h1>

@@ -160,7 +160,7 @@ export default function SecondmentsPage({ locale }: { locale: Locale }) {
                     <p className="font-serif text-4xl font-bold text-champagne">
                       {stat.value}
                     </p>
-                    <h3 className="mt-3 font-sans text-base font-semibold text-white">
+                    <h3 className="mt-3 font-sans text-base font-semibold text-cream">
                       {stat.label}
                     </h3>
                     <p className="mt-2 font-sans text-sm leading-relaxed text-cream/70">
@@ -300,11 +300,11 @@ export default function SecondmentsPage({ locale }: { locale: Locale }) {
                   >
                     <span
                       aria-hidden
-                      className="flex h-11 w-11 items-center justify-center rounded-full bg-gold font-sans text-xs font-bold text-espresso"
+                      className="flex h-11 w-11 items-center justify-center rounded-full bg-gold font-sans text-xs font-bold text-cream"
                     >
                       {JURISDICTION_LABELS[code]}
                     </span>
-                    <h3 className="mt-5 font-serif text-xl font-bold text-white">
+                    <h3 className="mt-5 font-serif text-xl font-bold text-cream">
                       {s.experience.items[code].name}
                     </h3>
                     <p className="mt-2 font-sans text-sm leading-relaxed text-cream/70">
@@ -348,7 +348,7 @@ export default function SecondmentsPage({ locale }: { locale: Locale }) {
                     <th
                       key={col}
                       scope="col"
-                      className="px-6 py-4 text-start font-sans text-xs font-semibold uppercase tracking-label text-white"
+                      className="px-6 py-4 text-start font-sans text-xs font-semibold uppercase tracking-label text-cream"
                     >
                       {col}
                     </th>

@@ -30,7 +30,7 @@ export default function InsightCards({
             return (
               <Reveal key={slug} delay={i * 0.06}>
                 <article className="card-lift flex h-full flex-col overflow-hidden rounded-2xl border border-bronze/25 bg-white">
-                  <p className="dot-pattern bg-espresso px-6 py-4 text-center font-sans text-xs font-semibold uppercase tracking-label text-white">
+                  <p className="dot-pattern bg-espresso px-6 py-4 text-center font-sans text-xs font-semibold uppercase tracking-label text-cream">
                     {post.tag}
                   </p>
                   <div className="flex flex-1 flex-col p-6">
