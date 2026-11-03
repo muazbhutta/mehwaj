@@ -50,7 +50,7 @@ export default function SecondmentBand({
               >
                 <span
                   aria-hidden
-                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gold font-sans text-xs font-bold text-espresso"
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-bronze font-sans text-xs font-bold text-cream"
                 >
                   {JURISDICTION_LABELS[code]}
                 </span>
