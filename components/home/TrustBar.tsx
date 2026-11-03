@@ -11,7 +11,7 @@ function Highlighted({ text }: { text: string }) {
     <>
       {parts.map((part, i) => (
         <span key={i}>
-          {i > 0 && <span className="font-semibold text-cream">ICAP</span>}
+          {i > 0 && <span className="font-semibold text-white">ICAP</span>}
           {part}
         </span>
       ))}
