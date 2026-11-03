@@ -15,7 +15,22 @@ export type IconName =
   | "menu"
   | "close"
   | "download"
-  | "linkedin";
+  | "linkedin"
+  // The sector and figure icons the firm profile uses.
+  | "hierarchy"
+  | "shield"
+  | "coins"
+  | "crane"
+  | "factory"
+  | "bed"
+  | "signal"
+  | "wrench"
+  | "anchor"
+  | "bank"
+  | "building"
+  | "document"
+  | "scale"
+  | "search-check";
 
 interface IconProps {
   name: IconName;
@@ -29,7 +44,132 @@ export default function Icon({ name, className = "h-5 w-5" }: IconProps) {
     focusable: "false" as const,
   };
 
+  /** Shared geometry for the line icons, so they sit as one family. */
+  const line = {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.6",
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+  };
+
   switch (name) {
+    case "hierarchy":
+      return (
+        <svg {...common} {...line}>
+          <rect x="9" y="2.75" width="6" height="5" rx="1" />
+          <rect x="2.5" y="16.25" width="6" height="5" rx="1" />
+          <rect x="15.5" y="16.25" width="6" height="5" rx="1" />
+          <path d="M12 7.75v4.5M5.5 16.25v-4h13v4" />
+        </svg>
+      );
+    case "shield":
+      return (
+        <svg {...common} {...line}>
+          <path d="M12 2.75l7.5 2.9v5.6c0 4.4-3.1 7.8-7.5 9.5-4.4-1.7-7.5-5.1-7.5-9.5v-5.6z" />
+          <path d="M9 11.8l2.2 2.2 4.1-4.3" />
+        </svg>
+      );
+    case "coins":
+      return (
+        <svg {...common} {...line}>
+          <ellipse cx="12" cy="6" rx="7.5" ry="3.1" />
+          <path d="M4.5 6v5.5c0 1.7 3.4 3.1 7.5 3.1s7.5-1.4 7.5-3.1V6" />
+          <path d="M4.5 11.5V17c0 1.7 3.4 3.1 7.5 3.1s7.5-1.4 7.5-3.1v-5.5" />
+        </svg>
+      );
+    case "crane":
+      return (
+        <svg {...common} {...line}>
+          <path d="M3.5 21h7.5M7 21V4.5" />
+          <path d="M4 9.5l3-5 3 5" />
+          <path d="M7 4.5h13.5" />
+          <path d="M20.5 4.5v4.5" />
+          <rect x="18.75" y="9" width="3.5" height="3" rx="0.7" />
+        </svg>
+      );
+    case "factory":
+      return (
+        <svg {...common} {...line}>
+          <path d="M3 21V11l5.5 3.5V11L14 14.5V8h6.5v13" />
+          <path d="M2.5 21h19" />
+          <path d="M17 4.5h3.5V8" />
+        </svg>
+      );
+    case "bed":
+      return (
+        <svg {...common} {...line}>
+          <path d="M3 20.5V10" />
+          <path d="M3 15.5h18v5" />
+          <path d="M21 15.5v-3a2.5 2.5 0 00-2.5-2.5H11v5.5" />
+          <circle cx="7" cy="12.25" r="1.8" />
+        </svg>
+      );
+    case "signal":
+      return (
+        <svg {...common} {...line}>
+          <circle cx="12" cy="12" r="2" />
+          <path d="M8.6 15.4a4.8 4.8 0 010-6.8M15.4 8.6a4.8 4.8 0 010 6.8" />
+          <path d="M5.6 18.4a9 9 0 010-12.8M18.4 5.6a9 9 0 010 12.8" />
+        </svg>
+      );
+    case "wrench":
+      return (
+        <svg {...common} {...line}>
+          <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94z" />
+        </svg>
+      );
+    case "anchor":
+      return (
+        <svg {...common} {...line}>
+          <circle cx="12" cy="5" r="2.75" />
+          <path d="M12 7.75V21" />
+          <path d="M8.25 11.5h7.5" />
+          <path d="M4.5 13.5h-2.5a10 10 0 0020 0h-2.5" />
+        </svg>
+      );
+    case "bank":
+      return (
+        <svg {...common} {...line}>
+          <path d="M3 10.25L12 4l9 6.25" />
+          <path d="M5.5 10.25V18M9.75 10.25V18M14.25 10.25V18M18.5 10.25V18" />
+          <path d="M3 21h18" />
+        </svg>
+      );
+    case "building":
+      return (
+        <svg {...common} {...line}>
+          <rect x="4" y="3" width="16" height="18" rx="1.5" />
+          <path d="M9 7.5h1.5M13.5 7.5H15M9 11.5h1.5M13.5 11.5H15" />
+          <path d="M10 21v-3.5h4V21" />
+        </svg>
+      );
+    case "document":
+      return (
+        <svg {...common} {...line}>
+          <path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z" />
+          <path d="M14 3v5h5" />
+          <path d="M8.5 13h7M8.5 16.5h4.5" />
+        </svg>
+      );
+    case "scale":
+      return (
+        <svg {...common} {...line}>
+          <path d="M12 3v18M7 21h10" />
+          <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />
+          <path d="M5 8l-3 8c.87.65 1.92 1 3 1s2.13-.35 3-1z" />
+          <path d="M19 8l-3 8c.87.65 1.92 1 3 1s2.13-.35 3-1z" />
+        </svg>
+      );
+    case "search-check":
+      return (
+        <svg {...common} {...line}>
+          <circle cx="10.75" cy="10.75" r="7" />
+          <path d="M7.75 10.75l2.2 2.2 4-4.2" />
+          <path d="M15.9 15.9L21 21" />
+        </svg>
+      );
     case "whatsapp":
       return (
         <svg {...common} viewBox="0 0 24 24" fill="currentColor">

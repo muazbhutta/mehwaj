@@ -4,7 +4,7 @@
 // ============================================================================
 
 import Link from "next/link";
-import Icon, { Arrow } from "../Icons";
+import Icon, { Arrow, type IconName } from "../Icons";
 import Reveal from "../Reveal";
 import StepsBand from "../ui/StepsBand";
 import SecondmentForm from "../forms/SecondmentForm";
@@ -18,6 +18,38 @@ import { publicFileExists } from "@/lib/assets";
 import { getDictionary, localePath } from "@/lib/i18n";
 import { breadcrumbSchema, jsonLd } from "@/lib/schema";
 import type { Locale } from "@/lib/i18n/types";
+
+// ----------------------------------------------------------------------------
+// The icons that sit beside the clients served lists. They are a design
+// decision, not copy, so they live here and are matched to the dictionary by
+// position rather than being repeated in English and in Arabic.
+// ----------------------------------------------------------------------------
+
+/** One per entry of clients.sectors, in order. */
+const SECTOR_ICONS: IconName[] = [
+  "hierarchy",
+  "shield",
+  "coins",
+  "crane",
+  "factory",
+  "bed",
+  "signal",
+  "wrench",
+];
+
+/** One per entry of clients.bvi, in order. */
+const BVI_ICONS: IconName[] = ["hierarchy", "shield", "anchor", "document"];
+
+/** One per entry of clients.pakistan, in order. */
+const PAKISTAN_ICONS: IconName[] = ["bank", "shield", "factory", "building"];
+
+/** One per entry of clients.pakistanStats, in order. */
+const PAKISTAN_STAT_ICONS: IconName[] = ["document", "scale", "search-check"];
+
+/** Falls back to the tick so a new list entry never renders a blank square. */
+function iconAt(icons: IconName[], index: number): IconName {
+  return icons[index] ?? "check";
+}
 
 export default function SecondmentsPage({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale);
@@ -113,37 +145,56 @@ export default function SecondmentsPage({ locale }: { locale: Locale }) {
             </p>
           </Reveal>
 
+          {/* The four figures sit in an espresso panel, the way the printed
+              profile sets them, so they read as one block rather than four
+              cards floating on the cream. */}
           <Reveal>
-            <p className="eyebrow mt-12">{s.clients.statsHeading}</p>
-            <div className="stagger mt-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {s.clients.stats.map((stat) => (
-                <div key={stat.label} className="card card-lift h-full">
-                  <p className="font-serif text-4xl font-bold text-bronze">
-                    {stat.value}
-                  </p>
-                  <h3 className="mt-3 font-sans text-base font-semibold text-espresso">
-                    {stat.label}
-                  </h3>
-                  <p className="mt-2 font-sans text-sm leading-relaxed text-espresso/70">
-                    {stat.text}
-                  </p>
-                </div>
-              ))}
+            <div className="mt-12 rounded-3xl bg-espresso p-6 shadow-card sm:p-10">
+              <p className="eyebrow-light">{s.clients.statsHeading}</p>
+              <div className="stagger mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                {s.clients.stats.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="card-lift h-full rounded-2xl border border-bronze/45 bg-coffee/40 p-6"
+                  >
+                    <p className="font-serif text-4xl font-bold text-champagne">
+                      {stat.value}
+                    </p>
+                    <h3 className="mt-3 font-sans text-base font-semibold text-white">
+                      {stat.label}
+                    </h3>
+                    <p className="mt-2 font-sans text-sm leading-relaxed text-cream/70">
+                      {stat.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </Reveal>
 
           <Reveal>
             <p className="eyebrow mt-12">{s.clients.sectorsHeading}</p>
             <div className="stagger mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {s.clients.sectors.map((sector) => (
+              {s.clients.sectors.map((sector, i) => (
                 <div
                   key={sector.name}
-                  className="rounded-xl border border-bronze/25 bg-white p-5"
+                  className="card-lift h-full rounded-xl border border-bronze/25 bg-white p-5"
                 >
-                  <h3 className="font-sans text-sm font-semibold text-espresso">
-                    {sector.name}
-                  </h3>
-                  <p className="mt-1.5 font-sans text-sm leading-relaxed text-espresso/70">
+                  <div className="flex items-center gap-3">
+                    <span
+                      aria-hidden
+                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-ivory text-bronze"
+                    >
+                      <Icon
+                        name={iconAt(SECTOR_ICONS, i)}
+                        className="h-[18px] w-[18px]"
+                      />
+                    </span>
+                    <h3 className="font-serif text-base font-bold text-espresso">
+                      {sector.name}
+                    </h3>
+                  </div>
+                  <p className="mt-3 font-sans text-sm leading-relaxed text-espresso/70">
                     {sector.text}
                   </p>
                 </div>
@@ -154,20 +205,38 @@ export default function SecondmentsPage({ locale }: { locale: Locale }) {
           <Reveal>
             <div className="mt-12 grid gap-6 lg:grid-cols-2">
               {[
-                { heading: s.clients.bviHeading, items: s.clients.bvi },
-                { heading: s.clients.pakistanHeading, items: s.clients.pakistan },
+                {
+                  heading: s.clients.bviHeading,
+                  items: s.clients.bvi,
+                  icon: "anchor" as IconName,
+                  icons: BVI_ICONS,
+                },
+                {
+                  heading: s.clients.pakistanHeading,
+                  items: s.clients.pakistan,
+                  icon: "bank" as IconName,
+                  icons: PAKISTAN_ICONS,
+                },
               ].map((column) => (
                 <div key={column.heading} className="card h-full">
-                  <p className="eyebrow">{column.heading}</p>
-                  <ul className="mt-4 space-y-2.5">
-                    {column.items.map((item) => (
+                  <div className="flex items-center gap-3">
+                    <span
+                      aria-hidden
+                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-ivory text-bronze"
+                    >
+                      <Icon name={column.icon} className="h-[18px] w-[18px]" />
+                    </span>
+                    <p className="eyebrow">{column.heading}</p>
+                  </div>
+                  <ul className="mt-5">
+                    {column.items.map((item, i) => (
                       <li
                         key={item}
-                        className="flex items-start gap-2.5 font-sans text-sm text-espresso/80"
+                        className="flex items-start gap-3 border-t border-bronze/15 py-3 font-sans text-sm text-espresso/80 first:border-t-0 first:pt-0 last:pb-0"
                       >
                         <Icon
-                          name="check"
-                          className="mt-0.5 h-4 w-4 shrink-0 text-bronze"
+                          name={iconAt(column.icons, i)}
+                          className="mt-0.5 h-[18px] w-[18px] shrink-0 text-bronze"
                         />
                         <span>{item}</span>
                       </li>
@@ -181,58 +250,76 @@ export default function SecondmentsPage({ locale }: { locale: Locale }) {
           <Reveal>
             <p className="eyebrow mt-12">{s.clients.pakistanStatsHeading}</p>
             <div className="stagger mt-5 grid gap-6 sm:grid-cols-3">
-              {s.clients.pakistanStats.map((stat) => (
-                <div key={stat.text} className="card card-lift h-full">
-                  <p className="font-serif text-4xl font-bold text-bronze">
-                    {stat.value}
-                  </p>
-                  <p className="mt-2 font-sans text-sm leading-relaxed text-espresso/70">
-                    {stat.text}
-                  </p>
+              {s.clients.pakistanStats.map((stat, i) => (
+                <div
+                  key={stat.text}
+                  className="card card-lift flex h-full items-start gap-4"
+                >
+                  <span
+                    aria-hidden
+                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-ivory text-bronze"
+                  >
+                    <Icon
+                      name={iconAt(PAKISTAN_STAT_ICONS, i)}
+                      className="h-6 w-6"
+                    />
+                  </span>
+                  <div>
+                    <p className="font-serif text-4xl font-bold text-bronze">
+                      {stat.value}
+                    </p>
+                    <p className="mt-2 font-sans text-sm leading-relaxed text-espresso/70">
+                      {stat.text}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
-
           </Reveal>
         </div>
       </section>
 
-      {/* E2b. Secondment experience, from page two of the firm profile */}
+      {/* E2b. Secondment experience, from page two of the firm profile, where
+          the four jurisdictions sit together in one espresso panel with gold
+          code badges. */}
       <section className="section bg-ivory">
         <div className="container-mw">
           <Reveal>
-            <p className="eyebrow">{s.experience.eyebrow}</p>
-            <h2 className="h-section">{s.experience.title}</h2>
-            <p className="mt-4 max-w-3xl font-sans text-base leading-relaxed text-espresso/75">
-              {s.experience.intro}
-            </p>
-          </Reveal>
+            <div className="rounded-3xl bg-espresso p-6 shadow-card sm:p-10 lg:p-12">
+              <p className="eyebrow-light">{s.experience.eyebrow}</p>
+              <h2 className="h-section-light">{s.experience.title}</h2>
+              <p className="mt-4 max-w-3xl font-sans text-base leading-relaxed text-cream/75">
+                {s.experience.intro}
+              </p>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {JURISDICTION_CODES.map((code, i) => (
-              <Reveal key={code} delay={i * 0.06}>
-                <div className="card card-lift h-full">
-                  <span
-                    aria-hidden
-                    className="flex h-12 w-12 items-center justify-center rounded-full bg-espresso font-sans text-xs font-bold text-white"
+              <div className="stagger mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                {JURISDICTION_CODES.map((code) => (
+                  <div
+                    key={code}
+                    className="card-lift h-full rounded-2xl border border-bronze/45 bg-coffee/40 p-6"
                   >
-                    {JURISDICTION_LABELS[code]}
-                  </span>
-                  <h3 className="mt-5 font-serif text-xl font-bold text-espresso">
-                    {s.experience.items[code].name}
-                  </h3>
-                  <p className="mt-2 font-sans text-sm leading-relaxed text-espresso/70">
-                    {s.experience.items[code].text}
-                  </p>
-                  {s.experience.items[code].clients && (
-                    <p className="mt-4 font-serif text-2xl font-bold text-bronze">
-                      {s.experience.items[code].clients}
+                    <span
+                      aria-hidden
+                      className="flex h-11 w-11 items-center justify-center rounded-full bg-gold font-sans text-xs font-bold text-espresso"
+                    >
+                      {JURISDICTION_LABELS[code]}
+                    </span>
+                    <h3 className="mt-5 font-serif text-xl font-bold text-white">
+                      {s.experience.items[code].name}
+                    </h3>
+                    <p className="mt-2 font-sans text-sm leading-relaxed text-cream/70">
+                      {s.experience.items[code].text}
                     </p>
-                  )}
-                </div>
-              </Reveal>
-            ))}
-          </div>
+                    {s.experience.items[code].clients && (
+                      <p className="mt-4 font-serif text-2xl font-bold text-champagne">
+                        {s.experience.items[code].clients}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
 
           <p className="mt-8 font-sans text-sm text-espresso/70">
             {s.experience.availability}
